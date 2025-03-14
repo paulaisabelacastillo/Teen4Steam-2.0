@@ -1,0 +1,128 @@
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(to right, #6b46c1, #d53f8c);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .navbar {
+            width: 97.5%;
+            background: #491c78;
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+
+        }
+        
+        /* Logo */
+.logo img {
+    height: 70px;
+}
+
+/* Menú */
+.menu {
+    display: flex;
+    gap: 60px;
+}
+
+.menu a img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu a img:hover {
+    transform: scale(1.1);
+}
+
+/* Search Bar y Usuario */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Search Bar */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-box button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* STEAM Explorer */
+.steam-explorer {
+    background-color: #FFD700;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6A008A;
+}
+
+/* Imagen de usuario */
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+}
+        .card {
+            background: #6b21a8;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            margin-top: 60px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .button-start { background: #d53f8c; color: white; }
+        .button-start:hover { background: #b83280; }
+        .button-option { background: #7b2cbf; color: white; }
+        .button-option:hover { background: #6b21a8; }
+        .correct { background: green !important; }
+        .incorrect { background: red !important; }

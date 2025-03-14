@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8dadc;
+    color: #491c78;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #491c78;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+/* Logo */
+.logo img {
+    height: 70px;
+}
+
+.menu {
+    display: flex;
+    gap: 60px;
+}
+
+.menu a img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu a img:hover {
+    transform: scale(1.1);
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Search Bar */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-box button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* STEAM Explorer */
+.steam-explorer {
+    background-color: #FFD700;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6A008A;
+}
+
+/* Imagen de usuario */
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+/* Contenido principal */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: transparent;  /* Elimina el color de fondo */
+    border-radius: 15px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Sección izquierda */
+.left {
+    width: 50%;
+}
+
+/* Sección derecha */
+.right {
+    width: 50%;
+    text-align: center;
+}
+
+.decoracion {
+    width: 150%;
+    max-width: 600px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Lista del equipo */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8d8e0;
+    text-align: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #491c78;
+}
+/* Navbar */
+.navbar {
+    background-color: #491c78;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+/* Logo */
+.logo img {
+    height: 70px;
+}
+
+/* Menú */
+.menu {
+    display: flex;
+    gap: 60px;
+}
+
+.menu a img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu a img:hover {
+    transform: scale(1.1);
+}
+/* Search Bar y Usuario */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Search Bar */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-box button img {
+    width: 20px;
+    height: 20px;
+}
+/* STEAM Explorer */
+.steam-explorer {
+    background-color: #FFD700;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6A008A;
+}
+
+/* Imagen de usuario */
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.calendar-container {
+    width: 80%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.header {
+    background-color: #7d2278;
+    color: white;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+}
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+.tab {
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #e69cb5;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+}
+.active {
+    background-color: #ffccd5;
+}
+.activities {
+    margin-top: 20px;
+    text-align: left;
+    display: none;
+}
+.activities.active {
+    display: block;
+}
+.activity {
+    background: #ffb3c1;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.link {
+    background: #d63384;
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}

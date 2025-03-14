@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="usuario.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="img/logo morado.png">
+        </div>
+
+        <!-- Menú con imágenes -->
+        <div class="menu">
+            <a href="principal.html"><img src="img/home.png"></a>
+            <a href=""><img src="img/my tutor.png"></a>
+            <a href="calendario.html"><img src="img/xperience.png"></a>
+            <a href="juegos.html"><img src="img/playground.png"></a> 
+            <a href=""><img src="img/community.png"></a>
+            <a href=""><img src="img/marketplace.png"></a>
+            <a href=""><img src="img/festival.png"></a>
+            <a href=""><img src="img/podcast.png"></a>
+        </div>
+        
+
+        <!-- Search Bar y Usuario -->
+        <div class="right-section">
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <button><img src="img/lupa.png" alt="Buscar"></button>
+            </div>
+
+            <div class="steam-explorer">1535 STEAM Explorer</div>
+
+            <div class="user-profile">
+                <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+            </div>
+        </div>
+    </nav> 
+
+    <div class="profile-card">
+        <div class="profile-img">
+            <img id="profileImage" src="https://via.placeholder.com/80" alt="User Image">
+            <input type="file" id="imageUpload" accept="image/*">
+        </div>
+        <div class="gender-selection">
+            <button onclick="setGender('male')">Hombre</button>
+            <button onclick="setGender('female')">Mujer</button>
+        </div>
+        <button class="message-btn" onclick="location.href='mensaje.html'">Message</button>
+        
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(0)">Nombre</div>
+                <div class="accordion-content"><input type="text" id="username" value="User Name"></div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(1)">Ubicación</div>
+                <div class="accordion-content"><input type="text" id="location" value="Panama, Panama, Panama"></div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(2)">Información</div>
+                <div class="accordion-content"><textarea id="info">Descripción del usuario...</textarea></div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(3)">Interés</div>
+                <div class="accordion-content"><input type="text" id="interest" value="Science and Art"></div>
+            </div>
+        </div>
+        
+        <div class="points">⭐ <span>26 points</span></div>
+        <div class="badge">🏆 <span>STEAM Explorer</span></div>
+    </div>
+
+    <script>
+        function toggleAccordion(index) {
+            let contents = document.querySelectorAll(".accordion-content");
+            let displayStyle = contents[index].style.display;
+            contents.forEach(content => content.style.display = "none");
+            contents[index].style.display = displayStyle === "block" ? "none" : "block";
+        }
+
+        document.getElementById("imageUpload").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("profileImage").src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function setGender(gender) {
+            const profileImage = document.getElementById("profileImage");
+            if (gender === 'male') {
+                profileImage.src = "img/perfil_nino.jpeg";
+            } else if (gender === 'female') {
+                profileImage.src = "c:\Users\maria\Proyectos VS\de prueba\img\perfil_nino.jpeg";
+            }
+        }
+    </script>
+</body>
+</html

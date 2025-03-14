@@ -1,0 +1,172 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffcc00;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #491c78;
+}
+/* Navbar */
+.navbar {
+    background-color: #491c78;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+/* Logo */
+.logo img {
+    height: 70px;
+}
+
+/* Menú */
+.menu {
+    display: flex;
+    gap: 60px;
+}
+
+.menu a img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu a img:hover {
+    transform: scale(1.1);
+}
+
+/* Search Bar y Usuario */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Search Bar */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-box button img {
+width: 20px;
+height: 20px;
+}
+
+/* STEAM Explorer */
+.steam-explorer {
+    background-color: #FFD700;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6A008A;
+}
+
+/* Imagen de usuario */
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.profile-card {
+    width: 400px;
+    background: #ff0099;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    margin: 50px auto;
+}
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: lightgray;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.profile-img input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.message-btn {
+    background: #e91e63;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.accordion {
+    background: white;
+    color: black;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.accordion-item {
+    margin-bottom: 10px;
+}
+.accordion-header {
+    background: #e91e63;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+.accordion-content {
+    display: none;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+}
+input, textarea {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.points, .badge {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: white;
+}

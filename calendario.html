@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities Calendar</title>
+    <link rel="stylesheet" href="calendario.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="img/logo morado.png">
+        </div>
+
+        <!-- Menú con imágenes -->
+        <div class="menu">
+            <a href="principal.html"><img src="img/home.png"></a>
+            <a href="mytutor.html"><img src="img/my tutor.png"></a>
+            <a href="calendario.html"><img src="img/xperience.png"></a>
+            <a href="juegos.html"><img src="img/playground.png"></a> 
+            <a href=""><img src="img/community.png"></a>
+            <a href=""><img src="img/marketplace.png"></a>
+            <a href=""><img src="img/festival.png"></a>
+            <a href=""><img src="img/podcast.png"></a>
+        </div>
+        
+
+        <!-- Search Bar y Usuario -->
+        <div class="right-section">
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <button><img src="img/lupa.png" alt="Buscar"></button>
+            </div>
+
+            <div class="steam-explorer">1535 STEAM Explorer</div>
+
+            <div class="user-profile">
+                <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="calendar-container">
+        <div class="header">
+            <h2>Xperience - Activities Calendar</h2>
+        </div>
+        <div class="tab-container">
+            <button class="tab active" onclick="showTab('day')">Day</button>
+            <button class="tab" onclick="showTab('week')">Week</button>
+            <button class="tab" onclick="showTab('month')">Month</button>
+        </div>
+        <div id="day" class="activities active">
+            <h3>Today</h3>
+            <div class="activity">
+                <span>8:00 a.m - Event 1 / Location / Owner</span>
+                <a href="#" class="link">link</a>
+            </div>
+            <div class="activity">
+                <span>12:00 p.m - Event 2 / Location / Owner</span>
+                <a href="#" class="link">link</a>
+            </div>
+            <div class="activity">
+                <span>5:00 p.m - Event 3 / Location / Owner</span>
+                <a href="#" class="link">link</a>
+            </div>
+        </div>
+        <div id="week" class="activities">
+            <h3>This Week</h3>
+            <div class="activity">
+                <span>Monday - Event 1 / Location / Owner</span>
+                <a href="#" class="link">link</a>
+            </div>
+            <div class="activity">
+                <span>Wednesday - Event 2 / Location / Owner</span>
+                <a href="#" class="link">link</a>
+            </div>
+        </div>
+        <div id="month" class="activities">
+            <h3>This Month</h3>
+            <div class="activity">
+                <span>March 5 - Special Event / Location / Owner</span>
+                <a href="#" class="link">link</a>
+            </div>
+            <div class="activity">
+                <span>March 20 - Another Event / Location / Owner</span>
+                <a href="#" class="link">link</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.activities').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            
+            document.querySelectorAll('.tab').forEach(button => {
+                button.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

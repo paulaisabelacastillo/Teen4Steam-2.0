@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>365 Days to be a STEAM Explorer</title>
+    <link rel="stylesheet" href="trivia.css">
+
+    
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="logo">
+            <img src="img/logo morado.png" alt="Logo">
+        </div>
+
+        <!-- Menú con imágenes -->
+        <div class="menu">
+            <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+            <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
+            <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
+            <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
+            <a href="#"><img src="img/community.png" alt="Community"></a>
+            <a href="#"><img src="img/marketplace.png" alt="Marketplace"></a>
+            <a href="#"><img src="img/festival.png" alt="Festival"></a>
+            <a href="#"><img src="img/podcast.png" alt="Podcast"></a>
+        </div>
+
+        <div class="right-section">
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <button><img src="img/lupa.png" alt="Buscar"></button>
+            </div>
+
+            <div class="steam-explorer">1535 STEAM Explorer</div>
+
+            <div class="user-profile">
+                <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+            </div>
+        </div>
+    </nav>
+    <h1>Test your knowledge with this trivia quiz</h1>
+    <div class="card" id="game-card">
+        <h2 id="title">Dato Curioso</h2>
+        <p id="content"></p>
+        <div id="options"></div>
+        <p id="feedback" style="font-weight: bold; margin-top: 10px;"></p>
+        <button id="next-btn" class="button button-start">Comenzar Trivia</button>
+        <p id="final-message" style="display: none; font-weight: bold; margin-top: 20px;">¡Felicidades! Aprendiste 5 nuevos datos curiosos 🎉</p>
+    </div>
+
+    <script>
+        const triviaQuestions = [
+            { question: "¿Cuál es la capital de Francia?", options: ["Madrid", "Berlín", "París", "Roma"], answer: "París" },
+            { question: "¿Cuántos continentes hay en la Tierra?", options: ["5", "6", "7", "8"], answer: "7" }
+        ];
+        const funFacts = [
+            "Los pulpos tienen tres corazones y su sangre es de color azul.",
+            "El 80% de los océanos del mundo no han sido explorados.",
+            "Las abejas pueden reconocer rostros humanos."
+        ];
+        
+        let currentQuestionIndex = 0;
+        let showFunFact = true;
+        let funFactIndex = 0;
+        let hasAnswered = false;
+        let completedRounds = 0;
+        const contentEl = document.getElementById("content");
+        const optionsEl = document.getElementById("options");
+        const nextBtn = document.getElementById("next-btn");
+        const titleEl = document.getElementById("title");
+        const feedbackEl = document.getElementById("feedback");
+        const finalMessageEl = document.getElementById("final-message");
+        
+        function loadContent() {
+            optionsEl.innerHTML = "";
+            feedbackEl.textContent = "";
+            hasAnswered = false;
+            
+            if (completedRounds >= 5) {
+                finalMessageEl.style.display = "block";
+                titleEl.style.display = "none";
+                contentEl.style.display = "none";
+                optionsEl.style.display = "none";
+                nextBtn.style.display = "none";
+                return;
+            }
+
+            if (showFunFact) {
+                titleEl.textContent = "Dato Curioso";
+                contentEl.textContent = funFacts[funFactIndex];
+                nextBtn.textContent = "Comenzar Trivia";
+            } else {
+                titleEl.textContent = triviaQuestions[currentQuestionIndex].question;
+                triviaQuestions[currentQuestionIndex].options.forEach(option => {
+                    const btn = document.createElement("button");
+                    btn.textContent = option;
+                    btn.classList.add("button", "button-option");
+                    btn.onclick = () => handleOptionClick(btn, option);
+                    optionsEl.appendChild(btn);
+                });
+                contentEl.textContent = "";
+                nextBtn.textContent = "Siguiente";
+            }
+        }
+        
+        function handleOptionClick(button, selected) {
+            if (hasAnswered) return;
+            hasAnswered = true;
+            
+            const correctAnswer = triviaQuestions[currentQuestionIndex].answer;
+            if (selected === correctAnswer) {
+                button.classList.add("correct");
+                feedbackEl.textContent = "¡Correcto!";
+            } else {
+                button.classList.add("incorrect");
+                feedbackEl.textContent = `Incorrecto. La respuesta correcta es: ${correctAnswer}`;
+            }
+        }
+        
+        nextBtn.addEventListener("click", () => {
+            if (showFunFact) {
+                showFunFact = false;
+            } else {
+                currentQuestionIndex = (currentQuestionIndex + 1) % triviaQuestions.length;
+                funFactIndex = Math.floor(Math.random() * funFacts.length);
+                showFunFact = true;
+                completedRounds++;
+            }
+            loadContent();
+        });
+        
+        loadContent();
+    </script>
+</body>
+</html>
