@@ -1,0 +1,116 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8dadc;
+    text-align: center;
+    margin: 0;
+    flex-direction: column;
+}
+.navbar {
+    width: 97.5%;
+    background: #491c78;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+
+}
+
+/* Logo */
+.logo img {
+height: 70px;
+}
+
+/* Menú */
+.menu {
+display: flex;
+gap: 60px;
+}
+
+.menu a img {
+width: 35px;
+height: 35px;
+transition: transform 0.2s ease-in-out;
+}
+
+.menu a img:hover {
+transform: scale(1.1);
+}
+
+/* Search Bar y Usuario */
+.right-section {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+/* Search Bar */
+.search-box {
+display: flex;
+align-items: center;
+background-color: white;
+border-radius: 20px;
+padding: 5px 10px;
+}
+
+.search-box input {
+border: none;
+outline: none;
+padding: 5px;
+font-size: 14px;
+}
+
+.search-box button {
+background: none;
+border: none;
+cursor: pointer;
+}
+
+.search-box button img {
+width: 20px;
+height: 20px;
+}
+
+/* STEAM Explorer */
+.steam-explorer {
+background-color: #FFD700;
+padding: 5px 15px;
+border-radius: 15px;
+font-size: 14px;
+font-weight: bold;
+color: #6A008A;
+}
+
+/* Imagen de usuario */
+.user-profile img {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+border: 2px solid white;
+cursor: pointer;
+}
+h1 {
+    font-size: 5rem;
+    color: #6A008A;
+}
+#countdown {
+    font-size: 2rem;
+    color: #491c78;
+    margin-top: 20px;
+}
+.message {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 10px;
+}

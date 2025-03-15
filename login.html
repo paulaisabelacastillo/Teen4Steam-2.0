@@ -3,39 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teen4STEAM</title>
-    <link rel="stylesheet" href="inicio.css">
-    <script type="module" src="login.js" defer></script>
+    <title>Teen4STEAM - Sign Up</title>
+    <link rel="stylesheet" href="login.css">
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDzhvEZsjnFVD237Gen7frLii6RdvApB7g",
+            authDomain: "teen4steam-64958.firebaseapp.com",
+            projectId: "teen4steam-64958",
+            storageBucket: "teen4steam-64958.firebasestorage.app",
+            messagingSenderId: "840465508724",
+            appId: "1:840465508724:web:8e5f60a81ecb8e549da421",
+            measurementId: "G-Y03XVR5EES"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        window.registerUser = function () {
+            const email = document.getElementById('reg_email').value;
+            const password = document.getElementById('reg_password').value;
+
+            if (!email || !password) {
+                alert('Please enter your email and password.');
+                return;
+            }
+
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters.');
+                return;
+            }
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    alert("Account created successfully! Redirecting...");
+                    window.location.href = "principal.html";
+                })
+                .catch((error) => {
+                    alert("Error: " + error.message);
+                });
+        };
+    </script>
 </head>
 <body>
-
     <div class="container">
-
-
         <img src="img/logo rosa.png" alt="Teen4STEAM Logo" class="logo">
-
         <div class="left">
             <h1>Welcome</h1>
-            <p>Login to Continue</p>
-
-            <form action="inicio.html" method="GET">
-                <input type="email" placeholder="Email Address" id="email" required>
-                <input type="password" placeholder="Password" id="password" required>
-
+            <p>Sign Up to Continue</p>
+            <form onsubmit="event.preventDefault(); registerUser();">
+                <input type="email" placeholder="Email Address" id="reg_email" required>
+                <input type="password" placeholder="Password" id="reg_password" required>
                 <div class="remember-me">
                     <input type="checkbox" id="remember">
                     <label for="remember">Remember me</label>
                 </div>
-
-                <a type="submit" class="button" href="principal.html">Login</a> 
+                <button type="submit" class="button">Sign Up</button>
             </form>
-
-            <div class="social-links">
-                <span>Contact Us</span> | <span>Privacy</span>
-            </div>
+            <p class="account-link">Already have an account? <a href="inicio.html">SIGN IN</a></p>
         </div>
-
-
         <div class="right"></div>
     </div>
 </body>

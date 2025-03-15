@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de Usuario</title>
     <link rel="stylesheet" href="usuario.css">
-
 </head>
 <body>
     <nav class="navbar">
@@ -17,16 +16,15 @@
         <!-- Menú con imágenes -->
         <div class="menu">
             <a href="principal.html"><img src="img/home.png"></a>
-            <a href=""><img src="img/my tutor.png"></a>
+            <a href="mytutor.html"><img src="img/my tutor.png"></a>
             <a href="calendario.html"><img src="img/xperience.png"></a>
             <a href="juegos.html"><img src="img/playground.png"></a> 
-            <a href=""><img src="img/community.png"></a>
-            <a href=""><img src="img/marketplace.png"></a>
-            <a href=""><img src="img/festival.png"></a>
-            <a href=""><img src="img/podcast.png"></a>
+            <a href="soon.html"><img src="img/community.png"></a>
+            <a href="soon.html"><img src="img/marketplace.png"></a>
+            <a href="soon.html"><img src="img/festival.png"></a>
+            <a href="soon.html"><img src="img/podcast.png"></a>
         </div>
         
-
         <!-- Search Bar y Usuario -->
         <div class="right-section">
             <div class="search-box">
@@ -34,10 +32,10 @@
                 <button><img src="img/lupa.png" alt="Buscar"></button>
             </div>
 
-            <div class="steam-explorer">1535 STEAM Explorer</div>
+            <div class="steam-explorer">0 STEAM Explorer</div>
 
             <div class="user-profile">
-                <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+                <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
             </div>
         </div>
     </nav> 
@@ -45,34 +43,56 @@
     <div class="profile-card">
         <div class="profile-img">
             <img id="profileImage" src="https://via.placeholder.com/80" alt="User Image">
-            <input type="file" id="imageUpload" accept="image/*">
         </div>
         <div class="gender-selection">
-            <button onclick="setGender('male')">Hombre</button>
-            <button onclick="setGender('female')">Mujer</button>
+            <button onclick="setGender('male')">man</button>
+            <button onclick="setGender('female')">women</button>
         </div>
-        <button class="message-btn" onclick="location.href='mensaje.html'">Message</button>
+        <button class="message-btn" onclick="location.href='soon.html'">Message</button>
         
         <div class="accordion">
             <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(0)">Nombre</div>
+                <div class="accordion-header" onclick="toggleAccordion(0)">Name</div>
                 <div class="accordion-content"><input type="text" id="username" value="User Name"></div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(1)">Ubicación</div>
-                <div class="accordion-content"><input type="text" id="location" value="Panama, Panama, Panama"></div>
+                <div class="accordion-header" onclick="toggleAccordion(1)">Ubication</div>
+                <div class="accordion-content"><input type="text" id="location" value="Insert your Ubication"></div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(2)">Información</div>
-                <div class="accordion-content"><textarea id="info">Descripción del usuario...</textarea></div>
+                <div class="accordion-header" onclick="toggleAccordion(2)">Information</div>
+                <div class="accordion-content"><textarea id="info">User description...</textarea></div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(3)">Interés</div>
-                <div class="accordion-content"><input type="text" id="interest" value="Science and Art"></div>
+                <div class="accordion-header" onclick="toggleAccordion(3)">Interest</div>
+                <div class="accordion-content">
+                    <select id="interest">
+                        <option value="Science">Science</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Art">Art</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Mathematics">Mathematics</option>
+                    </select>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(4)">How old are you?</div>
+                <div class="accordion-content">
+                    <select id="age">
+                        <option value="-10">-10 with parent</option>
+                        <option value="11-17">11 to 17</option>
+                        <option value="18-25">18 to 25</option>
+                        <option value="26-30">26 to 30</option>
+                        <option value="31-40">31 to 40</option>
+                        <option value="41-45">41 to 45</option>                        
+                        <option value="46-50">46 to 50</option>
+                        <option value="+50">+50</option>
+                    </select>
+                </div>
             </div>
         </div>
         
-        <div class="points">⭐ <span>26 points</span></div>
+        <div class="points">⭐ <span>0 points</span></div>
         <div class="badge">🏆 <span>STEAM Explorer</span></div>
     </div>
 
@@ -84,25 +104,14 @@
             contents[index].style.display = displayStyle === "block" ? "none" : "block";
         }
 
-        document.getElementById("imageUpload").addEventListener("change", function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById("profileImage").src = e.target.result;
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-
         function setGender(gender) {
             const profileImage = document.getElementById("profileImage");
             if (gender === 'male') {
-                profileImage.src = "img/perfil_nino.jpeg";
+                profileImage.src = "img/perfil niño.jpeg";
             } else if (gender === 'female') {
-                profileImage.src = "c:\Users\maria\Proyectos VS\de prueba\img\perfil_nino.jpeg";
+                profileImage.src = "img/perfil niña.jpeg";
             }
         }
     </script>
 </body>
-</html
+</html>
