@@ -45,8 +45,8 @@
             <img id="profileImage" src="https://via.placeholder.com/80" alt="User Image">
         </div>
         <div class="gender-selection">
-            <button onclick="setGender('male')">man</button>
-            <button onclick="setGender('female')">women</button>
+            <button onclick="setGender('male')">Man</button>
+            <button onclick="setGender('female')">Women</button>
         </div>
         <button class="message-btn" onclick="location.href='soon.html'">Message</button>
         
@@ -106,10 +106,13 @@
 
         function setGender(gender) {
             const profileImage = document.getElementById("profileImage");
+            const userProfileImage = document.querySelector(".user-profile img");
             if (gender === 'male') {
                 profileImage.src = "img/perfil niño.jpeg";
+                userProfileImage.src = "img/perfil niño.jpeg";
             } else if (gender === 'female') {
                 profileImage.src = "img/perfil niña.jpeg";
+                userProfileImage.src = "img/perfil niña.jpeg";
             }
         }
     </script>

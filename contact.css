@@ -1,0 +1,131 @@
+/* ======= Estilos Generales ======= */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #FFB3C1, #FFC3A0, #FCE0E5);
+}
+
+/* ======= Contenedor Principal ======= */
+.container {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* ======= Sección de Información ======= */
+.info-section {
+    width: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 60px;
+    color: #6A008A;
+    backdrop-filter: blur(15px);
+}
+
+.info-section h1 {
+    font-size: 50px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.info-section h1 span {
+    color: #B20674;
+}
+
+.info-section p {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.contact-details p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+/* ======= Sección del Formulario ======= */
+.form-section {
+    width: 50%;
+    background: white;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group input {
+    width: 50%;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #FFB3C1;
+    border-radius: 10px;
+    font-size: 18px;
+    outline: none;
+    transition: 0.3s;
+    background-color: #FFE8ED;
+}
+
+input:focus, textarea:focus {
+    border-color: #B20674;
+    background-color: white;
+}
+
+/* ======= Botón ======= */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #B20674;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #6A008A;
+}
+
+/* ======= Responsividad ======= */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    .info-section, .form-section {
+        width: 100%;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group input {
+        width: 100%;
+    }
+}

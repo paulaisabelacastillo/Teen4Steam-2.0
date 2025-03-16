@@ -3,23 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Tutor - Chat</title>
+    <title>My Tutor AI</title>
     <link rel="stylesheet" href="mytutor.css">
 </head>
 <body>
 
-    <div class="chat-container">
-        <div class="chat-header">
-            🎓 <span>My Tutor - STEAM Chat</span>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="img/logo morado.png">
         </div>
 
-        <div class="chat-box" id="chat-box">
-            <p class="bot-message">👋 ¡Hola! Soy tu tutor STEAM. Pregúntame sobre Ciencia, Tecnología, Ingeniería, Arte o Matemáticas.</p>
+        <!-- Menú con imágenes -->
+        <div class="menu">
+            <a href="principal.html"><img src="img/home.png"></a>
+            <a href="mytutor.html"><img src="img/my tutor.png"></a>
+            <a href="calendario.html"><img src="img/xperience.png"></a>
+            <a href="juegos.html"><img src="img/playground.png"></a> 
+            <a href="soon.html"><img src="img/community.png"></a>
+            <a href="soon.html"><img src="img/marketplace.png"></a>
+            <a href="soon.html"><img src="img/festival.png"></a>
+            <a href="soon.html"><img src="img/podcast.png"></a>
         </div>
 
-        <div class="chat-input">
-            <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
-            <button id="send-btn">Enviar</button>
+        <div class="right-section">
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <button><img src="img/lupa.png" alt="Buscar"></button>
+            </div>
+
+            <div class="steam-explorer">0 STEAM Explorer</div>
+
+            <div class="user-profile">
+                <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor del chat -->
+    <div class="chat-wrapper">
+        <div class="chat-container">
+            <div class="chat-header">
+                 <span>My Tutor AI </span>
+            </div>
+
+            <div class="chat-box" id="chat-box">
+                <p class="bot-message">👋 Hello! I'm your STEAM tutor. Ask me about Science, Technology, Engineering, Art, or Math..</p>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
+                <button id="send-btn">Send</button>
+            </div>
         </div>
     </div>
 

@@ -24,82 +24,84 @@
             align-items: center;
             justify-content: space-between;
             padding: 10px 20px;
-
+        
         }
         
         /* Logo */
-.logo img {
-    height: 70px;
-}
+        .logo img {
+        height: 70px;
+        }
+        
+        /* Menú */
+        .menu {
+        display: flex;
+        gap: 60px;
+        }
+        
+        .menu a img {
+        width: 35px;
+        height: 35px;
+        transition: transform 0.2s ease-in-out;
+        }
+        
+        .menu a img:hover {
+        transform: scale(1.1);
+        }
+        
+        /* Search Bar y Usuario */
+        .right-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        }
+        
+        /* Search Bar */
+        .search-box {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        border-radius: 20px;
+        padding: 5px 10px;
+        }
+        
+        .search-box input {
+        border: none;
+        outline: none;
+        padding: 5px;
+        font-size: 14px;
+        }
+        
+        .search-box button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        }
+        
+        .search-box button img {
+        width: 20px;
+        height: 20px;
+        }
+        
+        /* STEAM Explorer */
+        .steam-explorer {
+        background-color: #FFD700;
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #6A008A;
+        }
+        
+        /* Imagen de usuario */
+        .user-profile img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid white;
+        cursor: pointer;
+        }
 
-/* Menú */
-.menu {
-    display: flex;
-    gap: 60px;
-}
-
-.menu a img {
-    width: 35px;
-    height: 35px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.menu a img:hover {
-    transform: scale(1.1);
-}
-
-/* Search Bar y Usuario */
-.right-section {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-/* Search Bar */
-.search-box {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border-radius: 20px;
-    padding: 5px 10px;
-}
-
-.search-box input {
-    border: none;
-    outline: none;
-    padding: 5px;
-    font-size: 14px;
-}
-
-.search-box button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.search-box button img {
-    width: 20px;
-    height: 20px;
-}
-
-/* STEAM Explorer */
-.steam-explorer {
-    background-color: #FFD700;
-    padding: 5px 15px;
-    border-radius: 15px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #6A008A;
-}
-
-/* Imagen de usuario */
-.user-profile img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid white;
-    cursor: pointer;
-}
+        
         .card {
             background: #6b21a8;
             padding: 20px;
@@ -124,5 +126,14 @@
         .button-start:hover { background: #b83280; }
         .button-option { background: #7b2cbf; color: white; }
         .button-option:hover { background: #6b21a8; }
-        .correct { background: green !important; }
-        .incorrect { background: red !important; }
+        .correct { background: #4db6ac !important; color: white; }
+        .incorrect { background: #fc893d !important; color: white; }
+        .score {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+        }

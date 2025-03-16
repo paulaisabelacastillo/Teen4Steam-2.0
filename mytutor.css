@@ -1,42 +1,143 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #FFC3E6;
+    background-color: #f8dadc;
+    margin: 0;
+    padding: 0;
+    color: #491c78;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #491c78;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+/* Logo */
+.logo img {
+    height: 70px;
+}
+
+/* Menú */
+.menu {
+    display: flex;
+    gap: 60px;
+}
+
+.menu a img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu a img:hover {
+    transform: scale(1.1);
+}
+
+/* Sección derecha */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Barra de búsqueda */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-box button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* STEAM Explorer */
+.steam-explorer {
+    background-color: #FFD700;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6A008A;
+}
+
+/* Imagen de usuario */
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+/* 🔹 Centrar el chat en la pantalla */
+.chat-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    height: calc(100vh - 100px); /* Ajusta la altura restando el navbar */
 }
 
+/* 🟣 Estilización del chat-box */
 .chat-container {
-    width: 350px;
+    width: 650px;
+    height: 500px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Encabezado del chat */
 .chat-header {
     background-color: #6A008A;
     color: white;
     padding: 15px;
     text-align: center;
+    font-size: 22px;
     font-weight: bold;
 }
 
+/* Área del chat */
 .chat-box {
-    height: 300px;
-    overflow-y: auto;
-    padding: 10px;
+    flex-grow: 1;
+    padding: 15px;
     background-color: #f4f4f4;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Mensajes del chat */
 .chat-box p {
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px;
+    border-radius: 8px;
     max-width: 80%;
+    font-size: 16px;
 }
 
+/* Mensaje del usuario */
 .user-message {
     background-color: #D4A5E0;
     align-self: flex-end;
@@ -44,28 +145,42 @@ body {
     margin-left: auto;
 }
 
+/* Mensaje del bot */
 .bot-message {
     background-color: #E6C8F5;
 }
 
+/* 📌 Entrada de texto */
 .chat-input {
     display: flex;
-    padding: 10px;
+    padding: 15px;
     border-top: 1px solid #ddd;
     background: white;
 }
 
+/* Caja de entrada */
 .chat-input input {
     flex: 1;
-    padding: 10px;
-    border: none;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     outline: none;
 }
 
+/* Botón de enviar */
 .chat-input button {
     background-color: #6A008A;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 15px 25px;
+    font-size: 18px;
+    margin-left: 10px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.chat-input button:hover {
+    background-color: #9C27B0;
 }
