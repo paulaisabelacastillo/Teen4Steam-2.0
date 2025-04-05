@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Teen4STEAM</title>
-    <link rel="stylesheet" href="contact.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Teen4STEAM</title>
+  <link rel="stylesheet" href="contact.css" />
 </head>
 <body>
 
-    <div class="container">
-        <!-- Sección Izquierda -->
-        <div class="info-section">
-            <h1>Contact Us <span>Teen4STEAM.</span></h1>
-            <p>We’d love to hear from you! Fill out the form and our team will get back to you soon.</p>
+  <div class="container">
+    <!-- Sección Izquierda -->
+    <div class="info-section">
+      <h1>Contact Us <span>Teen4STEAM</span></h1>
+      <p>We’d love to hear from you! Fill out the form and our team will get back to you soon.</p>
 
-            <div class="contact-details">
-                <p><strong>Email:</strong> techno.spark250@gmail.com</p>
-                <p><strong>Phone:</strong> +507 6665-6223</p>
-                <p><strong>Location:</strong> Panama City, Panama</p>
-            </div>
-        </div>
-
-        <!-- Sección Derecha (Formulario) -->
-        <div class="form-section">
-            <form action="#" method="POST">
-                <div class="input-group">
-                    <input type="text" placeholder="First Name" required>
-                    <input type="text" placeholder="Last Name" required>
-                </div>
-                <input type="email" placeholder="Email Address" required>
-                <textarea placeholder="Message" rows="5" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+      <div class="contact-details">
+        <p><strong>Email:</strong> techno.spark250@gmail.com</p>
+        <p><strong>Phone:</strong> +507 6665-6223</p>
+        <p><strong>Location:</strong> Panama City, Panama</p>
+      </div>
     </div>
+
+    <!-- Sección Derecha (Formulario con Formspree) -->
+    <div class="form-section">
+      <form action="https://formspree.io/f/mnnpbzbl" method="POST">
+        
+        <!-- Redirección después del envío -->
+        <input type="hidden" name="_next" value="gracias.html" />
+
+        <div class="input-group">
+          <input type="text" name="first-name" placeholder="First Name" required />
+          <input type="text" name="last-name" placeholder="Last Name" required />
+        </div>
+        <input type="email" name="email" placeholder="Email Address" required />
+        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
 
 </body>
 </html>

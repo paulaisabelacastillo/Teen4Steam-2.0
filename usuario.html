@@ -28,8 +28,8 @@
         <!-- Search Bar y Usuario -->
         <div class="right-section">
             <div class="search-box">
-                <input type="text" placeholder="Search...">
-                <button><img src="img/lupa.png" alt="Buscar"></button>
+                <input type="text" placeholder="Search..." id="searchInput">
+                <button onclick="performSearch()"><img src="img/lupa.png" alt="Buscar"></button>
             </div>
 
             <div class="steam-explorer">0 STEAM Explorer</div>
@@ -45,8 +45,8 @@
             <img id="profileImage" src="https://via.placeholder.com/80" alt="User Image">
         </div>
         <div class="gender-selection">
-            <button onclick="setGender('male')">Man</button>
-            <button onclick="setGender('female')">Women</button>
+            <button onclick="setGender('male')">man</button>
+            <button onclick="setGender('female')">women</button>
         </div>
         <button class="message-btn" onclick="location.href='soon.html'">Message</button>
         
@@ -56,11 +56,11 @@
                 <div class="accordion-content"><input type="text" id="username" value="User Name"></div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(1)">Location</div>
+                <div class="accordion-header" onclick="toggleAccordion(1)">Ubication</div>
                 <div class="accordion-content"><input type="text" id="location" value="Insert your Ubication"></div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(2)">Description</div>
+                <div class="accordion-header" onclick="toggleAccordion(2)">Information</div>
                 <div class="accordion-content"><textarea id="info">User description...</textarea></div>
             </div>
             <div class="accordion-item">
@@ -109,12 +109,22 @@
             const userProfileImage = document.querySelector(".user-profile img");
             if (gender === 'male') {
                 profileImage.src = "img/perfil niño.jpeg";
-                userProfileImage.src = "img/perfil niño.jpeg";
+                userProfileImage.src = "img/perfil niño.jpeg"; // Esta línea cambia la imagen en la esquina superior
             } else if (gender === 'female') {
                 profileImage.src = "img/perfil niña.jpeg";
-                userProfileImage.src = "img/perfil niña.jpeg";
+                userProfileImage.src = "img/perfil niña.jpeg"; // Esta línea cambia la imagen en la esquina superior
+            }
+        }
+    function performSearch() {
+            const searchInput = document.getElementById("searchInput");
+            const query = searchInput.value.trim();
+            if (query) {
+                window.location.href = `principal.html?q=${encodeURIComponent(query)}`;
+            } else {
+                alert("Please enter a search term.");
             }
         }
     </script>
+    
 </body>
 </html>
