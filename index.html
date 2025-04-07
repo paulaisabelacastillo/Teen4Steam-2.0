@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teen4STEAM</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teen4STEAM</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-   
-        <img src="img/logo rosa.png" alt="Teen4STEAM Logo" class="logo">
+  <div class="container">
+    <img src="img/logo rosa.png" alt="Teen4STEAM Logo" class="logo">
 
-        <div class="left">
-            <h1>Welcome to Teen4STEAM</h1>
-            <p>From Girls to Girls: Inspiring the Next Generation of STEAM Leaders!</p>
-            <a class="button" href="inicio.html">Sign In</a>
-            <a class="button" href="login.html">Create Free Account</a>
-            
-    
+    <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
 
-            <div class="social-links">
-                <a href="contact.html">Contact Us</a> | <a href="soon2.html">Privacy</a>
-            
-            </div>
-        </div>
+    <div class="left">
+      <h1>Welcome to Teen4STEAM</h1>
+      <p>From Girls to Girls: Inspiring the Next Generation of STEAM Leaders!</p>
+      <a class="button" href="inicio.html">Sign In</a>
+      <a class="button" href="login.html">Create Free Account</a>
 
-        <div class="right"></div>
+      <div class="social-links">
+        <a href="contact.html">Contact Us</a> | <a href="soon2.html">Privacy</a>
+      </div>
     </div>
+
+    <div class="right"></div>
+  </div>
+
+  <script>
+    let language = "en";
+
+    function toggleLanguage() {
+      if (language === "en") {
+        document.querySelector('h1').innerText = "Bienvenida a Teen4STEAM";
+        document.querySelector('p').innerText = "¡De niñas para niñas: inspirando a la próxima generación de líderes STEAM!";
+        document.querySelectorAll('.button')[0].innerText = "Iniciar Sesión";
+        document.querySelectorAll('.button')[1].innerText = "Crear Cuenta Gratis";
+        document.querySelector('.social-links').innerHTML = '<a href="contact.html">Contáctanos</a> | <a href="soon2.html">Privacidad</a>';
+        language = "es";
+      } else {
+        document.querySelector('h1').innerText = "Welcome to Teen4STEAM";
+        document.querySelector('p').innerText = "From Girls to Girls: Inspiring the Next Generation of STEAM Leaders!";
+        document.querySelectorAll('.button')[0].innerText = "Sign In";
+        document.querySelectorAll('.button')[1].innerText = "Create Free Account";
+        document.querySelector('.social-links').innerHTML = '<a href="contact.html">Contact Us</a> | <a href="soon2.html">Privacy</a>';
+        language = "en";
+      }
+    }
+  </script>
 </body>
-</html> 
+</html>

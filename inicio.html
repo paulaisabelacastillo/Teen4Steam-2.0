@@ -87,6 +87,9 @@
         </div>
         <div class="right"></div>
     </div>
+
+    <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+
     
     <div id="register-section" style="display:none;" class="container">
         <div class="left">
@@ -101,5 +104,54 @@
         </div>
         <div class="right"></div>
     </div>
-</body>
-</html>
+
+    <script>
+        let language = "en";
+        
+        function toggleLanguage() {
+          if (language === "en") {
+            document.querySelector('.left h1').innerText = "Bienvenida";
+            document.querySelector('.left p').innerText = "Inicia sesión para continuar";
+            document.querySelector('label[for="remember"]').innerText = "Recuérdame";
+            document.getElementById('email').placeholder = "Correo Electrónico";
+            document.getElementById('password').placeholder = "Contraseña";
+            document.querySelector('.account-link').innerHTML = '¿No tienes una cuenta? <a href="login.html" onclick="document.getElementById(\'register-section\').style.display=\'block\'">REGÍSTRATE</a>';
+            document.querySelector('.button').innerText = "Iniciar Sesión";
+        
+            // Si está abierto el formulario de registro
+            if (document.getElementById('register-section').style.display === 'block') {
+              document.querySelector('#register-section h1').innerText = "Registrarse";
+              document.querySelector('#register-section p').innerText = "Crea una cuenta para continuar";
+              document.getElementById('reg_email').placeholder = "Correo Electrónico";
+              document.getElementById('reg_password').placeholder = "Contraseña";
+              document.querySelector('#register-section .button').innerText = "Registrarse";
+              document.querySelector('#register-section .account-link').innerHTML = '¿Ya tienes una cuenta? <a href="#" onclick="document.getElementById(\'register-section\').style.display=\'none\'">Iniciar Sesión</a>';
+            }
+        
+            language = "es";
+          } else {
+            document.querySelector('.left h1').innerText = "Welcome";
+            document.querySelector('.left p').innerText = "Sign in to Continue";
+            document.querySelector('label[for="remember"]').innerText = "Remember me";
+            document.getElementById('email').placeholder = "Email Address";
+            document.getElementById('password').placeholder = "Password";
+            document.querySelector('.account-link').innerHTML = 'Don\'t have an account? <a href="login.html" onclick="document.getElementById(\'register-section\').style.display=\'block\'">SIGN UP</a>';
+            document.querySelector('.button').innerText = "Sign In";
+        
+            if (document.getElementById('register-section').style.display === 'block') {
+              document.querySelector('#register-section h1').innerText = "Sign Up";
+              document.querySelector('#register-section p').innerText = "Create an account to continue";
+              document.getElementById('reg_email').placeholder = "Email Address";
+              document.getElementById('reg_password').placeholder = "Password";
+              document.querySelector('#register-section .button').innerText = "Sign Up";
+              document.querySelector('#register-section .account-link').innerHTML = 'Already have an account? <a href="#" onclick="document.getElementById(\'register-section\').style.display=\'none\'">SIGN IN</a>';
+            }
+        
+            language = "en";
+          }
+        }
+        </script>
+        
+    </body>
+    </html>
+    

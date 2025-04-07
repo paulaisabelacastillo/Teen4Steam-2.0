@@ -1,100 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activities Calendar</title>
-    <link rel="stylesheet" href="calendario.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activities Calendar</title>
+  <link rel="stylesheet" href="calendario.css">
 </head>
 <body>
-    <nav class="navbar">
-        <!-- Logo -->
-        <div class="logo">
-            <img src="img/logo morado.png">
-        </div>
 
-        <!-- Menú con imágenes -->
-        <div class="menu">
-            <a href="principal.html"><img src="img/home.png"></a>
-            <a href="mytutor.html"><img src="img/my tutor.png"></a>
-            <a href="calendario.html"><img src="img/xperience.png"></a>
-            <a href="juegos.html"><img src="img/playground.png"></a> 
-            <a href="soon.html"><img src="img/community.png"></a>
-            <a href="soon.html"><img src="img/marketplace.png"></a>
-            <a href="soon.html"><img src="img/festival.png"></a>
-            <a href="soon.html"><img src="img/podcast.png"></a>
-        </div>
-        
+<nav class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+        <img src="img/logo morado.png">
+    </div>
 
-        <!-- Search Bar y Usuario -->
-        <div class="right-section">
-            <div class="search-box">
-                <input type="text" placeholder="Search...">
-                <button><img src="img/lupa.png" alt="Buscar"></button>
-            </div>
+    <!-- Botón de idioma -->
+    <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
 
-            <div class="steam-explorer">0 STEAM Explorer</div>
+    <!-- Menú -->
+    <div class="menu">
+        <a href="principal.html"><img src="img/home.png"></a>
+        <a href="mytutor.html"><img src="img/my tutor.png"></a>
+        <a href="calendario.html"><img src="img/xperience.png"></a>
+        <a href="juegos.html"><img src="img/playground.png"></a> 
+        <a href="soon.html"><img src="img/community.png"></a>
+        <a href="soon.html"><img src="img/marketplace.png"></a>
+        <a href="soon.html"><img src="img/festival.png"></a>
+        <a href="soon.html"><img src="img/podcast.png"></a>
+    </div>
 
-            <div class="user-profile">
-                <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
-            </div>
+    <!-- Search y Perfil -->
+    <div class="right-section">
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <button><img src="img/lupa.png" alt="Buscar"></button>
         </div>
-    </nav>
-
-    <div class="calendar-container">
-        <div class="header">
-            <h2>Xperience - Activities Calendar</h2>
-        </div>
-        <div class="tab-container">
-            <button class="tab active" onclick="showTab('day')">Day</button>
-            <button class="tab" onclick="showTab('week')">Week</button>
-            <button class="tab" onclick="showTab('month')">Month</button>
-        </div>
-        <div id="day" class="activities active">
-            <h3>Today</h3>
-            <div class="activity">
-                <span>1:00 p.m - Technofest - El Poder de las nuevas generaciones / Rincon Clubhouse Explora </span>
-                <a href="https://technofest.swtickets.com/" class="link">link</a>
-            </div>
-            <div class="activity">
-                <span>1:00 p.m - Taller de pensamiento computacional / Rincon Clubhouse Explora</span>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpyRkS9V0b5-o3fAttAxaum2pPlGfGVMUninxx6P8Q6WjDTg/viewform" class="link">link</a>
-            </div>
-            <div class="activity">
-                <span>6:00 p.m - Estreno de Cortometrajes / Cine Universitario, Universidad de Panamá / Owner</span>
-                <a href="https://www.instagram.com/p/DHMmsNaS5cL/" class="link">link</a>
-            </div>
-        </div>
-        <div id="week" class="activities">
-            <h3>This Week</h3>
-            <div class="activity">
-                <span>Tuesday 18 - Tech Day - Expo Foro / Hotel sheraton grand Panama / Women in Tech</span>
-                <a href="https://forms.gle/3zod5Ci47Y4KhnRt9" class="link">link</a>
-            </div>
-            
-        </div>
-        <div id="month" class="activities">
-            <h3>This Month</h3>
-            <div class="activity">
-                <span>March 26 - CiberSeguridad para Chicas / Teen4STEAM </span>
-                <a href="#" class="link">link</a>
-            </div>
-           
+        <div class="steam-explorer">0 STEAM Explorer</div>
+        <div class="user-profile">
+            <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
         </div>
     </div>
-    <script>
-        function showTab(tabId) {
-            document.querySelectorAll('.activities').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.getElementById(tabId).classList.add('active');
-            
-            document.querySelectorAll('.tab').forEach(button => {
-                button.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
-    </script>
+</nav>
+
+<div class="calendar-container">
+    <div class="header">
+        <h2 id="calendar-title">Xperience - Activities Calendar</h2>
+    </div>
+
+    <div class="tab-container">
+        <button class="tab active" onclick="showTab('day')">Day</button>
+        <button class="tab" onclick="showTab('week')">Week</button>
+        <button class="tab" onclick="showTab('month')">Month</button>
+    </div>
+
+    <div id="day" class="activities active">
+        <h3 id="today-title">Today</h3>
+        <div class="activity">
+            <span id="event1">1:00 p.m - Technofest - The Power of New Generations / Rincon Clubhouse Explora</span>
+            <a href="https://technofest.swtickets.com/" class="link">link</a>
+        </div>
+        <div class="activity">
+            <span id="event2">1:00 p.m - Computational Thinking Workshop / Rincon Clubhouse Explora</span>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpyRkS9V0b5-o3fAttAxaum2pPlGfGVMUninxx6P8Q6WjDTg/viewform" class="link">link</a>
+        </div>
+        <div class="activity">
+            <span id="event3">6:00 p.m - Short Films Premiere / University of Panama / Owner</span>
+            <a href="https://www.instagram.com/p/DHMmsNaS5cL/" class="link">link</a>
+        </div>
+    </div>
+
+    <div id="week" class="activities">
+        <h3 id="week-title">This Week</h3>
+        <div class="activity">
+            <span id="event4">Tuesday 18 - Tech Day - Expo Forum / Sheraton Grand Panama Hotel / Women in Tech</span>
+            <a href="https://forms.gle/3zod5Ci47Y4KhnRt9" class="link">link</a>
+        </div>
+    </div>
+
+    <div id="month" class="activities">
+        <h3 id="month-title">This Month</h3>
+        <div class="activity">
+            <span id="event5">March 26 - Cybersecurity for Girls / Teen4STEAM</span>
+            <a href="#" class="link">link</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function showTab(tabId) {
+    document.querySelectorAll('.activities').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    document.getElementById(tabId).classList.add('active');
+
+    document.querySelectorAll('.tab').forEach(button => {
+        button.classList.remove('active');
+    });
+    event.target.classList.add('active');
+}
+
+let language = "en";
+
+function toggleLanguage() {
+    if (language === "en") {
+        // Cambiar títulos
+        document.getElementById('calendar-title').innerText = "Xperience - Calendario de Actividades";
+        document.getElementById('today-title').innerText = "Hoy";
+        document.getElementById('week-title').innerText = "Esta Semana";
+        document.getElementById('month-title').innerText = "Este Mes";
+
+
+        // Cambiar eventos
+        document.getElementById('event1').innerText = "1:00 p.m - Technofest - El Poder de las Nuevas Generaciones / Rincón Clubhouse Explora";
+        document.getElementById('event2').innerText = "1:00 p.m - Taller de Pensamiento Computacional / Rincón Clubhouse Explora";
+        document.getElementById('event3').innerText = "6:00 p.m - Estreno de Cortometrajes / Universidad de Panamá / Owner";
+        document.getElementById('event4').innerText = "Martes 18 - Día de la Tecnología - Expo Foro / Hotel Sheraton Grand Panamá / Mujeres en Tecnología";
+        document.getElementById('event5').innerText = "26 de marzo - Ciberseguridad para Chicas / Teen4STEAM";
+
+
+        language = "es";
+    } else {
+        // Volver a inglés
+        document.getElementById('calendar-title').innerText = "Xperience - Activities Calendar";
+        document.getElementById('today-title').innerText = "Today";
+        document.getElementById('week-title').innerText = "This Week";
+        document.getElementById('month-title').innerText = "This Month";
+
+
+        document.getElementById('event1').innerText = "1:00 p.m - Technofest - The Power of New Generations / Rincon Clubhouse Explora";
+        document.getElementById('event2').innerText = "1:00 p.m - Computational Thinking Workshop / Rincon Clubhouse Explora";
+        document.getElementById('event3').innerText = "6:00 p.m - Short Films Premiere / University of Panama / Owner";
+        document.getElementById('event4').innerText = "Tuesday 18 - Tech Day - Expo Forum / Sheraton Grand Panama Hotel / Women in Tech";
+        document.getElementById('event5').innerText = "March 26 - Cybersecurity for Girls / Teen4STEAM";
+
+
+        language = "en";
+    }
+}
+</script>
+
 </body>
 </html>

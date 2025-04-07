@@ -8,36 +8,85 @@
 </head>
 <body>
 
-  <div class="container">
-    <!-- Sección Izquierda -->
-    <div class="info-section">
-      <h1>Contact Us <span>Teen4STEAM</span></h1>
-      <p>We’d love to hear from you! Fill out the form and our team will get back to you soon.</p>
+<div class="container">
+  <!-- Sección Izquierda -->
+  <div class="info-section">
+    <h1 id="contact-title">Contact Us <span>Teen4STEAM</span></h1>
+    <p id="contact-description">We’d love to hear from you! Fill out the form and our team will get back to you soon.</p>
 
-      <div class="contact-details">
-        <p><strong>Email:</strong> techno.spark250@gmail.com</p>
-        <p><strong>Phone:</strong> +507 6665-6223</p>
-        <p><strong>Location:</strong> Panama City, Panama</p>
-      </div>
-    </div>
-
-    <!-- Sección Derecha (Formulario con Formspree) -->
-    <div class="form-section">
-      <form action="https://formspree.io/f/mnnpbzbl" method="POST">
-        
-        <!-- Redirección después del envío -->
-        <input type="hidden" name="_next" value="gracias.html" />
-
-        <div class="input-group">
-          <input type="text" name="first-name" placeholder="First Name" required />
-          <input type="text" name="last-name" placeholder="Last Name" required />
-        </div>
-        <input type="email" name="email" placeholder="Email Address" required />
-        <textarea name="message" placeholder="Message" rows="5" required></textarea>
-        <button type="submit">Submit</button>
-      </form>
+    <div class="contact-details">
+      <p><strong id="email-label">Email:</strong> techno.spark250@gmail.com</p>
+      <p><strong id="phone-label">Phone:</strong> +507 6665-6223</p>
+      <p><strong id="location-label">Location:</strong> <span id="location-text">Panama City, Panama</span></p>
     </div>
   </div>
+
+  <!-- Botón de idioma -->
+  <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+
+  <!-- Sección Derecha (Formulario) -->
+  <div class="form-section">
+    <form action="https://formspree.io/f/mnnpbzbl" method="POST">
+      
+      <input type="hidden" name="_next" value="gracias.html" />
+
+      <div class="input-group">
+        <input type="text" id="first-name" name="first-name" placeholder="First Name" required />
+        <input type="text" id="last-name" name="last-name" placeholder="Last Name" required />
+      </div>
+      <input type="email" id="email" name="email" placeholder="Email Address" required />
+      <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
+      <button type="submit" id="submit-btn">Submit</button>
+    </form>
+  </div>
+</div>
+
+<!-- Script para traducir -->
+<script>
+let language = "en";
+
+function toggleLanguage() {
+  if (language === "en") {
+    // Títulos
+    document.getElementById('contact-title').innerHTML = 'Contáctanos <span>Teen4STEAM</span>';
+    document.getElementById('contact-description').innerText = '¡Nos encantaría saber de ti! Completa el formulario y nuestro equipo se pondrá en contacto contigo pronto.';
+
+    // Etiquetas
+    document.getElementById('email-label').innerText = 'Correo:';
+    document.getElementById('phone-label').innerText = 'Teléfono:';
+    document.getElementById('location-label').innerText = 'Ubicación:';
+    document.getElementById('location-text').innerText = 'Ciudad de Panamá, Panamá';
+
+    // Formulario
+    document.getElementById('first-name').placeholder = 'Nombre';
+    document.getElementById('last-name').placeholder = 'Apellido';
+    document.getElementById('email').placeholder = 'Correo Electrónico';
+    document.getElementById('message').placeholder = 'Mensaje';
+    document.getElementById('submit-btn').innerText = 'Enviar';
+
+    language = "es";
+  } else {
+    // Títulos
+    document.getElementById('contact-title').innerHTML = 'Contact Us <span>Teen4STEAM</span>';
+    document.getElementById('contact-description').innerText = 'We’d love to hear from you! Fill out the form and our team will get back to you soon.';
+
+    // Etiquetas
+    document.getElementById('email-label').innerText = 'Email:';
+    document.getElementById('phone-label').innerText = 'Phone:';
+    document.getElementById('location-label').innerText = 'Location:';
+    document.getElementById('location-text').innerText = 'Panama City, Panama';
+
+    // Formulario
+    document.getElementById('first-name').placeholder = 'First Name';
+    document.getElementById('last-name').placeholder = 'Last Name';
+    document.getElementById('email').placeholder = 'Email Address';
+    document.getElementById('message').placeholder = 'Message';
+    document.getElementById('submit-btn').innerText = 'Submit';
+
+    language = "en";
+  }
+}
+</script>
 
 </body>
 </html>

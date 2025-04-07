@@ -1,66 +1,132 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playground</title>
-    <link rel="stylesheet" href="juegos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playground</title>
+  <link rel="stylesheet" href="juegos.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="img/logo morado.png" alt="Logo">
+
+  <nav class="navbar">
+    <div class="logo">
+      <img src="img/logo morado.png" alt="Logo">
+    </div>
+
+    <button id="language-toggle" class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+
+    <div class="menu">
+      <a href="principal.html"><img src="img/home.png"></a>
+      <a href="mytutor.html"><img src="img/my tutor.png"></a>
+      <a href="calendario.html"><img src="img/xperience.png"></a>
+      <a href="juegos.html"><img src="img/playground.png"></a> 
+      <a href="soon.html"><img src="img/community.png"></a>
+      <a href="soon.html"><img src="img/marketplace.png"></a>
+      <a href="soon.html"><img src="img/festival.png"></a>
+      <a href="soon.html"><img src="img/podcast.png"></a>
+    </div>
+
+    <div class="right-section">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button><img src="img/lupa.png" alt="Buscar"></button>
+      </div>
+
+      <div class="steam-explorer">0 STEAM Explorer</div>
+
+      <div class="user-profile">
+        <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1 id="playground-title">Playground</h1>
+  </header>
+
+  <main>
+    <div class="game-container">
+      <!-- Primer juego (izquierda) -->
+      <div class="game-card">
+        <div class="card-content">
+          <img src="img/steamexplorer.png" alt="STEAM Explorer" class="game-cover-left">
+          <div class="card-text">
+            <h2 id="game1-title">365 Days to be a STEAM Explorer</h2>
+            <p id="game1-description">Click to play and learn!</p>
+            <a href="trivia.html" class="play-button" id="play1-btn">Play</a>
+          </div>
         </div>
+      </div>
 
-        <!-- Menú con imágenes -->
-        <div class="menu">
-            <a href="principal.html"><img src="img/home.png"></a>
-            <a href="mytutor.html"><img src="img/my tutor.png"></a>
-            <a href="calendario.html"><img src="img/xperience.png"></a>
-            <a href="juegos.html"><img src="img/playground.png"></a> 
-            <a href="soon.html"><img src="img/community.png"></a>
-            <a href="soon.html"><img src="img/marketplace.png"></a>
-            <a href="soon.html"><img src="img/festival.png"></a>
-            <a href="soon.html"><img src="img/podcast.png"></a>
+      <!-- Segundo juego (derecha) -->
+      <div class="game-card">
+        <div class="card-content">
+          <img src="img/arttech.png" alt="Art Tech Studio" class="game-cover-left">
+          <div class="card-text">
+            <h2 id="game2-title">Art & Tech Studio</h2>
+            <p id="game2-description">Create your own STEAM gallery and complete creative missions!</p>
+            <a href="arttech.html" class="play-button" id="play2-btn">Play</a>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="right-section">
-            <div class="search-box">
-                <input type="text" placeholder="Search...">
-                <button><img src="img/lupa.png" alt="Buscar"></button>
-            </div>
+    <div class="game-container-bottom">
+      <!-- Tercer juego (abajo) -->
+      <div class="game-coming-soon">
+        <h2 id="coming-title">More games coming soon...</h2>
+        <p id="coming-description">We'll be adding more games for you soon!</p>
+      </div>
+    </div>
+  </main>
 
-            <div class="steam-explorer">0 STEAM Explorer</div>
-
-            <div class="user-profile">
-                <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
-            </div>
-        </div>
-    </nav>
-
-    <header>
-        <h1>Playground</h1>
-    </header>
-
-    <main>
-        <div class="game-container">
-
-            <!-- Primer juego (A la izquierda) -->
-            <div class="game-card">
-                <h2>365 Days to be a STEAM Explorer</h2>
-                <p>Click to play the first game!</p>
-                <a href="trivia.html" class="play-button">Play</a>
-            </div>
-
-            <!-- Segundo mensaje (A la derecha) -->
-            <div class="game-coming-soon">
-                <h2>More games coming soon...</h2>
-                <p>We'll be adding more games for you soon!</p>
-                <a href="soon.html" class="play-button">Play</a>
-
-            </div>
-        </div>
-    </main>
-
+  <script>
+    let language = "en";
+    
+    function toggleLanguage() {
+      const playgroundTitle = document.getElementById('playground-title');
+      const game1Title = document.getElementById('game1-title');
+      const game1Description = document.getElementById('game1-description');
+      const play1Btn = document.getElementById('play1-btn');
+      const game2Title = document.getElementById('game2-title');
+      const game2Description = document.getElementById('game2-description');
+      const play2Btn = document.getElementById('play2-btn');
+      const comingTitle = document.getElementById('coming-title');
+      const comingDescription = document.getElementById('coming-description');
+      const searchInput = document.getElementById('searchInput');
+      const languageToggle = document.getElementById('language-toggle');
+    
+      if (language === "en") {
+        if (playgroundTitle) playgroundTitle.innerText = "Área de Juegos";
+        if (game1Title) game1Title.innerText = "365 Días para ser un Explorador STEAM";
+        if (game1Description) game1Description.innerText = "¡Haz clic para jugar y aprender!";
+        if (play1Btn) play1Btn.innerText = "Jugar";
+        if (game2Title) game2Title.innerText = "Arte y Tecnología Studio";
+        if (game2Description) game2Description.innerText = "¡Crea tu galería STEAM y completa misiones creativas!";
+        if (play2Btn) play2Btn.innerText = "Jugar";
+        if (comingTitle) comingTitle.innerText = "Más juegos muy pronto...";
+        if (comingDescription) comingDescription.innerText = "¡Agregaremos más juegos para ti pronto!";
+        if (searchInput) searchInput.placeholder = "Buscar...";
+        if (languageToggle) languageToggle.innerText = "🌐 Es/En";
+    
+        language = "es";
+      } else {
+        if (playgroundTitle) playgroundTitle.innerText = "Playground";
+        if (game1Title) game1Title.innerText = "365 Days to be a STEAM Explorer";
+        if (game1Description) game1Description.innerText = "Click to play and learn!";
+        if (play1Btn) play1Btn.innerText = "Play";
+        if (game2Title) game2Title.innerText = "Art & Tech Studio";
+        if (game2Description) game2Description.innerText = "Create your own STEAM gallery and complete creative missions!";
+        if (play2Btn) play2Btn.innerText = "Play";
+        if (comingTitle) comingTitle.innerText = "More games coming soon...";
+        if (comingDescription) comingDescription.innerText = "We'll be adding more games for you soon!";
+        if (searchInput) searchInput.placeholder = "Search...";
+        if (languageToggle) languageToggle.innerText = "🌐 En/Es";
+    
+        language = "en";
+      }
+    }
+    </script>
+    
 </body>
 </html>

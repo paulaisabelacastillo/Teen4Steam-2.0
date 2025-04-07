@@ -11,9 +11,35 @@ body {
     padding-top: 120px;
 }
 
+.language-toggle {
+    position: absolute;
+    top: 15%;
+    left: 94%;
+    width: 70px;
+    height: 70px;
+    background-color: #6b46c1;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #470a71;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 20;
+}
+
+.language-toggle:hover {
+    background-color: #dc4e80;
+    transform: scale(1.1);
+}
+
+
 /* Navbar */
 .navbar {
-    width: 100%;
+    width: 97.5%;
     background: #491c78;
     padding: 15px 20px;
     position: fixed;

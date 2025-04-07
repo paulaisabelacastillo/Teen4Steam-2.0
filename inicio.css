@@ -24,6 +24,31 @@ body {
     z-index: 10;
 }
 
+.language-toggle {
+    position: absolute;
+    top: 80px; /* <-- Antes estaba en 120px, ahora lo subimos a 80px */
+    left: 53.5%;
+    width: 70px;
+    height: 70px;
+    background-color: #dc4e80;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #470a71;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 20;
+  }
+  
+  .language-toggle:hover {
+    background-color: #dc4e80;
+    transform: scale(1.1);
+  }    
+  
 .left {
     width: 55%;
     background-color: #f8dadc;

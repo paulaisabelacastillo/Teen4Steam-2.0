@@ -7,6 +7,32 @@ body {
     height: 100vh;
 }
 
+/* Botón de idioma */
+.language-toggle {
+    position: absolute;
+    top: 15%;
+    left: 94%;
+    width: 70px;
+    height: 70px;
+    background-color: #dc4e80;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #470a71;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 20;
+}
+
+.language-toggle:hover {
+    background-color: #dc4e80;
+    transform: scale(1.1);
+}
+
 /* Navbar */
 .navbar {
     background-color: #491c78;
@@ -90,7 +116,7 @@ body {
     cursor: pointer;
 }
 
-/* Estilo del título */
+/* Estilo del título principal */
 header {
     text-align: center;
     padding: 20px;
@@ -99,14 +125,14 @@ header {
     color: #6A008A;
 }
 
-/* Contenedor de juegos */
+/* Contenedor de juegos principal */
 .game-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 80%;
-    margin: 50px auto; /* Centra todo */
-    gap: 20px; /* Espacio entre los contenedores */
+    margin: 50px auto;
+    gap: 20px;
 }
 
 /* Estilos de las tarjetas de juego */
@@ -117,29 +143,29 @@ header {
     width: 350px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    height: 200px;
+    height: 200px; /* Altura fija */
 }
 
 /* Primer cuadro */
 .game-card {
-    flex: 1; 
+    flex: 1;
 }
 
-/* Segundo cuadro con efecto transparente */
+/* Segundo cuadro (Coming Soon) con efecto transparente */
 .game-coming-soon {
     flex: 1;
-    background: rgba(255, 255, 255, 0.6); /* Efecto transparente */
-    backdrop-filter: blur(5px); /* Suaviza el fondo */
+    background: #f69ebd;
+    backdrop-filter: blur(5px);
 }
 
-/* Ajuste del botón en el cuadro 1 */
+/* Botones de jugar */
 .play-button {
     display: inline-block;
-    padding: 15px 100px;  /* Botón más grande */
+    padding: 15px 100px;
     background-color: #6A008A;
     color: white;
     text-decoration: none;
-    font-size: 20px; /* Letra más grande */
+    font-size: 20px;
     font-weight: bold;
     border-radius: 8px;
     margin-top: 15px;
@@ -151,14 +177,67 @@ header {
     transform: scale(1.05);
 }
 
-/* Ajuste del texto en el cuadro 2 */
+/* Ajuste de margen en texto Coming Soon */
 .game-coming-soon p {
-    margin-top: 40px; /* Mueve el texto un poco más abajo */
+    margin-top: 40px;
 }
 
-/* Responsivo */
+/* Contenedor de Coming Soon */
+.game-container-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* ---------------- NUEVO ---------------- */
+
+/* Contenido interno de las tarjetas para imagen y texto */
+.card-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: start;
+    gap: 15px;
+}
+
+/* Imagen a la izquierda dentro de la tarjeta */
+.game-cover-left {
+    width: 110px;
+    height:165px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Área de texto en las tarjetas */
+.card-text {
+    text-align: left;
+
+}
+
+.card-text h2 {
+    font-size: 22px;
+    color: #6A008A;
+    margin-bottom: 5px;
+}
+
+.card-text p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-text .play-button {
+    padding: 11px 50px;
+    font-size: 16px;
+}
+
+
 @media (max-width: 768px) {
     .game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-container-bottom {
         flex-direction: column;
         align-items: center;
     }
@@ -167,3 +246,4 @@ header {
         width: 90%;
     }
 }
+

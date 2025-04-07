@@ -67,5 +67,35 @@
         </div>
         <div class="right"></div>
     </div>
-</body>
-</html>
+
+    <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+
+    <script>
+        let language = "en";
+        
+        function toggleLanguage() {
+          if (language === "en") {
+            document.querySelector('.left h1').innerText = "Bienvenida";
+            document.querySelector('.left p').innerText = "Regístrate para continuar";
+            document.getElementById('reg_email').placeholder = "Correo Electrónico";
+            document.getElementById('reg_password').placeholder = "Contraseña";
+            document.querySelector('label[for="remember"]').innerText = "Recuérdame";
+            document.querySelector('.button').innerText = "Registrarse";
+            document.querySelector('.account-link').innerHTML = '¿Ya tienes una cuenta? <a href="inicio.html">Iniciar Sesión</a>';
+            language = "es";
+          } else {
+            document.querySelector('.left h1').innerText = "Welcome";
+            document.querySelector('.left p').innerText = "Sign Up to Continue";
+            document.getElementById('reg_email').placeholder = "Email Address";
+            document.getElementById('reg_password').placeholder = "Password";
+            document.querySelector('label[for="remember"]').innerText = "Remember me";
+            document.querySelector('.button').innerText = "Sign Up";
+            document.querySelector('.account-link').innerHTML = 'Already have an account? <a href="inicio.html">SIGN IN</a>';
+            language = "en";
+          }
+        }
+        </script>
+        
+    </body>
+    </html>
+    

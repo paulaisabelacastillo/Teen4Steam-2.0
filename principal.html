@@ -1,64 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teen4STEAM</title>
-    <link rel="stylesheet" href="principal.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teen4STEAM</title>
+  <link rel="stylesheet" href="principal.css">
 </head>
 <body>
 
-    <nav class="navbar">
+<nav class="navbar">
 
-        <div class="logo">
-            <img src="img/logo morado.png">
+    <div class="logo">
+        <img src="img/logo morado.png">
+    </div>
+
+    <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+
+    <div class="menu">
+        <a href="principal.html"><img src="img/home.png"></a>
+        <a href="mytutor.html"><img src="img/my tutor.png"></a>
+        <a href="calendario.html"><img src="img/xperience.png"></a>
+        <a href="juegos.html"><img src="img/playground.png"></a> 
+        <a href="soon.html"><img src="img/community.png"></a>
+        <a href="soon.html"><img src="img/marketplace.png"></a>
+        <a href="soon.html"><img src="img/festival.png"></a>
+        <a href="soon.html"><img src="img/podcast.png"></a>
+    </div>
+
+    <div class="right-section">
+        <div class="search-box">
+            <input id="searchInput" type="text" placeholder="Search...">
+            <button><img src="img/lupa.png" alt="Buscar"></button>
         </div>
 
-        <!-- Menú con imágenes -->
-        <div class="menu">
-            <a href="principal.html"><img src="img/home.png"></a>
-            <a href="mytutor.html"><img src="img/my tutor.png"></a>
-            <a href="calendario.html"><img src="img/xperience.png"></a>
-            <a href="juegos.html"><img src="img/playground.png"></a> 
-            <a href="soon.html"><img src="img/community.png"></a>
-            <a href="soon.html"><img src="img/marketplace.png"></a>
-            <a href="soon.html"><img src="img/festival.png"></a>
-            <a href="soon.html"><img src="img/podcast.png"></a>
-        </div>
-        
+        <div class="steam-explorer">0 STEAM Explorer</div>
 
-        <div class="right-section">
-            <div class="search-box">
-                <input type="text" placeholder="Search...">
-                <button><img src="img/lupa.png" alt="Buscar"></button>
-            </div>
-
-            <div class="steam-explorer">0 STEAM Explorer</div>
-
-            <div class="user-profile">
-                <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="content">
-            <div class="left">
-                <h2>Our Mission</h2>
-                <p>Empower girls and young women worldwide by providing engaging, inclusive, and innovative STEM education through gamification, AI-driven learning, and a supportive community. TEEN4STEAM is dedicated to breaking barriers, fostering confidence, and ensuring that every girl sees herself as a future scientist, engineer, or innovator.</p>
-                <h2>Our Vision</h2>
-                <p>To create a world where gender is never a barrier to success in STEM. TEEN4STEAM envisions a future where millions of girls have the resources, mentorship, and opportunities to lead and transform the fields of science, technology, engineering, arts, and mathematics, shaping a more diverse, inclusive, and innovative future for all.</p>
-                <h4>  Techno Spark </li>
-                <li>  Paula Castillo, Programmer </li>
-                        <li>  Mariana Coronado, Designer </li>
-                    <li>  Nathaly Chung, Programmer</li>
-            </div>
-            <div class="right">
-                <img src="img/nosotras.png" class="decoracion">
-                </ul>
-            </div>
+        <div class="user-profile">
+            <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
         </div>
     </div>
-    
+</nav>
+
+<div class="container">
+    <div class="content">
+        <div class="left">
+            <h2 id="mission-title">Our Mission</h2>
+            <p id="mission-text">Empower girls and young women worldwide by providing engaging, inclusive, and innovative STEM education through gamification, AI-driven learning, and a supportive community. TEEN4STEAM is dedicated to breaking barriers, fostering confidence, and ensuring that every girl sees herself as a future scientist, engineer, or innovator.</p>
+        
+            <h2 id="vision-title">Our Vision</h2>
+            <p id="vision-text">To create a world where gender is never a barrier to success in STEM. TEEN4STEAM envisions a future where millions of girls have the resources, mentorship, and opportunities to lead and transform the fields of science, technology, engineering, arts, and mathematics, shaping a more diverse, inclusive, and innovative future for all.</p>
+        
+            <h4 id="team-title">Techno Spark</h4>
+            <ul id="team-list">
+                <li>Paula Castillo, Programmer</li>
+                <li>Mariana Coronado, Designer</li>
+                <li>Nathaly Chung, Programmer</li>
+            </ul>
+        </div>
+        
+        <div class="right">
+            <img src="img/nosotras.png" class="decoracion">
+        </div>
+    </div>
+</div>
+
+<script>
+let language = "en";
+
+function toggleLanguage() {
+    if (language === "en") {
+        // Cambiar texto a Español
+        document.getElementById('mission-title').innerText = "Nuestra Misión";
+        document.getElementById('mission-text').innerText = "Empoderar a niñas y jóvenes de todo el mundo ofreciendo una educación STEM atractiva, inclusiva e innovadora mediante la gamificación, el aprendizaje basado en IA y una comunidad solidaria. TEEN4STEAM se dedica a romper barreras, fomentar la confianza y garantizar que cada niña se vea como una futura científica, ingeniera o innovadora.";
+
+        document.getElementById('vision-title').innerText = "Nuestra Visión";
+        document.getElementById('vision-text').innerText = "Crear un mundo donde el género nunca sea un obstáculo para el éxito en STEM. TEEN4STEAM imagina un futuro donde millones de niñas cuenten con recursos, mentoría y oportunidades para liderar y transformar los campos de la ciencia, tecnología, ingeniería, artes y matemáticas, creando un futuro más diverso, inclusivo e innovador para todos.";
+
+        document.getElementById('team-title').innerText = "Techno Spark";
+
+        const teamList = document.getElementById('team-list');
+        teamList.innerHTML = `
+            <li>Paula Castillo, Programadora</li>
+            <li>Mariana Coronado, Diseñadora</li>
+            <li>Nathaly Chung, Programadora</li>
+        `;
+
+        // Cambiar placeholder del search
+        document.getElementById('searchInput').placeholder = "Buscar...";
+
+        language = "es";
+    } else {
+        // Cambiar texto a Inglés
+        document.getElementById('mission-title').innerText = "Our Mission";
+        document.getElementById('mission-text').innerText = "Empower girls and young women worldwide by providing engaging, inclusive, and innovative STEM education through gamification, AI-driven learning, and a supportive community. TEEN4STEAM is dedicated to breaking barriers, fostering confidence, and ensuring that every girl sees herself as a future scientist, engineer, or innovator.";
+
+        document.getElementById('vision-title').innerText = "Our Vision";
+        document.getElementById('vision-text').innerText = "To create a world where gender is never a barrier to success in STEM. TEEN4STEAM envisions a future where millions of girls have the resources, mentorship, and opportunities to lead and transform the fields of science, technology, engineering, arts, and mathematics, shaping a more diverse, inclusive, and innovative future for all.";
+
+        document.getElementById('team-title').innerText = "Techno Spark";
+
+        const teamList = document.getElementById('team-list');
+        teamList.innerHTML = `
+            <li>Paula Castillo, Programmer</li>
+            <li>Mariana Coronado, Designer</li>
+            <li>Nathaly Chung, Programmer</li>
+        `;
+
+        // Cambiar placeholder del search
+        document.getElementById('searchInput').placeholder = "Search...";
+
+        language = "en";
+    }
+}
+</script>
+
 </body>
 </html>

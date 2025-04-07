@@ -1,191 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>365 Days to be a STEAM Explorer</title>
-    <link rel="stylesheet" href="trivia.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>365 Days to be a STEAM Explorer</title>
+  <link rel="stylesheet" href="trivia.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="img/logo morado.png">
-        </div>
-        <div class="menu">
-            <a href="principal.html"><img src="img/home.png"></a>
-            <a href="mytutor.html"><img src="img/my tutor.png"></a>
-            <a href="calendario.html"><img src="img/xperience.png"></a>
-            <a href="juegos.html"><img src="img/playground.png"></a> 
-            <a href=""><img src="img/community.png"></a>
-            <a href=""><img src="img/marketplace.png"></a>
-            <a href=""><img src="img/festival.png"></a>
-            <a href=""><img src="img/podcast.png"></a>
-        </div>
-        <div class="right-section">
-            <div class="search-box">
-                <input type="text" placeholder="Search...">
-                <button><img src="img/lupa.png" alt="Buscar"></button>
-            </div>
-            <div class="steam-explorer">0 STEAM Explorer</div>
-            <div class="user-profile">
-                <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
-            </div>
-        </div>
-    </nav>
 
-    <h1>Test your knowledge with this STEAM trivia quiz</h1>
-    <div class="card" id="game-card">
-        <h2 id="title">Fun Fact</h2>
-        <p id="content"></p>
-        <div id="options"></div>
-        <p id="feedback" style="font-weight: bold; margin-top: 10px;"></p>
-        <p id="score" class="score">Correct: 0 | Incorrect: 0</p>
-        <p id="progress" class="score">Trivia 0 / 5</p>
-        <button id="next-btn" class="button button-start">Start Trivia</button>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="img/logo morado.png">
+    </div>
+    
+    <div class="menu">
+      <a href="principal.html"><img src="img/home.png"></a>
+      <a href="mytutor.html"><img src="img/my tutor.png"></a>
+      <a href="calendario.html"><img src="img/xperience.png"></a>
+      <a href="juegos.html"><img src="img/playground.png"></a> 
+      <a href=""><img src="img/community.png"></a>
+      <a href=""><img src="img/marketplace.png"></a>
+      <a href=""><img src="img/festival.png"></a>
+      <a href=""><img src="img/podcast.png"></a>
     </div>
 
-    <script>
-        const allTrivia = [
-            { fact: "Sunlight takes about 8 minutes to reach Earth.", question: { text: "How long does sunlight take to reach Earth?", options: ["1 min", "8 min", "1 hour"], answer: "8 min" }},
-            { fact: "Octopuses have three hearts.", question: { text: "How many hearts do octopuses have?", options: ["1", "2", "3"], answer: "3" }},
-            { fact: "Water can boil and freeze at the same time.", question: { text: "Can water boil and freeze at once?", options: ["Yes", "No"], answer: "Yes" }},
-            { fact: "DNA was discovered in 1869.", question: { text: "When was DNA discovered?", options: ["1869", "1905", "2000"], answer: "1869" }},
-            { fact: "Lightning is hotter than the surface of the sun.", question: { text: "Which is hotter?", options: ["Lightning", "Sun", "Boiling water"], answer: "Lightning" }},
-            { fact: "The Eiffel Tower grows in summer due to heat.", question: { text: "Why does the Eiffel Tower grow in summer?", options: ["Wind", "Heat", "Vibration"], answer: "Heat" }},
-            { fact: "The first text message said 'Merry Christmas'.", question: { text: "What was the first text message?", options: ["Hello", "Merry Christmas", "Test"], answer: "Merry Christmas" }},
-            { fact: "Octopuses have three hearts.", question: { text: "How many hearts do octopuses have?", options: ["1", "2", "3"], answer: "3" }},
-            { fact: "The number 0 was invented in India.", question: { text: "Where was 0 invented?", options: ["Greece", "India", "China"], answer: "India" }},
-            { fact: "The first text message said 'Merry Christmas'.", question: { text: "What was the first text message?", options: ["Hello", "Merry Christmas", "Test"], answer: "Merry Christmas" }},
-            { fact: "The first computer mouse was made of wood.", question: { text: "What was the first computer mouse made of?", options: ["Plastic", "Metal", "Wood"], answer: "Wood" }},
-            { fact: "Email existed before the web.", question: { text: "What came first?", options: ["Web", "Email", "Social Media"], answer: "Email" }},
-            { fact: "Wi-Fi was invented in 1997.", question: { text: "When was Wi-Fi invented?", options: ["1980", "1997", "2005"], answer: "1997" }},
-            { fact: "Bluetooth is named after a Viking king.", question: { text: "What is Bluetooth named after?", options: ["Scientist", "Color", "Viking King"], answer: "Viking King" }},
-            { fact: "The Eiffel Tower grows in summer due to heat.", question: { text: "Why does the Eiffel Tower grow in summer?", options: ["Wind", "Heat", "Vibration"], answer: "Heat" }},
-            { fact: "The world's longest bridge is over 160 km long.", question: { text: "How long is the world's longest bridge?", options: ["50 km", "100 km", "160+ km"], answer: "160+ km" }},
-            { fact: "Roller coasters work with gravity and energy.", question: { text: "What powers a roller coaster?", options: ["Motors only", "Gravity & energy", "Magic"], answer: "Gravity & energy" }},
-            { fact: "Dams generate hydroelectric power.", question: { text: "What kind of power do dams create?", options: ["Solar", "Hydroelectric", "Wind"], answer: "Hydroelectric" }},
-            { fact: "Elevators use counterweights to balance loads.", question: { text: "What helps elevators move efficiently?", options: ["Motors only", "Counterweights", "Magnets"], answer: "Counterweights" }},
-            { fact: "Sharks existed before trees.", question: { text: "What came first?", options: ["Trees", "Sharks", "Dinosaurs"], answer: "Sharks" }},
-            { fact: "Water can boil and freeze at the same time.", question: { text: "Can water boil and freeze at once?", options: ["Yes", "No"], answer: "Yes" }},
-            { fact: "The longest word has 189,819 letters.", question: { text: "How many letters has the longest word?", options: ["50", "189,819", "500"], answer: "189,819" }},
-            { fact: "Ada Lovelace is considered the first computer programmer.", question: { text: "Who is known as the first computer programmer?", options: ["Grace Hopper", "Ada Lovelace", "Alan Turing"], answer: "Ada Lovelace" }},
-            { fact: "The Mona Lisa has no eyebrows.", question: { text: "Why does the Mona Lisa have no eyebrows?", options: ["Lost in restoration", "Fashion", "Never painted"], answer: "Lost in restoration" }},
-            { fact: "Leonardo da Vinci was both artist and inventor.", question: { text: "What else was da Vinci besides artist?", options: ["Chef", "Inventor", "Doctor"], answer: "Inventor" }},
-            { fact: "Pixel art is created with square pixels.", question: { text: "What is pixel art made with?", options: ["Brushes", "Squares", "Pixels"], answer: "Pixels" }},
-            { fact: "Music and math are strongly connected.", question: { text: "What is music related to?", options: ["Sports", "Math", "Biology"], answer: "Math" }},
-            { fact: "Stop motion is made by taking many photos.", question: { text: "How is stop motion made?", options: ["Videos", "Photos", "Drawings"], answer: "Photos" }},
-            { fact: "Bees communicate through dance movements.", question: { text: "How do bees communicate?", options: ["Singing", "Dancing", "Color changes"], answer: "Dancing" }},
-            { fact: "Pi is an irrational number that never ends.", question: { text: "What kind of number is Pi?", options: ["Whole", "Rational", "Irrational"], answer: "Irrational" }},
-            { fact: "The Mars rover Perseverance landed in 2021.", question: { text: "When did Perseverance land on Mars?", options: ["2018", "2021", "2023"], answer: "2021" }},
-            { fact: "The number 0 was invented in India.", question: { text: "Where was 0 invented?", options: ["Greece", "India", "China"], answer: "India" }},
-            { fact: "Pi is an infinite number.", question: { text: "Is Pi finite or infinite?", options: ["Finite", "Infinite"], answer: "Infinite" }},
-            { fact: "A triangle's angles always sum to 180 degrees.", question: { text: "What is the sum of angles in a triangle?", options: ["90°", "180°", "360°"], answer: "180°" }},
-            { fact: "The golden ratio appears in nature.", question: { text: "Where is the golden ratio found?", options: ["Nature", "Only math", "Buildings"], answer: "Nature" }},
-            { fact: "Binary code uses only 0 and 1.", question: { text: "What digits are used in binary?", options: ["1 to 9", "0 and 1", "2 and 3"], answer: "0 and 1" }},
-            { fact: "Sound travels faster in water than in air.", question: { text: "Where does sound travel faster?", options: ["Air", "Water", "Vacuum"], answer: "Water" }},
-            { fact: "Some metals can remember their shape.", question: { text: "What is a metal that returns to its shape called?", options: ["Smart metal", "Memory alloy", "Steel"], answer: "Memory alloy" }},
-            { fact: "Coding is like giving instructions to a robot.", question: { text: "What is coding similar to?", options: ["Drawing", "Writing", "Giving instructions"], answer: "Giving instructions" }},
-            { fact: "Fractals are shapes that repeat within themselves.", question: { text: "What are fractals?", options: ["Random shapes", "Repeating patterns", "Equations"], answer: "Repeating patterns" }},
-            { fact: "3D printers can create objects layer by layer.", question: { text: "How do 3D printers work?", options: ["Carving", "Melting", "Layering"], answer: "Layering" }}
-        ];
+    <div class="right-section">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button><img src="img/lupa.png" alt="Buscar"></button>
+      </div>
+      <div class="steam-explorer">0 STEAM Explorer</div>
+      <div class="user-profile">
+        <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+      </div>
+    </div>
+  </nav>
 
-        // Pick 5 different trivia for the current day based on date
-        const today = new Date();
-        const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-        function seededRandom(seed) {
-            const x = Math.sin(seed) * 10000;
-            return x - Math.floor(x);
-        }
+  <h1 id="main-title">Test your knowledge with this STEAM trivia quiz</h1>
 
-        function shuffle(array, seed) {
-            let m = array.length, t, i;
-            while (m) {
-                i = Math.floor(seededRandom(seed + m) * m--);
-                t = array[m];
-                array[m] = array[i];
-                array[i] = t;
-            }
-            return array;
-        }
+  <div class="card" id="game-card">
+    <h2 id="title">Fun Fact</h2>
+    <p id="content"></p>
+    <div id="options"></div>
+    <p id="feedback" style="font-weight: bold; margin-top: 10px;"></p>
+    <p id="score" class="score">Correct: 0 | Incorrect: 0</p>
+    <p id="progress" class="score">Trivia 0 / 5</p>
+    <button id="next-btn" class="button button-start">Start Trivia</button>
+  </div>
 
-        const dailyTrivia = shuffle([...allTrivia], seed).slice(0, 5);
+  <!-- Botón de idioma -->
+  <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
 
-        let currentIndex = 0;
-        let correctCount = 0;
-        let incorrectCount = 0;
-        let hasAnswered = false;
+  <script>
+    const allTrivia = [
+      { fact: "Sunlight takes about 8 minutes to reach Earth.", question: { text: "How long does sunlight take to reach Earth?", options: ["1 min", "8 min", "1 hour"], answer: "8 min" }},
+      { fact: "Octopuses have three hearts.", question: { text: "How many hearts do octopuses have?", options: ["1", "2", "3"], answer: "3" }},
+      { fact: "Water can boil and freeze at the same time.", question: { text: "Can water boil and freeze at once?", options: ["Yes", "No"], answer: "Yes" }},
+      { fact: "DNA was discovered in 1869.", question: { text: "When was DNA discovered?", options: ["1869", "1905", "2000"], answer: "1869" }},
+      { fact: "Lightning is hotter than the surface of the sun.", question: { text: "Which is hotter?", options: ["Lightning", "Sun", "Boiling water"], answer: "Lightning" }},
+      { fact: "The first text message said 'Merry Christmas'.", question: { text: "What was the first text message?", options: ["Hello", "Merry Christmas", "Test"], answer: "Merry Christmas" }},
+      { fact: "The first computer mouse was made of wood.", question: { text: "What was the first computer mouse made of?", options: ["Plastic", "Metal", "Wood"], answer: "Wood" }},
+      { fact: "Email existed before the web.", question: { text: "What came first?", options: ["Web", "Email", "Social Media"], answer: "Email" }},
+      { fact: "Wi-Fi was invented in 1997.", question: { text: "When was Wi-Fi invented?", options: ["1980", "1997", "2005"], answer: "1997" }},
+      { fact: "The number 0 was invented in India.", question: { text: "Where was 0 invented?", options: ["Greece", "India", "China"], answer: "India" }},
+    ];
 
-        const titleEl = document.getElementById("title");
-        const contentEl = document.getElementById("content");
-        const optionsEl = document.getElementById("options");
-        const feedbackEl = document.getElementById("feedback");
-        const scoreEl = document.getElementById("score");
-        const progressEl = document.getElementById("progress");
-        const nextBtn = document.getElementById("next-btn");
+    const today = new Date();
+    const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
 
-        function updateScore() {
-            scoreEl.textContent = `Correct: ${correctCount} | Incorrect: ${incorrectCount}`;
-            progressEl.textContent = `Trivia ${Math.floor(currentIndex / 2) + 1} / ${dailyTrivia.length}`;
-        }
+    function seededRandom(seed) {
+      const x = Math.sin(seed) * 10000;
+      return x - Math.floor(x);
+    }
 
-        function loadContent() {
-            optionsEl.innerHTML = "";
-            feedbackEl.textContent = "";
-            hasAnswered = false;
+    function shuffle(array, seed) {
+      let m = array.length, t, i;
+      while (m) {
+        i = Math.floor(seededRandom(seed + m) * m--);
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+      }
+      return array;
+    }
 
-            const index = Math.floor(currentIndex / 2);
-            const isFact = currentIndex % 2 === 0;
+    const dailyTrivia = shuffle([...allTrivia], seed).slice(0, 5);
 
-            if (index >= dailyTrivia.length) {
-                titleEl.textContent = "🎉 You've completed today's trivia!";
-                contentEl.textContent = "Come back tomorrow for more!";
-                nextBtn.style.display = "none";
-                return;
-            }
+    let currentIndex = 0;
+    let correctCount = 0;
+    let incorrectCount = 0;
+    let hasAnswered = false;
+    let language = "en";
 
-            const item = dailyTrivia[index];
+    const titleEl = document.getElementById("title");
+    const contentEl = document.getElementById("content");
+    const optionsEl = document.getElementById("options");
+    const feedbackEl = document.getElementById("feedback");
+    const scoreEl = document.getElementById("score");
+    const progressEl = document.getElementById("progress");
+    const nextBtn = document.getElementById("next-btn");
 
-            if (isFact) {
-                titleEl.textContent = "Fun Fact";
-                contentEl.textContent = item.fact;
-            } else {
-                titleEl.textContent = item.question.text;
-                item.question.options.forEach(option => {
-                    const btn = document.createElement("button");
-                    btn.textContent = option;
-                    btn.classList.add("button", "button-option");
-                    btn.onclick = () => handleOptionClick(btn, option, item.question.answer);
-                    optionsEl.appendChild(btn);
-                });
-            }
+    function updateScore() {
+      if (language === "en") {
+        scoreEl.textContent = `Correct: ${correctCount} | Incorrect: ${incorrectCount}`;
+        progressEl.textContent = `Trivia ${Math.floor(currentIndex / 2) + 1} / ${dailyTrivia.length}`;
+      } else {
+        scoreEl.textContent = `Correctas: ${correctCount} | Incorrectas: ${incorrectCount}`;
+        progressEl.textContent = `Trivia ${Math.floor(currentIndex / 2) + 1} / ${dailyTrivia.length}`;
+      }
+    }
 
-            updateScore();
-        }
+    function loadContent() {
+      optionsEl.innerHTML = "";
+      feedbackEl.textContent = "";
+      hasAnswered = false;
 
-        function handleOptionClick(button, selected, correctAnswer) {
-            if (hasAnswered) return;
-            hasAnswered = true;
+      const index = Math.floor(currentIndex / 2);
+      const isFact = currentIndex % 2 === 0;
 
-            if (selected === correctAnswer) {
-                button.classList.add("correct");
-                feedbackEl.textContent = "Correct! 🎉";
-                correctCount++;
-            } else {
-                button.classList.add("incorrect");
-                feedbackEl.textContent = `Incorrect. The correct answer is: ${correctAnswer}`;
-                incorrectCount++;
-            }
+      if (index >= dailyTrivia.length) {
+        titleEl.textContent = (language === "en") ? "🎉 You've completed today's trivia!" : "🎉 ¡Has completado la trivia de hoy!";
+        contentEl.textContent = (language === "en") ? "Come back tomorrow for more!" : "¡Vuelve mañana para más!";
+        nextBtn.style.display = "none";
+        return;
+      }
 
-            updateScore();
-        }
+      const item = dailyTrivia[index];
 
-        nextBtn.addEventListener("click", () => {
-            if (currentIndex % 2 === 1 && !hasAnswered) return;
-            currentIndex++;
-            loadContent();
+      if (isFact) {
+        titleEl.textContent = (language === "en") ? "Fun Fact" : "Dato Curioso";
+        contentEl.textContent = item.fact;
+      } else {
+        titleEl.textContent = item.question.text;
+        item.question.options.forEach(option => {
+          const btn = document.createElement("button");
+          btn.textContent = option;
+          btn.classList.add("button", "button-option");
+          btn.onclick = () => handleOptionClick(btn, option, item.question.answer);
+          optionsEl.appendChild(btn);
         });
+      }
 
-        loadContent();
-    </script>
+      updateScore();
+    }
+
+    function handleOptionClick(button, selected, correctAnswer) {
+      if (hasAnswered) return;
+      hasAnswered = true;
+
+      if (selected === correctAnswer) {
+        button.classList.add("correct");
+        feedbackEl.textContent = (language === "en") ? "Correct! 🎉" : "¡Correcto! 🎉";
+        correctCount++;
+      } else {
+        button.classList.add("incorrect");
+        feedbackEl.textContent = (language === "en") ? `Incorrect. The correct answer is: ${correctAnswer}` : `Incorrecto. La respuesta correcta es: ${correctAnswer}`;
+        incorrectCount++;
+      }
+
+      updateScore();
+    }
+
+    nextBtn.addEventListener("click", () => {
+      if (currentIndex % 2 === 1 && !hasAnswered) return;
+      currentIndex++;
+      loadContent();
+    });
+
+    // 🚀 ESTA es tu función de traducir
+    function toggleLanguage() {
+      language = (language === "en") ? "es" : "en"; // Cambia idioma
+
+      document.getElementById("main-title").innerText = (language === "en")
+        ? "Test your knowledge with this STEAM trivia quiz"
+        : "Pon a prueba tu conocimiento con esta trivia STEAM";
+
+      document.getElementById("searchInput").placeholder = (language === "en")
+        ? "Search..."
+        : "Buscar...";
+
+      nextBtn.innerText = (language === "en")
+        ? (currentIndex === 0 ? "Start Trivia" : "Next")
+        : (currentIndex === 0 ? "Iniciar Trivia" : "Siguiente");
+
+      loadContent(); // Recarga para que cambie los textos internos
+    }
+
+    loadContent();
+  </script>
+
 </body>
 </html>
