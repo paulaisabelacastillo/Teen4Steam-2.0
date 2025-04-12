@@ -139,7 +139,7 @@ header {
     background: white;
     border-radius: 15px;
     padding: 20px;
-    width: 400px; /* AQUI: Más ancho (era 350px) */
+    width: 500px; /* AQUI: Más ancho (era 350px) */
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     height: 200px;
@@ -221,7 +221,7 @@ header {
 }
 
 .game-coming-soon h2, .game-coming-soon p {
-    margin: 10px 0;
+    margin: 25px 0;
     color: #6A008A;
     font-weight: bold;
 }

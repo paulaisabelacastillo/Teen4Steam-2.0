@@ -47,8 +47,8 @@
         <img id="profileImage" src="https://via.placeholder.com/80" alt="User Image">
     </div>
     <div class="gender-selection">
-        <button id="man-btn" onclick="setGender('male')">man</button>
-        <button id="woman-btn" onclick="setGender('female')">woman</button>
+        <button id="man-btn" onclick="setGender('female')">Girl</button>
+        <button id="woman-btn" onclick="setGender('male')">Boy</button>
     </div>
     <button class="message-btn" onclick="location.href='soon.html'" id="message-btn">Message</button>
     
@@ -62,7 +62,7 @@
             <div class="accordion-content"><input type="text" id="location" value="Insert your Location"></div>
         </div>
         <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(2)" id="info-header">Information</div>
+            <div class="accordion-header" onclick="toggleAccordion(2)" id="info-header">Information About You</div>
             <div class="accordion-content"><textarea id="info">User description...</textarea></div>
         </div>
         <div class="accordion-item">
@@ -133,13 +133,13 @@ let language = "en";
 
 function toggleLanguage() {
     if (language === "en") {
-        document.getElementById('man-btn').innerText = "niño";
-        document.getElementById('woman-btn').innerText = "niña";
+        document.getElementById('man-btn').innerText = "Niña";
+        document.getElementById('woman-btn').innerText = "Niño";
         document.getElementById('message-btn').innerText = "Mensaje";
 
         document.getElementById('name-header').innerText = "Nombre";
         document.getElementById('location-header').innerText = "Ubicación";
-        document.getElementById('info-header').innerText = "Información";
+        document.getElementById('info-header').innerText = "Información Sobre Ti";
         document.getElementById('interest-header').innerText = "Intereses";
         document.getElementById('age-header').innerText = "¿Qué edad tienes?";
 
@@ -150,13 +150,13 @@ function toggleLanguage() {
         
         language = "es";
     } else {
-        document.getElementById('man-btn').innerText = "man";
-        document.getElementById('woman-btn').innerText = "woman";
+        document.getElementById('man-btn').innerText = "Girl";
+        document.getElementById('woman-btn').innerText = "Boy";
         document.getElementById('message-btn').innerText = "Message";
 
         document.getElementById('name-header').innerText = "Name";
         document.getElementById('location-header').innerText = "Location";
-        document.getElementById('info-header').innerText = "Information";
+        document.getElementById('info-header').innerText = "Information About You";
         document.getElementById('interest-header').innerText = "Interest";
         document.getElementById('age-header').innerText = "How old are you?";
 

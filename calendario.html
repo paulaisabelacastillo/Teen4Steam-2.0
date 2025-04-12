@@ -9,15 +9,12 @@
 <body>
 
 <nav class="navbar">
-    <!-- Logo -->
     <div class="logo">
         <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
     </div>
 
-    <!-- Botón de idioma -->
     <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
 
-    <!-- Menú -->
     <div class="menu">
         <a href="principal.html"><img src="img/home.png" alt="Home"></a>
         <a href="team.html"><img src="img/Team.png" alt="Team"></a>
@@ -30,10 +27,9 @@
         <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
     </div>
 
-    <!-- Search y Perfil -->
     <div class="right-section">
         <div class="search-box">
-            <input type="text" placeholder="Search...">
+            <input type="text" id="searchInput" placeholder="Search...">
             <button><img src="img/lupa.png" alt="Buscar"></button>
         </div>
         <div class="steam-explorer">0 STEAM Explorer</div>
@@ -55,34 +51,23 @@
     </div>
 
     <div id="day" class="activities active">
-        <h3 id="today-title">Today</h3>
-        <div class="activity">
-            <span id="event1">1:00 p.m - Technofest - The Power of New Generations / Rincon Clubhouse Explora</span>
-            <a href="https://technofest.swtickets.com/" class="link">link</a>
-        </div>
-        <div class="activity">
-            <span id="event2">1:00 p.m - Computational Thinking Workshop / Rincon Clubhouse Explora</span>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpyRkS9V0b5-o3fAttAxaum2pPlGfGVMUninxx6P8Q6WjDTg/viewform" class="link">link</a>
-        </div>
-        <div class="activity">
-            <span id="event3">6:00 p.m - Short Films Premiere / University of Panama / Owner</span>
-            <a href="https://www.instagram.com/p/DHMmsNaS5cL/" class="link">link</a>
-        </div>
+        <h3 id="today-title">Today <span id="today-date"></span></h3>
+        <div id="day-activities"></div>
     </div>
 
     <div id="week" class="activities">
         <h3 id="week-title">This Week</h3>
         <div class="activity">
-            <span id="event4">Tuesday 18 - Tech Day - Expo Forum / Sheraton Grand Panama Hotel / Women in Tech</span>
-            <a href="https://forms.gle/3zod5Ci47Y4KhnRt9" class="link">link</a>
+            <span>Tuesday 18 - Tech Day - Expo Forum / Sheraton Grand Panama Hotel / Women in Tech</span>
+            <img src="img/flag-panama.png" alt="Panama" class="flag">
         </div>
     </div>
 
     <div id="month" class="activities">
         <h3 id="month-title">This Month</h3>
         <div class="activity">
-            <span id="event5">March 26 - Cybersecurity for Girls / Teen4STEAM</span>
-            <a href="#" class="link">link</a>
+            <span>March 26 - Cybersecurity for Girls / Teen4STEAM</span>
+            <img src="img/flag-panama.png" alt="Panama" class="flag">
         </div>
     </div>
 </div>
@@ -100,44 +85,71 @@ function showTab(tabId) {
     event.target.classList.add('active');
 }
 
+function updateTodayDate() {
+    const today = new Date();
+    const options = { day: 'numeric', month: 'short', year: 'numeric' };
+    document.getElementById('today-date').innerText = `- ${today.toLocaleDateString('en-US', options)}`;
+}
+
+function loadDayActivities() {
+    const today = new Date();
+    const day = today.getDate();
+    const dayActivities = document.getElementById('day-activities');
+    dayActivities.innerHTML = '';
+
+    if (day === 11) {
+        dayActivities.innerHTML = `
+            <div class="activity">
+                <span>1:00 p.m - Technofest - The Power of New Generations / Rincon Clubhouse Explora</span>
+                <img src="img/panama.png" class="flag">
+            </div>
+            <div class="activity">
+                <span>1:00 p.m - Computational Thinking Workshop / Rincon Clubhouse Explora</span>
+                <img src="img/panama.png" class="flag">
+            </div>
+        `;
+    } else if (day === 18) {
+        dayActivities.innerHTML = `
+            <div class="activity">
+                <span>Tech Day - Expo Forum / Sheraton Grand Panama Hotel</span>
+                <img src="img/panama.png" class="flag">
+            </div>
+        `;
+    } else {
+        dayActivities.innerHTML = `
+            <div class="activity">
+                <span>No activities today. Check back soon!</span>
+            </div>
+        `;
+    }
+}
+
 let language = "en";
 
 function toggleLanguage() {
     if (language === "en") {
-        // Cambiar títulos
         document.getElementById('calendar-title').innerText = "Xperience - Calendario de Actividades";
-        document.getElementById('today-title').innerText = "Hoy";
+        document.getElementById('today-title').innerHTML = "Hoy <span id='today-date'></span>";
         document.getElementById('week-title').innerText = "Esta Semana";
         document.getElementById('month-title').innerText = "Este Mes";
-
-
-        // Cambiar eventos
-        document.getElementById('event1').innerText = "1:00 p.m - Technofest - El Poder de las Nuevas Generaciones / Rincón Clubhouse Explora";
-        document.getElementById('event2').innerText = "1:00 p.m - Taller de Pensamiento Computacional / Rincón Clubhouse Explora";
-        document.getElementById('event3').innerText = "6:00 p.m - Estreno de Cortometrajes / Universidad de Panamá / Owner";
-        document.getElementById('event4').innerText = "Martes 18 - Día de la Tecnología - Expo Foro / Hotel Sheraton Grand Panamá / Mujeres en Tecnología";
-        document.getElementById('event5').innerText = "26 de marzo - Ciberseguridad para Chicas / Teen4STEAM";
-
+        document.getElementById('searchInput').placeholder = "Buscar...";
 
         language = "es";
     } else {
-        // Volver a inglés
         document.getElementById('calendar-title').innerText = "Xperience - Activities Calendar";
-        document.getElementById('today-title').innerText = "Today";
+        document.getElementById('today-title').innerHTML = "Today <span id='today-date'></span>";
         document.getElementById('week-title').innerText = "This Week";
         document.getElementById('month-title').innerText = "This Month";
-
-
-        document.getElementById('event1').innerText = "1:00 p.m - Technofest - The Power of New Generations / Rincon Clubhouse Explora";
-        document.getElementById('event2').innerText = "1:00 p.m - Computational Thinking Workshop / Rincon Clubhouse Explora";
-        document.getElementById('event3').innerText = "6:00 p.m - Short Films Premiere / University of Panama / Owner";
-        document.getElementById('event4').innerText = "Tuesday 18 - Tech Day - Expo Forum / Sheraton Grand Panama Hotel / Women in Tech";
-        document.getElementById('event5').innerText = "March 26 - Cybersecurity for Girls / Teen4STEAM";
-
+        document.getElementById('searchInput').placeholder = "Search...";
 
         language = "en";
     }
+    updateTodayDate();
 }
+
+// Inicializar
+updateTodayDate();
+loadDayActivities();
 </script>
 
 </body>
