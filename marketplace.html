@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Tutor AI</title>
-    <link rel="stylesheet" href="mytutor.css">
+    <title>Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="marketplace.css">
 </head>
 <body>
 
@@ -12,6 +13,8 @@
         <div class="logo">
             <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
         </div>
+
+        <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
 
         <div class="menu">
             <a href="principal.html"><img src="img/home.png" alt="Home"></a>
@@ -24,10 +27,10 @@
             <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
             <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
         </div>
-        
+
         <div class="right-section">
             <div class="search-box">
-                <input type="text" placeholder="Search...">
+                <input type="text" id="searchInput" placeholder="Search...">
                 <button><img src="img/lupa.png" alt="Buscar"></button>
             </div>
 
@@ -39,25 +42,26 @@
         </div>
     </nav>
 
-    <!-- Contenedor del chat -->
-    <div class="chat-wrapper">
-        <div class="chat-container">
-            <div class="chat-header">
-                 <span>My Tutor AI </span>
-            </div>
+    <main class="main-content">
+        <img src="img/marketpics.png" alt="Coming Soon" class="coming-soon-img">
+        <h1 id="main-title">Coming Soon</h1>
+    </main>
 
-            <div class="chat-box" id="chat-box">
-                <p class="bot-message">👋 Hello! I'm your STEAM tutor. Ask me about Science, Technology, Engineering, Art, or Math..</p>
-            </div>
+    <script>
+        let language = "en";
 
-            <div class="chat-input">
-                <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
-                <button id="send-btn">Send</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="mytutor.js"></script>
+        function toggleLanguage() {
+            if (language === "en") {
+                document.getElementById('main-title').innerText = "¡Muy pronto!";
+                document.getElementById('searchInput').placeholder = "Buscar...";
+                language = "es";
+            } else {
+                document.getElementById('main-title').innerText = "Coming Soon";
+                document.getElementById('searchInput').placeholder = "Search...";
+                language = "en";
+            }
+        }
+    </script>
 
 </body>
 </html>

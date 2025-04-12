@@ -5,29 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="soon.css">
+    <link rel="stylesheet" href="marketplace.css">
 </head>
 <body>
 
     <nav class="navbar">
-
         <div class="logo">
-            <img src="img/logo morado.png" alt="Logo Teen4STEAM">
+            <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
         </div>
 
-        <!-- Botón de cambiar idioma -->
         <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
 
-        <!-- Menú con imágenes -->
         <div class="menu">
             <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+            <a href="team.html"><img src="img/Team.png" alt="Team"></a>
             <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
             <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
             <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
-            <a href="soon.html"><img src="img/community.png" alt="Community"></a>
-            <a href="soon.html"><img src="img/marketplace.png" alt="Marketplace"></a>
-            <a href="soon.html"><img src="img/festival.png" alt="Festival"></a>
-            <a href="soon.html"><img src="img/podcast.png" alt="Podcast"></a>
+            <a href="community.html"><img src="img/community.png" alt="Community"></a>
+            <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
+            <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
+            <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
         </div>
 
         <div class="right-section">
@@ -44,39 +42,21 @@
         </div>
     </nav>
 
-    <h1 id="main-title">Coming Soon</h1>
-    <div id="countdown"></div>
-    <p class="message" id="launch-message">We are launching on <b>April 27, 2025, at 12:00 PM</b>!</p>
-    
+    <main class="main-content">
+        <img src="img/podcastpics.png" alt="Coming Soon" class="coming-soon-img">
+        <h1 id="main-title">Coming Soon</h1>
+    </main>
+
     <script>
-        function updateCountdown() {
-            const launchDate = new Date("April 27, 2025 12:00:00").getTime();
-            const now = new Date().getTime();
-            const timeLeft = launchDate - now;
-
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = 
-                `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
-
-        setInterval(updateCountdown, 1000);
-
-        // Script para cambiar idioma
         let language = "en";
 
         function toggleLanguage() {
             if (language === "en") {
                 document.getElementById('main-title').innerText = "¡Muy pronto!";
-                document.getElementById('launch-message').innerHTML = "¡Lanzamos el <b>27 de abril de 2025 a las 12:00 PM</b>!";
                 document.getElementById('searchInput').placeholder = "Buscar...";
                 language = "es";
             } else {
                 document.getElementById('main-title').innerText = "Coming Soon";
-                document.getElementById('launch-message').innerHTML = "We are launching on <b>April 27, 2025, at 12:00 PM</b>!";
                 document.getElementById('searchInput').placeholder = "Search...";
                 language = "en";
             }

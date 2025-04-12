@@ -1,0 +1,185 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8dadc;
+    color: #491c78;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #491c78;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 70px;
+}
+
+.menu {
+    display: flex;
+    gap: 60px;
+}
+
+.menu a img {
+    width: 35px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu a img:hover {
+    transform: scale(1.1);
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-box button img {
+    width: 20px;
+}
+
+.steam-explorer {
+    background-color: #FFD700;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6A008A;
+}
+
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* Sección del equipo */
+.team-section {
+    padding: 100px 20px 40px;
+    text-align: center;
+    background: linear-gradient(to right, #ffe2f1, #f8dadc);
+}
+
+.team-title {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: #6a008a;
+}
+
+.team-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.team-card:hover {
+    transform: scale(1.02);
+}
+
+.team-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #dc4e80;
+    margin-right: 30px;
+}
+
+.team-info {
+    text-align: left;
+}
+
+.team-info h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #491c78;
+}
+
+.role {
+    font-weight: bold;
+    color: #dc4e80;
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.description {
+    font-size: 16px;
+    color: #6a008a;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .team-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .team-photo {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.language-toggle {
+    position: absolute;
+    top: 15%; /* <-- Antes estaba en 120px, ahora lo subimos a 80px */
+    left: 94%;
+    width: 70px;
+    height: 70px;
+    background-color: #dc4e80;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #470a71;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 20;
+  }
+  
+  .language-toggle:hover {
+    background-color: #dc4e80;
+    transform: scale(1.1);
+  }  

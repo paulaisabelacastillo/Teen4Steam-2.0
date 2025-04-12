@@ -2,85 +2,49 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Art & Tech Studio - Galería Creativa</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
-      background: linear-gradient(to right, #fdf4ff, #e0c3fc);
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-      color: #6a1b9a;
-    }
-
-    #mission, #timer {
-      margin-bottom: 10px;
-      font-size: 1.2em;
-      font-weight: bold;
-      color: #4a148c;
-    }
-
-    #color-picker {
-      margin: 10px 0;
-    }
-
-    #drawing-area {
-      background-color: #fff;
-      border: 3px dashed #ba68c8;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      display: block;
-      margin: 20px auto;
-      touch-action: none;
-    }
-
-    button {
-      background-color: #ba68c8;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1em;
-      border-radius: 25px;
-      cursor: pointer;
-      margin: 8px;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #9c27b0;
-    }
-
-    #gallery {
-      display: none;
-      margin-top: 30px;
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .artwork {
-      width: 30%;
-      margin: 10px;
-      border: 2px solid #ba68c8;
-      border-radius: 10px;
-    }
-
-    .gallery-title {
-      font-size: 1.5em;
-      color: #4a148c;
-      margin-bottom: 20px;
-    }
-  </style>
+  <title>Art & Tech Studio </title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="arttech.css">
+  
 </head>
+
 <body>
 
-  <h1>🎨 Art & Tech Studio</h1>
+<nav class="navbar">
+  <div class="logo">
+    <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
+  </div>
+
+  <div class="menu">
+    <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+    <a href="team.html"><img src="img/Team.png" alt="Team"></a>
+    <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
+    <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
+    <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
+    <a href="community.html"><img src="img/community.png" alt="Community"></a>
+    <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
+    <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
+    <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
+  </div>
+
+  <div class="right-section">
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="Buscar...">
+      <button><img src="img/lupa.png" alt="Buscar"></button>
+    </div>
+
+    <div class="steam-explorer">0 STEAM Explorer</div>
+
+    <div class="user-profile">
+      <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+    </div>
+  </div>
+</nav>
+
+<button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+
+<div class="main-content">
+  <h1 id="page-title"> Art & Tech Studio</h1>
 
   <p id="mission">¡Haz clic en "Nueva Misión" para comenzar!</p>
   <p id="timer">Tiempo restante: 5:00</p>
@@ -91,138 +55,147 @@
   <canvas id="drawing-area" width="350" height="350"></canvas>
   <br>
 
-  <button onclick="newMission()">Nueva Misión</button>
-  <button onclick="saveDrawing()">Guardar mi obra</button>
-  <button onclick="endGame()">Finalizar manualmente</button>
+  <button class="action-button" onclick="newMission()" id="new-mission-btn">Nueva Misión</button>
+  <button class="action-button" onclick="saveDrawing()" id="save-btn">Guardar mi obra</button>
+  <button class="action-button" onclick="endGame()" id="end-btn">Finalizar manualmente</button>
 
   <div id="gallery">
-    <h2 class="gallery-title">¡Felicidades, artista! Has completado tu galería creativa. 🖼️</h2>
+    <h2 class="gallery-title" id="gallery-title">¡Felicidades, artista! Has completado tu galería creativa.</h2>
     <div id="artworks"></div>
   </div>
+</div>
 
-  <script>
-    const canvas = document.getElementById('drawing-area');
-    const ctx = canvas.getContext('2d');
-    const colorPicker = document.getElementById('color-picker');
-    const missionText = document.getElementById('mission');
-    const timerText = document.getElementById('timer');
-    const gallery = document.getElementById('gallery');
-    const artworksDiv = document.getElementById('artworks');
+<script>
+  let language = "es";
 
-    const missions = [
-      "🎯 Diseña el logo de tu nave espacial.",
-      "🎯 Crea un póster para un invento del futuro.",
-      "🎯 Dibuja tu robot ayudante ideal.",
-      "🎯 Diseña un traje espacial artístico.",
-      "🎯 Crea una ciudad flotante sobre el mar.",
-      "🎯 Dibuja un gadget para salvar el planeta.",
-      "🎯 Diseña tu máquina de sueños.",
-      "🎯 Imagina tu parque de diversiones STEAM."
-    ];
+  function toggleLanguage() {
+    language = (language === "en") ? "es" : "en";
 
-    let painting = false;
-    let drawings = [];
-    let timer;
-    let timeLeft = 300; // 5 minutos = 300 segundos
+    document.getElementById('page-title').innerText = (language === "en") ? " Art & Tech Studio" : " Arte & Tech Estudio";
+    document.getElementById('searchInput').placeholder = (language === "en") ? "Search..." : "Buscar...";
+    document.getElementById('mission').innerText = (language === "en") ? "Click on 'New Mission' to start!" : "¡Haz clic en 'Nueva Misión' para comenzar!";
+    document.getElementById('gallery-title').innerText = (language === "en") ? "Congratulations, artist! You completed your creative gallery." : "¡Felicidades, artista! Has completado tu galería creativa.";
+    document.getElementById('new-mission-btn').innerText = (language === "en") ? "New Mission" : "Nueva Misión";
+    document.getElementById('save-btn').innerText = (language === "en") ? "Save Artwork" : "Guardar mi obra";
+    document.getElementById('end-btn').innerText = (language === "en") ? "Finish Manually" : "Finalizar manualmente";
+  }
 
-    function startPosition(e) {
-      painting = true;
-      draw(e);
+  const canvas = document.getElementById('drawing-area');
+  const ctx = canvas.getContext('2d');
+  const colorPicker = document.getElementById('color-picker');
+  const missionText = document.getElementById('mission');
+  const timerText = document.getElementById('timer');
+  const gallery = document.getElementById('gallery');
+  const artworksDiv = document.getElementById('artworks');
+
+  const missions = [
+    " Diseña el logo de tu nave espacial.",
+    " Crea un póster para un invento del futuro.",
+    " Dibuja tu robot ayudante ideal.",
+    " Diseña un traje espacial artístico.",
+    " Crea una ciudad flotante sobre el mar.",
+    " Dibuja un gadget para salvar el planeta.",
+    " Diseña tu máquina de sueños.",
+    " Imagina tu parque de diversiones STEAM."
+  ];
+
+  let painting = false;
+  let drawings = [];
+  let timer;
+  let timeLeft = 300; // 5 minutos
+
+  function startPosition(e) {
+    painting = true;
+    draw(e);
+  }
+
+  function endPosition() {
+    painting = false;
+    ctx.beginPath();
+  }
+
+  function draw(e) {
+    if (!painting) return;
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX || e.touches[0].clientX) - rect.left;
+    const y = (e.clientY || e.touches[0].clientY) - rect.top;
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = colorPicker.value;
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  }
+
+  function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function newMission() {
+    if (drawings.length >= 3) {
+      endGame();
+      return;
     }
+    const randomIndex = Math.floor(Math.random() * missions.length);
+    missionText.textContent = missions[randomIndex];
+    clearCanvas();
+  }
 
-    function endPosition() {
-      painting = false;
-      ctx.beginPath();
+  function saveDrawing() {
+    if (drawings.length >= 3) {
+      alert(language === "en" ? "You have already saved 3 artworks. Please finish." : "Ya has guardado 3 obras. Finaliza el juego.");
+      return;
     }
-
-    function draw(e) {
-      if (!painting) return;
-
-      const rect = canvas.getBoundingClientRect();
-      const x = (e.clientX || e.touches[0].clientX) - rect.left;
-      const y = (e.clientY || e.touches[0].clientY) - rect.top;
-
-      ctx.lineWidth = 5;
-      ctx.lineCap = 'round';
-      ctx.strokeStyle = colorPicker.value;
-
-      ctx.lineTo(x, y);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(x, y);
+    const dataURL = canvas.toDataURL('image/png');
+    drawings.push(dataURL);
+    clearCanvas();
+    if (drawings.length >= 3) {
+      endGame();
+    } else {
+      alert(language === "en" ? `Artwork saved! Create artwork number ${drawings.length + 1}.` : `¡Obra guardada! Ahora crea tu obra número ${drawings.length + 1}.`);
     }
+  }
 
-    function clearCanvas() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-
-    function newMission() {
-      if (drawings.length >= 3) {
+  function startTimer() {
+    timer = setInterval(() => {
+      timeLeft--;
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerText.textContent = (language === "en") ? `Time left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}` : `Tiempo restante: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      if (timeLeft <= 0) {
+        clearInterval(timer);
         endGame();
-        return;
       }
-      const randomIndex = Math.floor(Math.random() * missions.length);
-      missionText.textContent = missions[randomIndex];
-      clearCanvas();
-    }
+    }, 1000);
+  }
 
-    function saveDrawing() {
-      if (drawings.length >= 3) {
-        alert("Ya has guardado las 3 obras. Finaliza el juego.");
-        return;
-      }
-      const dataURL = canvas.toDataURL('image/png');
-      drawings.push(dataURL);
-      clearCanvas();
-      if (drawings.length >= 3) {
-        endGame();
-      } else {
-        alert(`¡Obra guardada! Ahora crea tu obra número ${drawings.length + 1}.`);
-      }
-    }
+  function endGame() {
+    clearInterval(timer);
+    document.getElementById('drawing-area').style.display = 'none';
+    document.getElementById('color-picker').style.display = 'none';
+    document.querySelectorAll('.action-button').forEach(btn => btn.style.display = 'none');
+    missionText.style.display = 'none';
+    timerText.style.display = 'none';
+    gallery.style.display = 'block';
 
-    function startTimer() {
-      timer = setInterval(() => {
-        timeLeft--;
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        timerText.textContent = `Tiempo restante: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        if (timeLeft <= 0) {
-          clearInterval(timer);
-          endGame();
-        }
-      }, 1000);
-    }
+    drawings.forEach(dataURL => {
+      const img = document.createElement('img');
+      img.src = dataURL;
+      img.className = 'artwork';
+      artworksDiv.appendChild(img);
+    });
+  }
 
-    function endGame() {
-      clearInterval(timer);
-      document.getElementById('drawing-area').style.display = 'none';
-      document.getElementById('color-picker').style.display = 'none';
-      document.querySelectorAll('button').forEach(btn => btn.style.display = 'none');
-      document.getElementById('mission').style.display = 'none';
-      document.getElementById('timer').style.display = 'none';
-      gallery.style.display = 'block';
+  canvas.addEventListener('mousedown', startPosition);
+  canvas.addEventListener('mouseup', endPosition);
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('touchstart', startPosition);
+  canvas.addEventListener('touchend', endPosition);
+  canvas.addEventListener('touchmove', draw);
 
-      drawings.forEach(dataURL => {
-        const img = document.createElement('img');
-        img.src = dataURL;
-        img.className = 'artwork';
-        artworksDiv.appendChild(img);
-      });
-    }
-
-    // Eventos
-    canvas.addEventListener('mousedown', startPosition);
-    canvas.addEventListener('mouseup', endPosition);
-    canvas.addEventListener('mousemove', draw);
-
-    canvas.addEventListener('touchstart', startPosition);
-    canvas.addEventListener('touchend', endPosition);
-    canvas.addEventListener('touchmove', draw);
-
-    // Iniciar el cronómetro
-    startTimer();
-  </script>
+  startTimer();
+</script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #f8dadc;
     height: 100vh;
 }
@@ -70,7 +70,6 @@ body {
     gap: 15px;
 }
 
-/* Search Bar */
 .search-box {
     display: flex;
     align-items: center;
@@ -116,7 +115,7 @@ body {
     cursor: pointer;
 }
 
-/* Estilo del título principal */
+/* Header */
 header {
     text-align: center;
     padding: 20px;
@@ -125,73 +124,28 @@ header {
     color: #6A008A;
 }
 
-/* Contenedor de juegos principal */
+/* Contenedor de los primeros dos juegos */
 .game-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 80%;
-    margin: 50px auto;
+    width: 90%; /* AQUI: Más ancho */
+    margin: 30px auto;
     gap: 20px;
 }
 
 /* Estilos de las tarjetas de juego */
-.game-card, .game-coming-soon {
+.game-card {
     background: white;
     border-radius: 15px;
     padding: 20px;
-    width: 350px;
+    width: 400px; /* AQUI: Más ancho (era 350px) */
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    height: 200px; /* Altura fija */
+    height: 200px;
 }
 
-/* Primer cuadro */
-.game-card {
-    flex: 1;
-}
-
-/* Segundo cuadro (Coming Soon) con efecto transparente */
-.game-coming-soon {
-    flex: 1;
-    background: #f69ebd;
-    backdrop-filter: blur(5px);
-}
-
-/* Botones de jugar */
-.play-button {
-    display: inline-block;
-    padding: 15px 100px;
-    background-color: #6A008A;
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 8px;
-    margin-top: 15px;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.play-button:hover {
-    background-color: #9c27b0;
-    transform: scale(1.05);
-}
-
-/* Ajuste de margen en texto Coming Soon */
-.game-coming-soon p {
-    margin-top: 40px;
-}
-
-/* Contenedor de Coming Soon */
-.game-container-bottom {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-/* ---------------- NUEVO ---------------- */
-
-/* Contenido interno de las tarjetas para imagen y texto */
+/* Imagen y texto de las tarjetas */
 .card-content {
     display: flex;
     align-items: center;
@@ -200,18 +154,15 @@ header {
     gap: 15px;
 }
 
-/* Imagen a la izquierda dentro de la tarjeta */
 .game-cover-left {
-    width: 110px;
-    height:165px;
+    width: 120px; /* AQUI: un poquito más grande */
+    height: 165px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-/* Área de texto en las tarjetas */
 .card-text {
     text-align: left;
-
 }
 
 .card-text h2 {
@@ -230,7 +181,52 @@ header {
     font-size: 16px;
 }
 
+/* Botón Jugar */
+.play-button {
+    display: inline-block;
+    padding: 15px 100px;
+    background-color: #6A008A;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: background 0.3s, transform 0.2s;
+}
 
+.play-button:hover {
+    background-color: #9c27b0;
+    transform: scale(1.05);
+}
+
+/* Nuevo contenedor para la segunda fila (tercer juego) */
+.game-container:nth-of-type(2) {
+    margin-top: 20px;
+}
+
+/* Contenedor Coming Soon */
+.game-container-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f69ebd;
+    margin-top: 40px;
+    padding: 50px 0;
+}
+
+.game-coming-soon {
+    background: none;
+    text-align: center;
+}
+
+.game-coming-soon h2, .game-coming-soon p {
+    margin: 10px 0;
+    color: #6A008A;
+    font-weight: bold;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .game-container {
         flex-direction: column;
@@ -239,11 +235,9 @@ header {
 
     .game-container-bottom {
         flex-direction: column;
-        align-items: center;
     }
 
-    .game-card, .game-coming-soon {
+    .game-card {
         width: 90%;
     }
 }
-

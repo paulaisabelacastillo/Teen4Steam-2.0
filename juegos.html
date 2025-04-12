@@ -10,21 +10,22 @@
 
   <nav class="navbar">
     <div class="logo">
-      <img src="img/logo morado.png" alt="Logo">
+      <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
     </div>
 
     <button id="language-toggle" class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
 
     <div class="menu">
-      <a href="principal.html"><img src="img/home.png"></a>
-      <a href="mytutor.html"><img src="img/my tutor.png"></a>
-      <a href="calendario.html"><img src="img/xperience.png"></a>
-      <a href="juegos.html"><img src="img/playground.png"></a> 
-      <a href="soon.html"><img src="img/community.png"></a>
-      <a href="soon.html"><img src="img/marketplace.png"></a>
-      <a href="soon.html"><img src="img/festival.png"></a>
-      <a href="soon.html"><img src="img/podcast.png"></a>
-    </div>
+      <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+      <a href="team.html"><img src="img/Team.png" alt="Team"></a>
+      <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
+      <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
+      <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
+      <a href="community.html"><img src="img/community.png" alt="Community"></a>
+      <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
+      <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
+      <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
+  </div>
 
     <div class="right-section">
       <div class="search-box">
@@ -46,7 +47,7 @@
 
   <main>
     <div class="game-container">
-      <!-- Primer juego (izquierda) -->
+      <!-- Primer juego -->
       <div class="game-card">
         <div class="card-content">
           <img src="img/steamexplorer.png" alt="STEAM Explorer" class="game-cover-left">
@@ -58,7 +59,7 @@
         </div>
       </div>
 
-      <!-- Segundo juego (derecha) -->
+      <!-- Segundo juego -->
       <div class="game-card">
         <div class="card-content">
           <img src="img/arttech.png" alt="Art Tech Studio" class="game-cover-left">
@@ -71,18 +72,33 @@
       </div>
     </div>
 
+    <div class="game-container">
+      <!-- Tercer juego (Nuevo) -->
+      <div class="game-card">
+        <div class="card-content">
+          <img src="img/fotoderechos.png" alt="Children's Rights" class="game-cover-left">
+          <div class="card-text">
+            <h2 id="game3-title">Know Your Rights</h2>
+            <p id="game3-description">Discover your rights and become a defender of your future!</p>
+            <a href="derechos.html" class="play-button" id="play3-btn">Play</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coming soon al final -->
     <div class="game-container-bottom">
-      <!-- Tercer juego (abajo) -->
       <div class="game-coming-soon">
         <h2 id="coming-title">More games coming soon...</h2>
         <p id="coming-description">We'll be adding more games for you soon!</p>
       </div>
     </div>
+
   </main>
 
   <script>
     let language = "en";
-    
+
     function toggleLanguage() {
       const playgroundTitle = document.getElementById('playground-title');
       const game1Title = document.getElementById('game1-title');
@@ -91,42 +107,49 @@
       const game2Title = document.getElementById('game2-title');
       const game2Description = document.getElementById('game2-description');
       const play2Btn = document.getElementById('play2-btn');
+      const game3Title = document.getElementById('game3-title');
+      const game3Description = document.getElementById('game3-description');
+      const play3Btn = document.getElementById('play3-btn');
       const comingTitle = document.getElementById('coming-title');
       const comingDescription = document.getElementById('coming-description');
       const searchInput = document.getElementById('searchInput');
       const languageToggle = document.getElementById('language-toggle');
-    
+
       if (language === "en") {
-        if (playgroundTitle) playgroundTitle.innerText = "Área de Juegos";
-        if (game1Title) game1Title.innerText = "365 Días para ser un Explorador STEAM";
-        if (game1Description) game1Description.innerText = "¡Haz clic para jugar y aprender!";
-        if (play1Btn) play1Btn.innerText = "Jugar";
-        if (game2Title) game2Title.innerText = "Arte y Tecnología Studio";
-        if (game2Description) game2Description.innerText = "¡Crea tu galería STEAM y completa misiones creativas!";
-        if (play2Btn) play2Btn.innerText = "Jugar";
-        if (comingTitle) comingTitle.innerText = "Más juegos muy pronto...";
-        if (comingDescription) comingDescription.innerText = "¡Agregaremos más juegos para ti pronto!";
-        if (searchInput) searchInput.placeholder = "Buscar...";
-        if (languageToggle) languageToggle.innerText = "🌐 Es/En";
-    
+        playgroundTitle.innerText = "Área de Juegos";
+        game1Title.innerText = "365 Días para ser un Explorador STEAM";
+        game1Description.innerText = "¡Haz clic para jugar y aprender!";
+        play1Btn.innerText = "Jugar";
+        game2Title.innerText = "Arte y Tecnología Studio";
+        game2Description.innerText = "¡Crea tu galería STEAM y completa misiones creativas!";
+        play2Btn.innerText = "Jugar";
+        game3Title.innerText = "Conoce tus Derechos";
+        game3Description.innerText = "¡Descubre tus derechos y conviértete en defensor de tu futuro!";
+        play3Btn.innerText = "Jugar";
+        comingTitle.innerText = "Más juegos muy pronto...";
+        comingDescription.innerText = "¡Agregaremos más juegos para ti pronto!";
+        searchInput.placeholder = "Buscar...";
+        languageToggle.innerText = "🌐 Es/En";
         language = "es";
       } else {
-        if (playgroundTitle) playgroundTitle.innerText = "Playground";
-        if (game1Title) game1Title.innerText = "365 Days to be a STEAM Explorer";
-        if (game1Description) game1Description.innerText = "Click to play and learn!";
-        if (play1Btn) play1Btn.innerText = "Play";
-        if (game2Title) game2Title.innerText = "Art & Tech Studio";
-        if (game2Description) game2Description.innerText = "Create your own STEAM gallery and complete creative missions!";
-        if (play2Btn) play2Btn.innerText = "Play";
-        if (comingTitle) comingTitle.innerText = "More games coming soon...";
-        if (comingDescription) comingDescription.innerText = "We'll be adding more games for you soon!";
-        if (searchInput) searchInput.placeholder = "Search...";
-        if (languageToggle) languageToggle.innerText = "🌐 En/Es";
-    
+        playgroundTitle.innerText = "Playground";
+        game1Title.innerText = "365 Days to be a STEAM Explorer";
+        game1Description.innerText = "Click to play and learn!";
+        play1Btn.innerText = "Play";
+        game2Title.innerText = "Art & Tech Studio";
+        game2Description.innerText = "Create your own STEAM gallery and complete creative missions!";
+        play2Btn.innerText = "Play";
+        game3Title.innerText = "Know Your Rights";
+        game3Description.innerText = "Discover your rights and become a defender of your future!";
+        play3Btn.innerText = "Play";
+        comingTitle.innerText = "More games coming soon...";
+        comingDescription.innerText = "We'll be adding more games for you soon!";
+        searchInput.placeholder = "Search...";
+        languageToggle.innerText = "🌐 En/Es";
         language = "en";
       }
     }
-    </script>
-    
+  </script>
+
 </body>
 </html>

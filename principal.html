@@ -11,20 +11,19 @@
 <nav class="navbar">
 
     <div class="logo">
-        <img src="img/logo morado.png">
+        <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
     </div>
 
-    <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
-
     <div class="menu">
-        <a href="principal.html"><img src="img/home.png"></a>
-        <a href="mytutor.html"><img src="img/my tutor.png"></a>
-        <a href="calendario.html"><img src="img/xperience.png"></a>
-        <a href="juegos.html"><img src="img/playground.png"></a> 
-        <a href="soon.html"><img src="img/community.png"></a>
-        <a href="soon.html"><img src="img/marketplace.png"></a>
-        <a href="soon.html"><img src="img/festival.png"></a>
-        <a href="soon.html"><img src="img/podcast.png"></a>
+        <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+        <a href="team.html"><img src="img/Team.png" alt="Team"></a>
+        <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
+        <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
+        <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
+        <a href="community.html"><img src="img/community.png" alt="Community"></a>
+        <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
+        <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
+        <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
     </div>
 
     <div class="right-section">
@@ -41,6 +40,8 @@
     </div>
 </nav>
 
+<button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+
 <div class="container">
     <div class="content">
         <div class="left">
@@ -50,12 +51,7 @@
             <h2 id="vision-title">Our Vision</h2>
             <p id="vision-text">To create a world where gender is never a barrier to success in STEM. TEEN4STEAM envisions a future where millions of girls have the resources, mentorship, and opportunities to lead and transform the fields of science, technology, engineering, arts, and mathematics, shaping a more diverse, inclusive, and innovative future for all.</p>
         
-            <h4 id="team-title">Techno Spark</h4>
-            <ul id="team-list">
-                <li>Paula Castillo, Programmer</li>
-                <li>Mariana Coronado, Designer</li>
-                <li>Nathaly Chung, Programmer</li>
-            </ul>
+            
         </div>
         
         <div class="right">
@@ -76,7 +72,6 @@ function toggleLanguage() {
         document.getElementById('vision-title').innerText = "Nuestra Visión";
         document.getElementById('vision-text').innerText = "Crear un mundo donde el género nunca sea un obstáculo para el éxito en STEM. TEEN4STEAM imagina un futuro donde millones de niñas cuenten con recursos, mentoría y oportunidades para liderar y transformar los campos de la ciencia, tecnología, ingeniería, artes y matemáticas, creando un futuro más diverso, inclusivo e innovador para todos.";
 
-        document.getElementById('team-title').innerText = "Techno Spark";
 
         const teamList = document.getElementById('team-list');
         teamList.innerHTML = `
@@ -97,14 +92,8 @@ function toggleLanguage() {
         document.getElementById('vision-title').innerText = "Our Vision";
         document.getElementById('vision-text').innerText = "To create a world where gender is never a barrier to success in STEM. TEEN4STEAM envisions a future where millions of girls have the resources, mentorship, and opportunities to lead and transform the fields of science, technology, engineering, arts, and mathematics, shaping a more diverse, inclusive, and innovative future for all.";
 
-        document.getElementById('team-title').innerText = "Techno Spark";
 
-        const teamList = document.getElementById('team-list');
-        teamList.innerHTML = `
-            <li>Paula Castillo, Programmer</li>
-            <li>Mariana Coronado, Designer</li>
-            <li>Nathaly Chung, Programmer</li>
-        `;
+    
 
         // Cambiar placeholder del search
         document.getElementById('searchInput').placeholder = "Search...";
