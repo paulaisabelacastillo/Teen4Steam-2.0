@@ -9,148 +9,64 @@
 <body>
 
 <nav class="navbar">
-    <div class="logo">
-        <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
-    </div>
+  <div class="logo">
+    <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
+  </div>
 
-    <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+  <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
 
-    <div class="menu">
-        <a href="principal.html"><img src="img/home.png" alt="Home"></a>
-        <a href="team.html"><img src="img/Team.png" alt="Team"></a>
-        <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
-        <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
-        <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
-        <a href="community.html"><img src="img/community.png" alt="Community"></a>
-        <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
-        <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
-        <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
-    </div>
+  <div class="menu">
+    <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+    <a href="team.html"><img src="img/Team.png" alt="Team"></a>
+    <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
+    <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
+    <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
+    <a href="community.html"><img src="img/community.png" alt="Community"></a>
+    <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
+    <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
+    <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
+  </div>
 
-    <div class="right-section">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search...">
-            <button><img src="img/lupa.png" alt="Buscar"></button>
-        </div>
-        <div class="steam-explorer">0 STEAM Explorer</div>
-        <div class="user-profile">
-            <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
-        </div>
+  <div class="right-section">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search...">
+      <button><img src="img/lupa.png" alt="Buscar"></button>
     </div>
+    <div class="steam-explorer">0 STEAM Explorer</div>
+    <div class="user-profile">
+      <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+    </div>
+  </div>
 </nav>
 
 <div class="calendar-container">
-    <div class="header">
-        <h2 id="calendar-title">Xperience - Activities Calendar</h2>
-    </div>
+  <div class="header">
+    <h2 id="calendar-title">Xperience - Activities Calendar</h2>
+  </div>
 
-    <div class="tab-container">
-        <button class="tab active" onclick="showTab('day')">Day</button>
-        <button class="tab" onclick="showTab('week')">Week</button>
-        <button class="tab" onclick="showTab('month')">Month</button>
-    </div>
+  <div class="tab-container">
+    <button class="tab active" onclick="showTab('day')">Day</button>
+    <button class="tab" onclick="showTab('week')">Week</button>
+    <button class="tab" onclick="showTab('month')">Month</button>
+  </div>
 
-    <div id="day" class="activities active">
-        <h3 id="today-title">Today <span id="today-date"></span></h3>
-        <div id="day-activities"></div>
-    </div>
+  <div id="day" class="activities active">
+    <h3 id="today-title">Today <span id="today-date"></span></h3>
+    <div id="day-activities"></div>
+  </div>
 
-    <div id="week" class="activities">
-        <h3 id="week-title">This Week</h3>
-        <div class="activity">
-            <span>Tuesday 18 - Tech Day - Expo Forum / Sheraton Grand Panama Hotel / Women in Tech</span>
-            <img src="img/flag-panama.png" alt="Panama" class="flag">
-        </div>
-    </div>
+  <div id="week" class="activities">
+    <h3 id="week-title">This Week</h3>
+    <div id="week-activities"></div>
+  </div>
 
-    <div id="month" class="activities">
-        <h3 id="month-title">This Month</h3>
-        <div class="activity">
-            <span>March 26 - Cybersecurity for Girls / Teen4STEAM</span>
-            <img src="img/flag-panama.png" alt="Panama" class="flag">
-        </div>
-    </div>
+  <div id="month" class="activities">
+    <h3 id="month-title">This Month</h3>
+    <div id="month-activities"></div>
+  </div>
 </div>
 
-<script>
-function showTab(tabId) {
-    document.querySelectorAll('.activities').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    document.getElementById(tabId).classList.add('active');
-
-    document.querySelectorAll('.tab').forEach(button => {
-        button.classList.remove('active');
-    });
-    event.target.classList.add('active');
-}
-
-function updateTodayDate() {
-    const today = new Date();
-    const options = { day: 'numeric', month: 'short', year: 'numeric' };
-    document.getElementById('today-date').innerText = `- ${today.toLocaleDateString('en-US', options)}`;
-}
-
-function loadDayActivities() {
-    const today = new Date();
-    const day = today.getDate();
-    const dayActivities = document.getElementById('day-activities');
-    dayActivities.innerHTML = '';
-
-    if (day === 11) {
-        dayActivities.innerHTML = `
-            <div class="activity">
-                <span>1:00 p.m - Technofest - The Power of New Generations / Rincon Clubhouse Explora</span>
-                <img src="img/panama.png" class="flag">
-            </div>
-            <div class="activity">
-                <span>1:00 p.m - Computational Thinking Workshop / Rincon Clubhouse Explora</span>
-                <img src="img/panama.png" class="flag">
-            </div>
-        `;
-    } else if (day === 18) {
-        dayActivities.innerHTML = `
-            <div class="activity">
-                <span>Tech Day - Expo Forum / Sheraton Grand Panama Hotel</span>
-                <img src="img/panama.png" class="flag">
-            </div>
-        `;
-    } else {
-        dayActivities.innerHTML = `
-            <div class="activity">
-                <span>No activities today. Check back soon!</span>
-            </div>
-        `;
-    }
-}
-
-let language = "en";
-
-function toggleLanguage() {
-    if (language === "en") {
-        document.getElementById('calendar-title').innerText = "Xperience - Calendario de Actividades";
-        document.getElementById('today-title').innerHTML = "Hoy <span id='today-date'></span>";
-        document.getElementById('week-title').innerText = "Esta Semana";
-        document.getElementById('month-title').innerText = "Este Mes";
-        document.getElementById('searchInput').placeholder = "Buscar...";
-
-        language = "es";
-    } else {
-        document.getElementById('calendar-title').innerText = "Xperience - Activities Calendar";
-        document.getElementById('today-title').innerHTML = "Today <span id='today-date'></span>";
-        document.getElementById('week-title').innerText = "This Week";
-        document.getElementById('month-title').innerText = "This Month";
-        document.getElementById('searchInput').placeholder = "Search...";
-
-        language = "en";
-    }
-    updateTodayDate();
-}
-
-// Inicializar
-updateTodayDate();
-loadDayActivities();
-</script>
+<script src="calendario.js"></script>
 
 </body>
 </html>

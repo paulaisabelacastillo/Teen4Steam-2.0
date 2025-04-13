@@ -81,16 +81,17 @@ body {
 
 /* Sección del equipo */
 .team-section {
-    padding: 100px 20px 40px;
+    padding: 60px 20px 30px; /* Antes 100px */
     text-align: center;
     background: linear-gradient(to right, #ffe2f1, #f8dadc);
 }
 
 .team-title {
-    font-size: 3rem;
-    margin-bottom: 50px;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
     color: #6a008a;
 }
+
 
 .team-grid {
     display: flex;

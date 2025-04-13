@@ -4,18 +4,19 @@ body {
     margin: 0;
     color: #491c78;
     text-align: center;
-}
-
-/* Navbar */
-.navbar {
+  }
+  
+  /* Navbar */
+  .navbar {
     background-color: #491c78;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-}
-
-.language-toggle {
+  }
+  
+  /* Botón de idioma */
+  .language-toggle {
     position: absolute;
     top: 15%;
     left: 94%;
@@ -33,100 +34,100 @@ body {
     justify-content: center;
     transition: background-color 0.3s, transform 0.3s;
     z-index: 20;
-}
-
-.language-toggle:hover {
+  }
+  
+  .language-toggle:hover {
     background-color: #dc4e80;
     transform: scale(1.1);
-}
-
-.logo img {
+  }
+  
+  .logo img {
     height: 70px;
-}
-
-.menu {
+  }
+  
+  .menu {
     display: flex;
     gap: 60px;
-}
-
-.menu a img {
+  }
+  
+  .menu a img {
     width: 35px;
     transition: transform 0.2s;
-}
-
-.menu a img:hover {
+  }
+  
+  .menu a img:hover {
     transform: scale(1.1);
-}
-
-.right-section {
+  }
+  
+  .right-section {
     display: flex;
     align-items: center;
     gap: 15px;
-}
-
-.search-box {
+  }
+  
+  .search-box {
     display: flex;
     align-items: center;
     background-color: white;
     border-radius: 20px;
     padding: 5px 10px;
-}
-
-.search-box input {
+  }
+  
+  .search-box input {
     border: none;
     outline: none;
     padding: 5px;
-}
-
-.search-box button {
+  }
+  
+  .search-box button {
     background: none;
     border: none;
     cursor: pointer;
-}
-
-.search-box button img {
+  }
+  
+  .search-box button img {
     width: 20px;
-}
-
-.steam-explorer {
+  }
+  
+  .steam-explorer {
     background-color: #FFD700;
     padding: 5px 15px;
     border-radius: 15px;
     font-weight: bold;
     color: #6A008A;
-}
-
-.user-profile img {
+  }
+  
+  .user-profile img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border: 2px solid white;
-}
-
-/* Calendario */
-.calendar-container {
+  }
+  
+  /* Calendario */
+  .calendar-container {
     width: 80%;
     margin: auto;
     background: white;
     padding: 20px;
     border-radius: 10px;
     margin-top: 30px;
-}
-
-.header {
+  }
+  
+  .header {
     background-color: #7d2278;
     color: white;
     padding: 15px;
     border-radius: 10px 10px 0 0;
-}
-
-.tab-container {
+  }
+  
+  .tab-container {
     display: flex;
     justify-content: center;
     margin: 10px 0;
-}
-
-.tab {
+  }
+  
+  .tab {
     padding: 10px 15px;
     margin: 0 5px;
     background-color: #e69cb5;
@@ -134,35 +135,48 @@ body {
     border-radius: 5px;
     cursor: pointer;
     color: white;
-}
-
-.tab.active {
+  }
+  
+  .tab.active {
     background-color: #ffccd5;
-}
-
-.activities {
+  }
+  
+  .activities {
     margin-top: 20px;
     text-align: left;
     display: none;
-}
-
-.activities.active {
+  }
+  
+  .activities.active {
     display: block;
-}
-
-.activity {
+  }
+  
+  .activity {
     background: #ffb3c1;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.flag {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .activity-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .flag {
     width: 25px;
     height: 18px;
-    margin-top: 8px;
-    margin-left: 5px;
-}
+  }
+  
+  .link-button {
+    background: #d63384;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
