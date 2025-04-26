@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caja Mágica de los Derechos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <style>
+    body {
+  font-family: 'Fredoka One', cursive;
+  text-align: center;
+  margin: 0;
+  padding: 120px 20px 20px; /* 👈 Ajuste aquí */
+  background: linear-gradient(-45deg, #f8dadc, #f8dadc, #f8dadc, #f8dadc);
+  background-size: 400% 400%;
+  animation: animarFondo 15s ease infinite;
+}
+
+
+     @keyframes animarFondo {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+}
+ 
+.navbar {
+    background: #491c78;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    width: 97.5%;
+    z-index: 1000;
+    left: 0%;
+  }
+  
+  .logo img {
+    height: 70px;
+  }
+  
+  .menu {
+    display: flex;
+    gap: 60px;
+  }
+  
+  .menu a img {
+    width: 35px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .menu a img:hover {
+    transform: scale(1.1);
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+  
+  .search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+  }
+  
+  .search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-box button img {
+    width: 20px;
+  }
+  
+  .steam-explorer {
+    background-color: #FFD700;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #6A008A;
+  }
+  
+  .user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+
+  .language-toggle {
+    position: absolute;
+    top: 120px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    background-color: #dc4e80;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #470a71;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+  }
+  
+  .language-toggle:hover {
+    background-color: #dc4e80;
+    transform: scale(1.1);
+  }
+  
+    button {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      background-color: #b9c7ff;
+      border: none;
+      border-radius: 10px;
+    }
+
+    #infoBox {
+      background: #fff3cd;
+      border: 2px solid #ffeeba;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      font-size: 1.1em;
+      max-width: 600px;
+    }
+
+    #boxContainer {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .box-row {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    .magic-box {
+      width: 100px;
+      height: 100px;
+      background: url('img/cofre.png') no-repeat center center / cover;
+      margin: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .magic-box::after {
+      content: "✨";
+      font-size: 24px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      animation: sparkle 1s infinite alternate;
+    }
+
+    @keyframes sparkle {
+      0% { opacity: 0.3; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.3); }
+    }
+
+    .magic-box.disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .overlay.show {
+      display: flex;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      width: 240px;
+      text-align: center;
+      position: relative;
+      border: 2px solid rgb(255, 177, 236);
+      box-shadow: 0 0 15px 5px rgb(255, 198, 241);
+      animation: sparkle 1s ease forwards;
+    }
+
+    .card img {
+      width: 70px;
+      margin-bottom: 10px;
+    }
+
+    .question-container {
+      margin-top: 10px;
+    }
+
+    .result-message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    #modalStickers {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 35%;
+      width: 30%;
+      height: auto;
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      overflow-y: auto;
+      box-shadow: 0 0 20px #fbff00;
+      z-index: 9999;
+      box-shadow: 0 0 15px #ff9efc, 0 0 25px #ffeb99;
+      animation: popIn 0.5s ease forwards, glow 2s ease-in-out infinite alternate;
+
+    }
+
+    @keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+    @keyframes glow {
+  0% {
+    box-shadow: 0 0 10px #ff9efc, 0 0 15px #ffeb99;
+  }
+  100% {
+    box-shadow: 0 0 20px #ff9efc, 0 0 30px #ffeb99;
+  }
+}
+
+    .sticker-item {
+      display: inline-block;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .sticker-item img {
+      width: 60px;
+      height: 60px;
+    }
+
+    #infoSticker {
+      margin-top: 10px;
+      font-size: 1em;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
+
+    #contadorPuntos {
+      margin-top: 15px;
+      font-size: 1.2em;
+      color: #ffcadc;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Le da un brillito sutil */
+      font-weight: bold;
+    }
+    h1 {
+        color: 	#ffcce1; /* Un dorado suave que resalta bonito */
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Le da un brillito sutil */
+        font-size: 2.5em;
+    }
+
+  </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+          <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
+        </div>
+      
+        <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+      
+        <div class="menu">
+          <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+          <a href="team.html"><img src="img/Team.png" alt="Team"></a>
+          <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
+          <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
+          <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
+          <a href="community.html"><img src="img/community.png" alt="Community"></a>
+          <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
+          <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
+          <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
+        </div>
+      
+        <div class="right-section">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button><img src="img/lupa.png" alt="Buscar"></button>
+          </div>
+      
+          <div class="steam-explorer">0 STEAM Explorer</div>
+      
+          <div class="user-profile">
+            <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+          </div>
+        </div>
+      </nav>
+
+  <h1> Caja Mágica de los Derechos del Niño </h1>
+  <div id="infoBox">
+    <h3>¿Qué son los derechos del Niño?</h3>
+    <p>Los derechos de los niños y niñas son normas que aseguran que crezcan felices, protegidos, con salud, educación y mucho amor. ¡Conócelos y cuídalos!</p>
+  </div>
+
+  <div id="contadorPuntos">Puntos: 0</div>
+
+  <button onclick="mostrarCofres()">Abrir Cofres</button>
+  <button onclick="mostrarTodos()">Ver mis stickers</button>
+
+  <div id="boxContainer">
+    <div id="row1" class="box-row"></div>
+    <div id="row2" class="box-row"></div>
+  </div>
+
+  <div id="overlay" class="overlay" onclick="cerrarCard()">
+    <div id="card" class="card" onclick="event.stopPropagation()"></div>
+  </div>
+
+  <div id="modalStickers">
+    <h2>Mis Stickers</h2>
+    <div id="stickerGrid"></div>
+    <div id="infoSticker"></div>
+    <button onclick="cerrarStickers()">Cerrar</button>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    const firebaseConfig = {
+     apiKey: "AIzaSyDzhvEZsjnFVD237Gen7frLii6RdvApB7g",
+     authDomain: "teen4steam-64958.firebaseapp.com",
+     projectId: "teen4steam-64958",
+     storageBucket: "teen4steam-64958.firebasestorage.app",
+     messagingSenderId: "840465508724",
+     appId: "1:840465508724:web:8e5f60a81ecb8e549da421",
+     measurementId: "G-Y03XVR5EES"
+};
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+
+    let puntos = 0;
+    let stickersObtenidos = new Set();
+    let cofresDisponibles = [];
+
+    function mostrarToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.className = "toast show";
+      setTimeout(() => toast.className = "toast", 3000);
+    }
+
+    window.mostrarCofres = function () {
+      const row1 = document.getElementById("row1");
+      const row2 = document.getElementById("row2");
+      row1.innerHTML = "";
+      row2.innerHTML = "";
+      document.getElementById("boxContainer").style.display = "flex";
+      cofresDisponibles = [];
+
+      for (let i = 0; i < 10; i++) {
+        const box = document.createElement("div");
+        box.className = "magic-box";
+        box.onclick = () => mostrarDerecho(i);
+        cofresDisponibles.push(box);
+        if (i < 5) row1.appendChild(box);
+        else row2.appendChild(box);
+      }
+    };
+
+    window.mostrarTodos = function () {
+      const modal = document.getElementById("modalStickers");
+      const grid = document.getElementById("stickerGrid");
+      const info = document.getElementById("infoSticker");
+      grid.innerHTML = "";
+      info.textContent = "";
+      stickersObtenidos.forEach(nombre => {
+        const item = document.createElement("div");
+        item.className = "sticker-item";
+        const img = document.createElement("img");
+        img.src = "https://cdn-icons-png.flaticon.com/512/1828/1828884.png";
+
+
+        item.appendChild(img);
+        item.onclick = () => info.textContent = `Este sticker representa el derecho: ${nombre}`;
+        grid.appendChild(item);
+      });
+      modal.style.display = "block";
+    };
+
+    window.cerrarStickers = function () {
+      document.getElementById("modalStickers").style.display = "none";
+    };
+
+    window.cerrarCard = function () {
+      document.getElementById("overlay").classList.remove("show");
+    };
+
+    function actualizarContador() {
+      document.getElementById("contadorPuntos").textContent = `Puntos: ${puntos}`;
+    }
+
+    async function guardarDatosFirebase() {
+      const user = auth.currentUser;
+      if (user) {
+        const uid = user.uid;
+        const ref = doc(db, "jugadores", uid);
+        const stickersArray = Array.from(stickersObtenidos);
+        await setDoc(ref, { puntos: puntos, stickers: stickersArray }, { merge: true });
+      }
+    }
+
+    window.mostrarDerecho = function (index) {
+      const card = document.getElementById("card");
+      const overlay = document.getElementById("overlay");
+      const derechos = [
+        {
+          nombre: "Educación",
+          descripcion: "Todos los niños y niñas deben poder ir a la escuela, aprender y tener maestros que los ayuden.",
+          imagen: "img/educacion.jpeg",
+          pregunta: "¿Qué derecho tienen los niños y niñas para ir a la escuela y aprender cosas nuevas?",
+          respuestaClave: "Derecho a la educación"
+        },
+        {
+          nombre: "Salud",
+          descripcion: "Todos los niños y niñas tienen derecho a recibir atención médica y a estar sanos.",
+          imagen: "img/salud.jpeg",
+          pregunta: "¿Qué derecho tienen los niños cuando están enfermos?",
+          respuestaClave: "Derecho a la salud"
+        },
+        {
+          nombre: "Protección",
+          descripcion: "Tienes derecho a estar seguro y protegido de cualquier daño.",
+          imagen: "img/proteccion.jpeg",
+          pregunta: "¿Qué derecho protege a un niño de cualquier daño?",
+          respuestaClave: "Derecho a la protección"
+        },
+        {
+          nombre: "Identidad",
+          descripcion: "Tener tu nombre, tu familia y saber quién eres.",
+          imagen: "img/identidad.jpeg",
+          pregunta: "¿Qué identifica a un niño desde que nace?",
+          respuestaClave: "El derecho a la identidad"
+        },
+        {
+          nombre: "Juego y Descanso",
+          descripcion: "Además de estudiar, los niños y niñas necesitan tiempo para jugar, divertirse y descansar.",
+          imagen: "img/juego y descanso.jpeg",
+          pregunta: "¿Qué les permite a los niños y niñas tener momentos de alegría y relajación?",
+          respuestaClave: "Derecho al juego y al descanso."
+        },
+        {
+          nombre: "Alimentación",
+          descripcion: "Todos los niños y niñas tienen derecho a recibir alimentos nutritivos para crecer saludables.",
+          imagen: "img/alimentacion.jpeg",
+          pregunta: "¿Qué asegura que los niños y niñas puedan alimentarse bien todos los días?",
+          respuestaClave: "Derecho a la alimentación"
+        },
+        {
+          nombre: "Opinión y ser escuchado",
+          descripcion: "Los niños y niñas pueden expresar sus ideas y sentimientos, y los adultos deben escucharlos.",
+          imagen: "img/opinion.jpeg",
+          pregunta: "¿Qué les da voz a los niños y niñas para compartir lo que piensan?",
+          respuestaClave: "El derecho a opinar y ser escuchados " 
+        },
+        {
+          nombre: "Paz infantil",
+          descripcion: "Todos los niños y niñas deben vivir en un lugar donde haya paz, seguridad y respeto.",
+          imagen: "img/paz infantil.jpeg",
+          pregunta: "¿Qué garantiza que crezcan sin miedo y en armonía?",
+          respuestaClave: "El derecho a la paz infantil" 
+        },
+        {
+          nombre: "Igualdad",
+         descripcion: "Todos los niños y niñas tienen los mismos derechos sin importar su origen, género o religión.",
+         imagen: "img/igualdad.jpeg",
+         pregunta: "¿Qué derecho tienen todos los niños sin importar sus diferencias?",
+         respuestaClave: "Derecho a la igualdad"
+        },
+        {
+          nombre: "Familia",
+         descripcion: "Tienes derecho a vivir con una familia que te cuide y te dé amor.",
+         imagen: "img/familia.jpeg",
+         pregunta: "¿Qué derecho asegura que tengas amor y cuidados de una familia?",
+        respuestaClave: "Derecho a vivir en familia"
+        }
+  
+      ];
+
+      const derecho = derechos[Math.floor(Math.random() * derechos.length)];
+
+      card.innerHTML = `
+        <h3> Derecho a la ${derecho.nombre}</h3>
+        <img src="${derecho.imagen}" />
+        <p>${derecho.descripcion}</p>
+        <div class="question-container">
+          <label>${derecho.pregunta}</label>
+          <input id="respuestaInput" type="text" placeholder="Escribe aquí..." />
+          <button onclick="evaluarRespuesta('${derecho.nombre}', '${derecho.respuestaClave}')">Enviar</button>
+        </div>
+        <p id="resultadoRespuesta"></p>
+      `;
+
+      overlay.classList.add("show");
+      card.dataset.cofreActivo = index;
+    };
+
+    window.evaluarRespuesta = async function (nombre, respuestaCorrecta) {
+      const input = document.getElementById("respuestaInput");
+      const respuesta = input.value.trim().toLowerCase();
+      const resultado = document.getElementById("resultadoRespuesta");
+
+      if (respuesta.includes(respuestaCorrecta.toLowerCase())) {
+        if (!stickersObtenidos.has(nombre)) {
+          stickersObtenidos.add(nombre);
+          puntos += 10;
+          await guardarDatosFirebase();
+        }
+        resultado.textContent = ` ¡Correcto! Has ganado el sticker de ${nombre}`;
+        mostrarToast(` ¡Felicitaciones! Obtuviste el sticker de ${nombre} y ganaste 10 puntos ✨`);
+        cerrarCard();
+        actualizarContador();
+      } else {
+        resultado.textContent = "❌ Ups, esa no es la respuesta correcta.";
+        mostrarToast("❌ Intenta de nuevo.");
+      }
+
+      const index = document.getElementById("card").dataset.cofreActivo;
+      const cofre = cofresDisponibles[index];
+      if (cofre) {
+        cofre.classList.add("disabled");
+        cofre.onclick = null;
+      }
+    };
+
+    // Cargar datos existentes del usuario si está logueado
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const uid = user.uid;
+        const ref = doc(db, "jugadores", uid);
+        const snap = await getDoc(ref);
+        if (snap.exists()) {
+          const data = snap.data();
+          puntos = data.puntos || 0;
+          stickersObtenidos = new Set(data.stickers || []);
+          actualizarContador();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
