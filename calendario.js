@@ -24,8 +24,8 @@ function showTab(tabId) {
     if (day === 11) {
       dayContainer.innerHTML += activityTemplate("Technofest - The Power of New Generations", "img/panama.png", "https://technofest.swtickets.com/");
       dayContainer.innerHTML += activityTemplate("Computational Thinking Workshop", "img/panama.png", "https://docs.google.com/forms/");
-    } else if (day === 18) {
-      dayContainer.innerHTML += activityTemplate("Tech Day - Expo Forum", "img/panama.png", "https://forms.gle/");
+    } else if (day === 26) {
+      dayContainer.innerHTML += activityTemplate("Dia de las Niñas en las TIC", "img/panama.png", "arcg.is/0SP9HL");
     } else {
       dayContainer.innerHTML = `<div class="activity">No activities today. Check back soon!</div>`;
     }
