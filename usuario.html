@@ -1,172 +1,529 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Perfil de Usuario</title>
-  <link rel="stylesheet" href="usuario.css">
-</head>
-<body>
+        <html lang="es">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Perfil de Usuario</title>
 
-<nav class="navbar">
-    <!-- Logo -->
-    <div class="logo">
-        <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
-    </div>
-
-    <div class="menu">
-        <a href="principal.html"><img src="img/home.png" alt="Home"></a>
-        <a href="team.html"><img src="img/Team.png" alt="Team"></a>
-        <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
-        <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
-        <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
-        <a href="community.html"><img src="img/community.png" alt="Community"></a>
-        <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
-        <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
-        <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
-    </div>
-
-    <!-- Search Bar y Usuario -->
-    <div class="right-section">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search...">
-            <button onclick="performSearch()"><img src="img/lupa.png" alt="Buscar"></button>
-        </div>
-        <div class="steam-explorer">0 STEAM Explorer</div>
-        <div class="user-profile">
-            <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
-        </div>
-    </div>
-
-    <!-- Botón de idioma -->
-    <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
-</nav> 
-
-<div class="profile-card">
-    <div class="profile-img">
-        <img id="profileImage" src="https://via.placeholder.com/80" alt="User Image">
-    </div>
-    <div class="gender-selection">
-        <button id="man-btn" onclick="setGender('female')">Girl</button>
-        <button id="woman-btn" onclick="setGender('male')">Boy</button>
-    </div>
-    <button class="message-btn" onclick="location.href='soon.html'" id="message-btn">Message</button>
-    
-    <div class="accordion">
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(0)" id="name-header">Name</div>
-            <div class="accordion-content"><input type="text" id="username" value="User Name"></div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(1)" id="location-header">Location</div>
-            <div class="accordion-content"><input type="text" id="location" value="Insert your Location"></div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(2)" id="info-header">Information About You</div>
-            <div class="accordion-content"><textarea id="info">User description...</textarea></div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(3)" id="interest-header">Interest</div>
-            <div class="accordion-content">
-                <label><input type="checkbox" name="interest" value="Science"> Science</label><br>
-                <label><input type="checkbox" name="interest" value="Technology"> Technology</label><br>
-                <label><input type="checkbox" name="interest" value="Art"> Art</label><br>
-                <label><input type="checkbox" name="interest" value="Engineering"> Engineering</label><br>
-                <label><input type="checkbox" name="interest" value="Mathematics"> Mathematics</label>
+          <nav class="navbar">
+            <div class="logo">
+              <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
             </div>
-        </div>
-        <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(4)" id="age-header">How old are you?</div>
-            <div class="accordion-content">
-                <select id="age">
-                    <option value="-10">-10 with parent</option>
-                    <option value="11-17">11 to 17</option>
-                    <option value="18-25">18 to 25</option>
-                    <option value="26-30">26 to 30</option>
-                    <option value="31-40">31 to 40</option>
-                    <option value="41-45">41 to 45</option>
-                    <option value="46-50">46 to 50</option>
-                    <option value="+50">+50</option>
-                </select>
+            <div class="menu">
+              <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+              <a href="team.html"><img src="img/Team.png" alt="Team"></a>
+              <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
+              <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
+              <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a>
+              <a href="community.html"><img src="img/community.png" alt="Community"></a>
+              <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
+              <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
+              <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
             </div>
-        </div>
-    </div>
 
-    <div class="points">⭐ <span id="points-label">0 points</span></div>
-    <div class="badge">🏆 <span id="badge-label">STEAM Explorer</span></div>
-</div>
+            <div class="right-section">
+              <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button><img src="img/lupa.png" alt="Buscar"></button>
+              </div>
+              <div class="steam-explorer">0 STEAM Explorer</div>
+              <div class="user-profile">
+                <a href="usuario.html"><img src="img/niña.png" alt="User"></a>
+              </div>
+            </div>
+          </nav>
 
-<script>
-function toggleAccordion(index) {
-    let contents = document.querySelectorAll(".accordion-content");
-    let displayStyle = contents[index].style.display;
-    contents.forEach(content => content.style.display = "none");
-    contents[index].style.display = displayStyle === "block" ? "none" : "block";
-}
+          <style>
+            body {
+              background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              margin: 0;
+            }
 
-function setGender(gender) {
-    const profileImage = document.getElementById("profileImage");
-    const userProfileImage = document.querySelector(".user-profile img");
-    if (gender === 'male') {
-        profileImage.src = "img/perfil niño.jpeg";
-        userProfileImage.src = "img/perfil niño.jpeg";
-    } else if (gender === 'female') {
-        profileImage.src = "img/perfil niña.jpeg";
-        userProfileImage.src = "img/perfil niña.jpeg";
-    }
-}
+        .navbar {
+            width: 98%;
+            background: #491c78;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+        }
 
-function performSearch() {
-    const searchInput = document.getElementById("searchInput");
-    const query = searchInput.value.trim();
-    if (query) {
-        window.location.href = `principal.html?q=${encodeURIComponent(query)}`;
-    } else {
-        alert("Please enter a search term.");
-    }
-}
+        .logo img {
+            height: 70px;
+        }
 
-// Toggle de idioma
-let language = "en";
+        .menu {
+            display: flex;
+            gap: 60px;
+        }
 
-function toggleLanguage() {
-    if (language === "en") {
-        document.getElementById('man-btn').innerText = "Niña";
-        document.getElementById('woman-btn').innerText = "Niño";
-        document.getElementById('message-btn').innerText = "Mensaje";
+        .menu a img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.2s ease-in-out;
+        }
 
-        document.getElementById('name-header').innerText = "Nombre";
-        document.getElementById('location-header').innerText = "Ubicación";
-        document.getElementById('info-header').innerText = "Información Sobre Ti";
-        document.getElementById('interest-header').innerText = "Intereses";
-        document.getElementById('age-header').innerText = "¿Qué edad tienes?";
+        .menu a img:hover {
+            transform: scale(1.1);
+        }
 
-        document.getElementById('points-label').innerText = "0 puntos";
-        document.getElementById('badge-label').innerText = "Explorador STEAM";
+        .right-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-        document.getElementById('searchInput').placeholder = "Buscar...";
-        
-        language = "es";
-    } else {
-        document.getElementById('man-btn').innerText = "Girl";
-        document.getElementById('woman-btn').innerText = "Boy";
-        document.getElementById('message-btn').innerText = "Message";
+        .search-box {
+          display: flex;
+          align-items: center;
+          background-color: white;
+          border-radius: 999px; 
+          padding: 4px 12px;
+          height: 36px; 
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        }
 
-        document.getElementById('name-header').innerText = "Name";
-        document.getElementById('location-header').innerText = "Location";
-        document.getElementById('info-header').innerText = "Information About You";
-        document.getElementById('interest-header').innerText = "Interest";
-        document.getElementById('age-header').innerText = "How old are you?";
+        .search-box input {
+          border: none;
+          outline: none;
+          padding: 4px 8px;
+          font-size: 14px;
+          flex: 1; 
+          border-radius: 999px; 
+        }
 
-        document.getElementById('points-label').innerText = "0 points";
-        document.getElementById('badge-label').innerText = "STEAM Explorer";
+        .search-box button {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 4px;
+        }
 
-        document.getElementById('searchInput').placeholder = "Search...";
+        .search-box button img {
+          width: 18px;
+          height: 18px;
+        }
 
-        language = "en";
-    }
-}
-</script>
+        .steam-explorer {
+            background-color: #FFD700;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #6A008A;
+        }
 
-</body>
-</html>
+        .user-profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+
+            .profile-card {
+              background: white;
+              border-radius: 20px;
+              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+              width: 350px;
+              padding: 30px;
+              text-align: center;
+            }
+            .profile-img-container {
+              position: relative;
+              width: 150px;
+              height: 150px;
+              margin: 0 auto 15px;
+            }
+            .profile-img {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+              object-fit: cover;
+              border: 4px solid #a18cd1;
+              display: block;
+            }
+            input[type="text"], input[type="date"], textarea {
+              width: 100%;
+              padding: 8px;
+              margin: 5px 0 15px 0;
+              border: 1px solid #ccc;
+              border-radius: 10px;
+              box-sizing: border-box;
+            }
+            .gender-buttons {
+              display: flex;
+              justify-content: center;
+              gap: 10px;
+              margin-bottom: 15px;
+            }
+            .gender-buttons button {
+              background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+              color: white;
+              border: none;
+              padding: 8px 16px;
+              border-radius: 20px;
+              cursor: pointer;
+              font-size: 0.9rem;
+              transition: background 0.3s;
+            }
+            .gender-buttons button:hover {
+              background: #8e76c9;
+            }
+            .interests {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+              justify-content: center;
+              margin-top: 10px;
+            }
+            .interests label {
+              background: #f7f0ff;
+              border: 1px solid #a18cd1;
+              border-radius: 20px;
+              padding: 6px 12px;
+              cursor: pointer;
+              transition: background 0.3s, color 0.3s;
+            }
+            .interests input[type="checkbox"] {
+              display: none;
+            }
+            .interests input[type="checkbox"]:checked + label {
+              background: #a18cd1;
+              color: white;
+              border-color: #8e76c9;
+            }
+            details {
+              background: #f7f0ff;
+              border-radius: 10px;
+              padding: 10px;
+              margin-bottom: 10px;
+              cursor: pointer;
+            }
+            summary {
+              font-weight: bold;
+              color: #6a11cb;
+              outline: none;
+            }
+            .button-container {
+              display: flex;
+              justify-content: center;
+              gap: 10px;
+              margin-top: 15px;
+            }
+            .save-btn, .view-btn {
+              background: #a18cd1;
+              color: white;
+              border: none;
+              padding: 10px 20px;
+              border-radius: 20px;
+              cursor: pointer;
+              font-size: 1rem;
+              text-decoration: none;
+              display: inline-block;
+              transition: background 0.3s;
+            }
+            .save-btn:hover, .view-btn:hover {
+              background: #8e76c9;
+            }
+            #lang-toggle {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background-color: #d94f74;
+          color: white;
+          font-weight: bold;
+          border: 3px solid white;
+          position: fixed;
+          top: 180px; 
+          right: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+          font-size: 0.85rem;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+          cursor: pointer;
+          transition: transform 0.2s;
+        }
+
+        #lang-toggle:hover {
+          transform: scale(1.05);
+        }
+          </style>
+          <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+            import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+            let anonUserId = localStorage.getItem('anonUserId');
+            if (!anonUserId) {
+              anonUserId = 'anon_' + Date.now();
+              localStorage.setItem('anonUserId', anonUserId);
+            }
+
+            const firebaseConfig = {
+          apiKey: "AIzaSyDzhvEZsjnFVD237Gen7frLii6RdvApB7g",
+          authDomain: "teen4steam-64958.firebaseapp.com",
+          projectId: "teen4steam-64958",
+          storageBucket: "teen4steam-64958.firebasestorage.app",
+          messagingSenderId: "840465508724",
+          appId: "1:840465508724:web:8e5f60a81ecb8e549da421",
+          measurementId: "G-Y03XVR5EES"
+        };
+
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+
+            window.setGender = function (gender) {
+              const img = document.getElementById('profile-pic');
+              if (gender === 'girl') {
+                img.src = 'img/niña.png';
+              } else if (gender === 'boy') {
+                img.src = 'img/nino.png';
+              }
+            };
+
+            window.guardarPerfil = async function () {
+              const nombre = document.getElementById('nombre').value;
+              const descripcion = document.getElementById('descripcion').value;
+              const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+              const ubicacion = document.getElementById('ubicacion').value;
+              const intereses = Array.from(document.querySelectorAll('.interests input[type="checkbox"]:checked')).map(el => el.value);
+              const genero = document.getElementById('profile-pic').src.includes('Girl') ? 'girl' :
+                             (document.getElementById('profile-pic').src.includes('Boy') ? 'boy' : 'none');
+
+              try {
+                await setDoc(doc(db, "usuarios", anonUserId), {
+                  nombre,
+                  descripcion,
+                  fechaNacimiento,
+                  ubicacion,
+                  intereses,
+                  genero
+                });
+                alert("¡Perfil guardado exitosamente en Firebase!");
+              } catch (e) {
+                console.error("Error al guardar:", e);
+                alert("Hubo un error al guardar el perfil.");
+              }
+            };
+
+            async function cargarPerfil() {
+              const docRef = doc(db, "usuarios", anonUserId);
+              const docSnap = await getDoc(docRef);
+
+              if (docSnap.exists()) {
+                const data = docSnap.data();
+                document.getElementById('nombre').value = data.nombre || '';
+                document.getElementById('descripcion').value = data.descripcion || '';
+                document.getElementById('fechaNacimiento').value = data.fechaNacimiento || '';
+                document.getElementById('ubicacion').value = data.ubicacion || '';
+
+                if (data.genero === 'girl') setGender('girl');
+                else if (data.genero === 'boy') setGender('boy');
+
+                const intereses = data.intereses || [];
+                intereses.forEach(val => {
+                  const checkbox = Array.from(document.querySelectorAll('.interests input')).find(cb => cb.value === val);
+                  if (checkbox) checkbox.checked = true;
+                });
+              }
+            }
+
+            cargarPerfil(); 
+          </script>
+        </head>
+        <body>
+
+          <button id="lang-toggle" style="width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background-color: #d94f74;
+          color: #491c78;
+          font-weight: bold;
+          border: 3px solid #d94f74;
+          position: fixed;
+          top: 110px; /* Adjusted top value to move the button lower */
+          right: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+          font-size: 0.85rem;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+          cursor: pointer;
+          transition: transform 0.2s;">
+          🌐 En/Es
+        </button>
+
+
+          <div class="profile-card">
+            <div class="profile-img-container">
+              <img id="profile-pic" src="img/nina.png" alt="Foto de perfil" class="profile-img">
+            </div>
+            <div class="gender-buttons">
+              <button onclick="setGender('girl')">Girl</button>
+              <button onclick="setGender('boy')">Boy</button>
+            </div>
+            <details>
+              <summary>Nombre completo</summary>
+              <input type="text" id="nombre" placeholder="Escribe tu nombre">
+            </details>
+            <details>
+              <summary>Descripción</summary>
+              <textarea id="descripcion" rows="3" placeholder="Cuéntanos sobre ti"></textarea>
+            </details>
+            <details>
+              <summary>Fecha de nacimiento</summary>
+              <input type="date" id="fechaNacimiento">
+            </details>
+            <details>
+              <summary>Ubicación</summary>
+              <input type="text" id="ubicacion" placeholder="Ciudad, País">
+            </details>
+            <details>
+              <summary>Intereses (STEAM)</summary>
+              <div class="interests">
+                <input type="checkbox" id="science" value="Ciencia">
+                <label for="science">Ciencia</label>
+                <input type="checkbox" id="technology" value="Tecnología">
+                <label for="technology">Tecnología</label>
+                <input type="checkbox" id="engineering" value="Ingeniería">
+                <label for="engineering">Ingeniería</label>
+                <input type="checkbox" id="art" value="Arte">
+                <label for="art">Arte</label>
+                <input type="checkbox" id="math" value="Matemáticas">
+                <label for="math">Matemáticas</label>
+              </div>
+            </details>
+            <div class="button-container">
+              <button class="save-btn" onclick="guardarPerfil()">Guardar Perfil</button>
+              <a class="view-btn" href="Perfil.html">Ver Perfil</a>
+            </div>
+          </div>
+
+          <script>
+            const translations = {
+              es: {
+                "Nombre completo": "Nombre completo",
+                "Descripción": "Descripción",
+                "Fecha de nacimiento": "Fecha de nacimiento",
+                "Ubicación": "Ubicación",
+                "Intereses (STEAM)": "Intereses (STEAM)",
+                "Ciencia": "Ciencia",
+                "Tecnología": "Tecnología",
+                "Ingeniería": "Ingeniería",
+                "Arte": "Arte",
+                "Matemáticas": "Matemáticas",
+                "Guardar Perfil": "Guardar Perfil",
+                "Ver Perfil": "Ver Perfil",
+                "Girl": "Niña",
+                "Boy": "Niño"
+              },
+              en: {
+                "Nombre completo": "Full Name",
+                "Descripción": "Description",
+                "Fecha de nacimiento": "Date of Birth",
+                "Ubicación": "Location",
+                "Intereses (STEAM)": "STEAM Interests",
+                "Ciencia": "Science",
+                "Tecnología": "Technology",
+                "Ingeniería": "Engineering",
+                "Arte": "Art",
+                "Matemáticas": "Math",
+                "Guardar Perfil": "Save Profile",
+                "Ver Perfil": "View Profile",
+                "Girl": "Girl",
+                "Boy": "Boy"
+              }
+            };
+          
+            let currentLang = localStorage.getItem('lang') || 'es';
+          
+            function translateUI(lang) {
+              document.querySelectorAll('details summary').forEach(summary => {
+                const text = summary.textContent.trim();
+                for (const key in translations.es) {
+                  if (text === translations.es[key] || text === translations.en[key]) {
+                    summary.textContent = translations[lang][key];
+                  }
+                }
+              });
+          
+              document.querySelectorAll('.interests label').forEach(label => {
+                const text = label.textContent.trim();
+                for (const key in translations.es) {
+                  if (text === translations.es[key] || text === translations.en[key]) {
+                    label.textContent = translations[lang][key];
+                  }
+                }
+              });
+          
+              document.querySelectorAll('.save-btn, .view-btn').forEach(button => {
+                const text = button.textContent.trim();
+                for (const key in translations.es) {
+                  if (text === translations.es[key] || text === translations.en[key]) {
+                    button.textContent = translations[lang][key];
+                  }
+                }
+              });
+          
+              document.querySelectorAll('.gender-buttons button').forEach(button => {
+                const text = button.textContent.trim();
+                for (const key in translations.es) {
+                  if (text === translations.es[key] || text === translations.en[key]) {
+                    button.textContent = translations[lang][key];
+                  }
+                }
+              });
+            }
+          
+            document.getElementById('lang-toggle').addEventListener('click', () => {
+              currentLang = currentLang === 'es' ? 'en' : 'es';
+              localStorage.setItem('lang', currentLang);
+              translateUI(currentLang);
+            });
+          
+            window.addEventListener('DOMContentLoaded', () => {
+              const savedLang = localStorage.getItem('lang') || 'es';
+              currentLang = savedLang;
+              translateUI(currentLang);
+            });
+          </script>
+          
+
+        </body>
+
+        <script>
+          function setGender(gender) {
+            const imgElement = document.getElementById('profile-pic');
+            if (gender === 'girl') {
+              imgElement.src = 'img/nina.png';
+              localStorage.setItem('imagenPerfil', 'img/nina.png');
+            } else if (gender === 'boy') {
+              imgElement.src = 'img/nino.png';
+              localStorage.setItem('imagenPerfil', 'img/nino.png');
+            }
+          }
+
+          window.addEventListener('DOMContentLoaded', () => {
+            const imagenGuardada = localStorage.getItem('imagenPerfil');
+            if (imagenGuardada) {
+              document.getElementById('profile-pic').src = imagenGuardada;
+            }
+          });
+        </script>
+        </html>

@@ -5,7 +5,6 @@ body {
     color: #491c78;
 }
 
-/* Navbar */
 .navbar {
     background-color: #491c78;
     display: flex;
@@ -79,9 +78,8 @@ body {
     border: 2px solid white;
 }
 
-/* Sección del equipo */
 .team-section {
-    padding: 60px 20px 30px; /* Antes 100px */
+    padding: 60px 20px 30px; 
     text-align: center;
     background: linear-gradient(to right, #ffe2f1, #f8dadc);
 }
@@ -162,7 +160,7 @@ body {
 
 .language-toggle {
     position: absolute;
-    top: 15%; /* <-- Antes estaba en 120px, ahora lo subimos a 80px */
+    top: 15%; 
     left: 94%;
     width: 70px;
     height: 70px;

@@ -6,7 +6,6 @@ body {
     text-align: center;
   }
   
-  /* Navbar */
   .navbar {
     background-color: #491c78;
     display: flex;
@@ -15,7 +14,6 @@ body {
     padding: 10px 20px;
   }
   
-  /* Botón de idioma */
   .language-toggle {
     position: absolute;
     top: 15%;
@@ -104,7 +102,6 @@ body {
     border: 2px solid white;
   }
   
-  /* Calendario */
   .calendar-container {
     width: 80%;
     margin: auto;

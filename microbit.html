@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio Micro:bit</title>
+    <link rel="stylesheet" href="microbit.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <header>
+            <h1>Laboratorio Micro:bit</h1>
+            <p id="instrucciones">Nivel 2: Haz parpadear el LED. Conecta el pin P0 de la micro:bit al ánodo del LED y el pin GND al cátodo a través de la protoboard. Una vez conectado, haz clic en la micro:bit para iniciar/detener el parpadeo.</p>
+        </header>
+        <main>
+            <div id="escenario">
+                <div id="microbit" class="componente">
+                    Micro:bit
+                    <div class="pin pin-p0" data-pin="0">P0</div>
+                    <div class="pin pin-gnd" data-pin="gnd">GND</div>
+                </div>
+                <div id="led" class="componente">
+                    LED
+                    <div class="terminal terminal-anodo" data-terminal="anodo">+</div>
+                    <div class="terminal terminal-catodo" data-terminal="catodo">-</div>
+                </div>
+                <div id="protoboard" class="componente">
+                    Protoboard
+                </div>
+                <div id="cable-rojo" class="componente cable" draggable="true" data-color="rojo"></div>
+                <div id="cable-negro" class="componente cable" draggable="true" data-color="negro"></div>
+            </div>
+            <div id="interfaz">
+                <div id="estado">Estado del LED: <span id="estado-led">Apagado</span></div>
+                <button id="reset-btn">Reiniciar</button>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2025 Mi Laboratorio Micro:bit</p>
+        </footer>
+    </div>
+    <script src="microbit.js"></script>
+</body>
+</html>

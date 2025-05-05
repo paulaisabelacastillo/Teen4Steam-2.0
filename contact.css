@@ -22,7 +22,7 @@ body {
 
 .language-toggle {
     position: absolute;
-    top: 10%; /* <-- Antes estaba en 120px, ahora lo subimos a 80px */
+    top: 10%; 
     left: 85%;
     width: 70px;
     height: 70px;

@@ -37,9 +37,8 @@ body {
 }
 
 
-/* Navbar */
 .navbar {
-    width: 97.5%;
+    width: 98%;
     background: #491c78;
     padding: 15px 20px;
     position: fixed;
@@ -122,7 +121,6 @@ body {
     cursor: pointer;
 }
 
-/* Card Container */
 .card {
     background: #6b21a8;
     padding: 25px;
@@ -182,3 +180,4 @@ body {
     background: rgba(255, 255, 255, 0.2);
     display: inline-block;
 }
+

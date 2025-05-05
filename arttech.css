@@ -1,186 +1,136 @@
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #fdf4ff, #e0c3fc);
+      text-align: center;
+      background-color: #f9f9f9;
       margin: 0;
       padding: 0;
     }
 
-    .navbar {
-      background-color: #491c78;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      width: 97.5%;
-      height: 80px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-    }
-
-    .logo img {
-      height: 70px;
-    }
-
-    .menu {
-      display: flex;
-      gap: 60px;
-    }
-
-    .menu a img {
-      width: 35px;
-      transition: transform 0.2s ease-in-out;
-    }
-
-    .menu a img:hover {
-      transform: scale(1.1);
-    }
-
-    .right-section {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .search-box {
-      display: flex;
-      align-items: center;
-      background-color: white;
-      border-radius: 20px;
-      padding: 5px 10px;
-    }
-
-    .search-box input {
-      border: none;
-      outline: none;
-      padding: 5px;
-      font-size: 14px;
-    }
-
-    .search-box button {
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .search-box button img {
-      width: 20px;
-    }
-
-    .steam-explorer {
-      background-color: #FFD700;
-      padding: 5px 15px;
-      border-radius: 15px;
-      font-size: 14px;
-      font-weight: bold;
-      color: #6A008A;
-    }
-
-    .user-profile img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 2px solid white;
-    }
-
-    .language-toggle {
-        position: fixed;
-        top: 110px; /* Justo debajo del navbar */
-        right: 20px;
-        background-color: #dc4e80;
-        border: none;
-        border-radius: 50%;
-        width: 70px;
-        height: 70px;
-        font-size: 12px;
-        font-weight: bold;
-        color: white;
-        text-align: center;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 1100;
-        transition: background-color 0.3s, transform 0.3s;
-      }
-      
-      .language-toggle:hover {
-        background-color: #e0699e;
-        transform: scale(1.1);
-      }      
-
-    /* Contenido principal */
-    .main-content {
-      margin-top: 180px;
-      text-align: center;
-      padding: 20px;
-    }
-
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #6a1b9a;
+      margin-top: 20px;
     }
 
-    #mission, #timer {
-        margin-top: 40px; /* 🔥 BAJAMOS el margen superior */
-        margin-bottom: 10px;
-        font-size: 1.2em;
-        font-weight: bold;
-        color: #4a148c;
-      }
-      
-
-    #color-picker {
-      margin: 10px 0;
+    canvas {
+      border: 2px solid #ccc;
+      margin-top: 10px;
+      cursor: crosshair;
     }
 
-    #drawing-area {
-      background-color: #fff;
-      border: 3px dashed #ba68c8;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      display: block;
-      margin: 20px auto;
-      touch-action: none;
-    }
-
-    button.action-button {
-      background-color: #ba68c8;
-      color: white;
-      border: none;
+    .action-button {
+      margin: 10px;
       padding: 10px 20px;
-      font-size: 1em;
-      border-radius: 25px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background-color: #8e44ad;
+      color: white;
       cursor: pointer;
-      margin: 8px;
-      transition: background-color 0.3s;
-    }
-
-    button.action-button:hover {
-      background-color: #9c27b0;
     }
 
     #gallery {
-      display: none;
       margin-top: 30px;
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .artwork {
-      width: 30%;
+      width: 200px;
       margin: 10px;
-      border: 2px solid #ba68c8;
-      border-radius: 10px;
+      border: 2px solid #555;
     }
 
-    .gallery-title {
-      font-size: 1.5em;
-      color: #4a148c;
-      margin-bottom: 20px;
-    }
+    
+
+  .navbar {
+    background-color: #491c78;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  .language-toggle {
+    position: absolute;
+    top: 15%;
+    left: 94%;
+    width: 70px;
+    height: 70px;
+    background-color: #dc4e80;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #470a71;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 20;
+  }
+  
+  .language-toggle:hover {
+    background-color: #dc4e80;
+    transform: scale(1.1);
+  }
+  
+  .logo img {
+    height: 70px;
+  }
+  
+  .menu {
+    display: flex;
+    gap: 60px;
+  }
+  
+  .menu a img {
+    width: 35px;
+    transition: transform 0.2s;
+  }
+  
+  .menu a img:hover {
+    transform: scale(1.1);
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+  
+  .search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+  }
+  
+  .search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-box button img {
+    width: 20px;
+  }
+  
+  .steam-explorer {
+    background-color: #FFD700;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #6A008A;
+  }
+  
+  .user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }

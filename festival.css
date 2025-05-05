@@ -6,7 +6,6 @@ body {
     color: #470a71;
   }
   
-  /* Navbar */
   .navbar {
     background-color: #491c78;
     display: flex;
@@ -15,12 +14,10 @@ body {
     padding: 10px 20px;
   }
   
-  /* Logo */
   .logo img {
     height: 70px;
   }
   
-  /* Botón de idioma */
   .language-toggle {
     position: absolute;
     top: 15%;
@@ -46,7 +43,6 @@ body {
     transform: scale(1.1);
   }
   
-  /* Menú */
   .menu {
     display: flex;
     gap: 60px;
@@ -62,14 +58,12 @@ body {
     transform: scale(1.1);
   }
   
-  /* Right section */
   .right-section {
     display: flex;
     align-items: center;
     gap: 15px;
   }
   
-  /* Search Bar */
   .search-box {
     display: flex;
     align-items: center;
@@ -96,7 +90,6 @@ body {
     height: 20px;
   }
   
-  /* STEAM Explorer Counter */
   .steam-explorer {
     background-color: #FFD700;
     padding: 5px 15px;
@@ -106,7 +99,6 @@ body {
     color: #6A008A;
   }
   
-  /* User Profile Image */
   .user-profile img {
     width: 50px;
     height: 50px;
@@ -115,14 +107,12 @@ body {
     cursor: pointer;
   }
   
-  /* Contenido Principal */
   .main-content {
     padding: 100px 20px 40px;
     max-width: 1200px;
     margin: 0 auto;
   }
   
-  /* Secciones */
   .section {
     margin-bottom: 60px;
     background: #ffffffcc;
@@ -131,13 +121,11 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* Títulos */
   h1, h2 {
     color: #6a008a;
     text-align: center;
   }
   
-  /* Párrafos, Listas, Citas */
   p, ul, blockquote {
     font-size: 18px;
     line-height: 1.7;
@@ -152,7 +140,6 @@ body {
     color: #dc4e80;
   }
   
-  /* Testimonios */
   .testimonials blockquote {
     background-color: #f8e1ec;
     border-left: 5px solid #dc4e80;
@@ -163,7 +150,6 @@ body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
   
-  /* Galería */
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

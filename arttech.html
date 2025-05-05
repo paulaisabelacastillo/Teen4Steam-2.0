@@ -2,84 +2,60 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Art & Tech Studio </title>
+  <title>Art & Tech Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="arttech.css">
-  
 </head>
-
 <body>
 
-<nav class="navbar">
-  <div class="logo">
-    <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
-  </div>
-
-  <div class="menu">
-    <a href="principal.html"><img src="img/home.png" alt="Home"></a>
-    <a href="team.html"><img src="img/Team.png" alt="Team"></a>
-    <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
-    <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
-    <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
-    <a href="community.html"><img src="img/community.png" alt="Community"></a>
-    <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
-    <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
-    <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
-  </div>
-
-  <div class="right-section">
-    <div class="search-box">
-      <input id="searchInput" type="text" placeholder="Buscar...">
-      <button><img src="img/lupa.png" alt="Buscar"></button>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
     </div>
-
-    <div class="steam-explorer">0 STEAM Explorer</div>
-
-    <div class="user-profile">
-      <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+  
+    <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+  
+    <div class="menu">
+      <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+      <a href="team.html"><img src="img/Team.png" alt="Team"></a>
+      <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
+      <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
+      <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
+      <a href="community.html"><img src="img/community.png" alt="Community"></a>
+      <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
+      <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
+      <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
     </div>
-  </div>
-</nav>
+  
+    <div class="right-section">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button><img src="img/lupa.png" alt="Buscar"></button>
+      </div>
+      <div class="steam-explorer">0 STEAM Explorer</div>
+      <div class="user-profile">
+        <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+      </div>
+    </div>
+  </nav>
 
-<button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+<h1 id="page-title">Art & Tech Studio</h1>
+<p id="mission">¡Haz clic en "Nueva Misión" para comenzar!</p>
+<p id="timer">Tiempo restante: 5:00</p>
 
-<div class="main-content">
-  <h1 id="page-title"> Art & Tech Studio</h1>
+<input type="color" id="color-picker" value="#ff7eb9"><br>
+<canvas id="drawing-area" width="350" height="350"></canvas><br>
 
-  <p id="mission">¡Haz clic en "Nueva Misión" para comenzar!</p>
-  <p id="timer">Tiempo restante: 5:00</p>
+<button class="action-button" id="new-mission-btn">Nueva Misión</button>
+<button class="action-button" id="save-btn">Guardar mi obra</button>
+<button class="action-button" id="end-btn">Finalizar manualmente</button>
 
-  <input type="color" id="color-picker" value="#ff7eb9">
-  <br>
-
-  <canvas id="drawing-area" width="350" height="350"></canvas>
-  <br>
-
-  <button class="action-button" onclick="newMission()" id="new-mission-btn">Nueva Misión</button>
-  <button class="action-button" onclick="saveDrawing()" id="save-btn">Guardar mi obra</button>
-  <button class="action-button" onclick="endGame()" id="end-btn">Finalizar manualmente</button>
-
-  <div id="gallery">
-    <h2 class="gallery-title" id="gallery-title">¡Felicidades, artista! Has completado tu galería creativa.</h2>
-    <div id="artworks"></div>
-  </div>
+<div id="gallery" style="display: none;">
+  <h2 class="gallery-title">¡Felicidades, artista! Has completado tu galería creativa.</h2>
+  <div id="artworks"></div>
 </div>
 
 <script>
-  let language = "es";
-
-  function toggleLanguage() {
-    language = (language === "en") ? "es" : "en";
-
-    document.getElementById('page-title').innerText = (language === "en") ? " Art & Tech Studio" : " Arte & Tech Estudio";
-    document.getElementById('searchInput').placeholder = (language === "en") ? "Search..." : "Buscar...";
-    document.getElementById('mission').innerText = (language === "en") ? "Click on 'New Mission' to start!" : "¡Haz clic en 'Nueva Misión' para comenzar!";
-    document.getElementById('gallery-title').innerText = (language === "en") ? "Congratulations, artist! You completed your creative gallery." : "¡Felicidades, artista! Has completado tu galería creativa.";
-    document.getElementById('new-mission-btn').innerText = (language === "en") ? "New Mission" : "Nueva Misión";
-    document.getElementById('save-btn').innerText = (language === "en") ? "Save Artwork" : "Guardar mi obra";
-    document.getElementById('end-btn').innerText = (language === "en") ? "Finish Manually" : "Finalizar manualmente";
-  }
-
   const canvas = document.getElementById('drawing-area');
   const ctx = canvas.getContext('2d');
   const colorPicker = document.getElementById('color-picker');
@@ -87,22 +63,28 @@
   const timerText = document.getElementById('timer');
   const gallery = document.getElementById('gallery');
   const artworksDiv = document.getElementById('artworks');
+  const steamDisplay = document.querySelector('.steam-explorer');
 
   const missions = [
-    " Diseña el logo de tu nave espacial.",
-    " Crea un póster para un invento del futuro.",
-    " Dibuja tu robot ayudante ideal.",
-    " Diseña un traje espacial artístico.",
-    " Crea una ciudad flotante sobre el mar.",
-    " Dibuja un gadget para salvar el planeta.",
-    " Diseña tu máquina de sueños.",
-    " Imagina tu parque de diversiones STEAM."
+    "Diseña el logo de tu nave espacial.",
+    "Crea un póster para un invento del futuro.",
+    "Dibuja tu robot ayudante ideal.",
+    "Diseña un traje espacial artístico.",
+    "Crea una ciudad flotante sobre el mar.",
+    "Dibuja un gadget para salvar el planeta.",
+    "Diseña tu máquina de sueños.",
+    "Imagina tu parque de diversiones STEAM."
   ];
 
   let painting = false;
   let drawings = [];
   let timer;
-  let timeLeft = 300; // 5 minutos
+  let timeLeft = 300; 
+  let puntos = 0;
+
+  function updatePointsDisplay() {
+    steamDisplay.textContent = `${puntos} STEAM Explorer`;
+  }
 
   function startPosition(e) {
     painting = true;
@@ -144,16 +126,19 @@
 
   function saveDrawing() {
     if (drawings.length >= 3) {
-      alert(language === "en" ? "You have already saved 3 artworks. Please finish." : "Ya has guardado 3 obras. Finaliza el juego.");
+      alert("Ya has guardado 3 obras. Finaliza el juego.");
       return;
     }
     const dataURL = canvas.toDataURL('image/png');
     drawings.push(dataURL);
     clearCanvas();
+    puntos += 30;
+    updatePointsDisplay();
+
     if (drawings.length >= 3) {
       endGame();
     } else {
-      alert(language === "en" ? `Artwork saved! Create artwork number ${drawings.length + 1}.` : `¡Obra guardada! Ahora crea tu obra número ${drawings.length + 1}.`);
+      alert(`¡Obra guardada! Ahora crea tu obra número ${drawings.length + 1}.`);
     }
   }
 
@@ -162,7 +147,7 @@
       timeLeft--;
       const minutes = Math.floor(timeLeft / 60);
       const seconds = timeLeft % 60;
-      timerText.textContent = (language === "en") ? `Time left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}` : `Tiempo restante: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      timerText.textContent = `Tiempo restante: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
       if (timeLeft <= 0) {
         clearInterval(timer);
         endGame();
@@ -172,9 +157,11 @@
 
   function endGame() {
     clearInterval(timer);
-    document.getElementById('drawing-area').style.display = 'none';
-    document.getElementById('color-picker').style.display = 'none';
-    document.querySelectorAll('.action-button').forEach(btn => btn.style.display = 'none');
+    canvas.style.display = 'none';
+    colorPicker.style.display = 'none';
+    document.getElementById('new-mission-btn').style.display = 'none';
+    document.getElementById('save-btn').style.display = 'none';
+    document.getElementById('end-btn').style.display = 'none';
     missionText.style.display = 'none';
     timerText.style.display = 'none';
     gallery.style.display = 'block';
@@ -194,6 +181,11 @@
   canvas.addEventListener('touchend', endPosition);
   canvas.addEventListener('touchmove', draw);
 
+  document.getElementById('save-btn').addEventListener('click', saveDrawing);
+  document.getElementById('new-mission-btn').addEventListener('click', newMission);
+  document.getElementById('end-btn').addEventListener('click', endGame);
+
+  updatePointsDisplay();
   startTimer();
 </script>
 

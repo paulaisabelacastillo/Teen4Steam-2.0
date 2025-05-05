@@ -10,7 +10,7 @@
   font-family: 'Fredoka One', cursive;
   text-align: center;
   margin: 0;
-  padding: 120px 20px 20px; /* 👈 Ajuste aquí */
+  padding: 120px 20px 20px; 
   background: linear-gradient(-45deg, #f8dadc, #f8dadc, #f8dadc, #f8dadc);
   background-size: 400% 400%;
   animation: animarFondo 15s ease infinite;
@@ -62,29 +62,35 @@
   }
   
   .search-box {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border-radius: 20px;
-    padding: 5px 10px;
-  }
-  
-  .search-box input {
-    border: none;
-    outline: none;
-    padding: 5px;
-    font-size: 14px;
-  }
-  
-  .search-box button {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .search-box button img {
-    width: 20px;
-  }
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 999px; 
+  padding: 4px 12px;
+  height: 36px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 4px 8px;
+  font-size: 14px;
+  flex: 1; 
+  border-radius: 999px; 
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.search-box button img {
+  width: 18px;
+  height: 18px;
+}
   
   .steam-explorer {
     background-color: #FFD700;
@@ -304,12 +310,12 @@
       margin-top: 15px;
       font-size: 1.2em;
       color: #ffcadc;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Le da un brillito sutil */
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); 
       font-weight: bold;
     }
     h1 {
-        color: 	#ffcce1; /* Un dorado suave que resalta bonito */
-        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Le da un brillito sutil */
+        color: 	#ffcce1; 
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); 
         font-size: 2.5em;
     }
 
@@ -358,8 +364,8 @@
 
   <div id="contadorPuntos">Puntos: 0</div>
 
-  <button onclick="mostrarCofres()">Abrir Cofres</button>
-  <button onclick="mostrarTodos()">Ver mis stickers</button>
+  <button id="btnAbrirCofre" onclick="mostrarCofres()">Abrir Cofres</button>
+  <button id="btnVerSticker"onclick="mostrarTodos()">Ver mis stickers</button>
 
   <div id="boxContainer">
     <div id="row1" class="box-row"></div>
@@ -374,10 +380,14 @@
     <h2>Mis Stickers</h2>
     <div id="stickerGrid"></div>
     <div id="infoSticker"></div>
-    <button onclick="cerrarStickers()">Cerrar</button>
+    <button id="btnCerrarStickers" onclick="cerrarStickers()">Cerrar</button>
   </div>
 
   <div id="toast" class="toast"></div>
+
+
+    </div>
+</div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
@@ -441,7 +451,7 @@
 
 
         item.appendChild(img);
-        item.onclick = () => info.textContent = `Este sticker representa el derecho: ${nombre}`;
+        item.onclick = () => info.textContent = "Este sticker representa el derecho: ${nombre}";
         grid.appendChild(item);
       });
       modal.style.display = "block";
@@ -456,7 +466,7 @@
     };
 
     function actualizarContador() {
-      document.getElementById("contadorPuntos").textContent = `Puntos: ${puntos}`;
+      document.getElementById("contadorPuntos").textContent = "Puntos: ${puntos}";
     }
 
     async function guardarDatosFirebase() {
@@ -478,7 +488,7 @@
           descripcion: "Todos los niños y niñas deben poder ir a la escuela, aprender y tener maestros que los ayuden.",
           imagen: "img/educacion.jpeg",
           pregunta: "¿Qué derecho tienen los niños y niñas para ir a la escuela y aprender cosas nuevas?",
-          respuestaClave: "Derecho a la educación"
+          respuestaClave: "Derecho a la educación",
         },
         {
           nombre: "Salud",
@@ -592,7 +602,6 @@
       }
     };
 
-    // Cargar datos existentes del usuario si está logueado
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         const uid = user.uid;
@@ -606,6 +615,105 @@
         }
       }
     });
+  </script>
+
+  <script>
+    const translations = {
+      es: {
+        title: "Caja Mágica de los Derechos del Niño",
+        infoTitle: "¿Qué son los derechos del Niño?",
+        infoText: "Los derechos de los niños y niñas son normas que aseguran que crezcan felices, protegidos, con salud, educación y mucho amor. ¡Conócelos y cuídalos!",
+        points: "Puntos: ",
+        openChests: "Abrir Cofres",
+        viewStickers: "Ver mis stickers",
+        close: "Cerrar",
+        send: "Enviar", 
+      },
+      en: {
+        title: "Magic Box of Children's Rights",
+        infoTitle: "What are Children's Rights?",
+        infoText: "Children's rights are rules that ensure they grow up happy, protected, healthy, educated, and loved. Learn about them and take care of them!",
+        points: "Points: ",
+        openChests: "Open Chests",
+        viewStickers: "View my stickers",
+        close: "Close",
+        send: "Send", 
+      },
+    };
+  
+    let currentLanguage = "es";
+  
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === "es" ? "en" : "es";
+      applyTranslations();
+    }
+    
+      let pts = 0;
+  
+    function applyTranslations() {
+      const lang = translations[currentLanguage];
+    
+      document.querySelector("h1").textContent = lang.title;
+      document.querySelector("#infoBox h3").textContent = lang.infoTitle;
+      document.querySelector("#infoBox p").textContent = lang.infoText;
+    
+      document.getElementById("contadorPuntos").textContent = `${lang.points}${pts}`;
+    
+      document.getElementById("btnAbrirCofre").textContent = lang.openChests;
+      document.getElementById("btnVerSticker").textContent = lang.viewStickers;
+      document.getElementById("btnCerrarStickers").textContent = lang.close;
+    
+      const modalTitle = document.getElementById("modalStickers").querySelector("h2");
+      if (modalTitle) {
+        modalTitle.textContent = lang.viewStickers;
+      }
+    
+      const card = document.getElementById("card");
+      if (card && card.dataset.cofreActivo) {
+        const index = card.dataset.cofreActivo;
+        mostrarDerecho(index); 
+      }
+    }
+    
+    document.addEventListener("DOMContentLoaded", applyTranslations);
+  
+    function actualizarContador() {
+      const lang = translations[currentLanguage];
+      document.getElementById("contadorPuntos").textContent = `${lang.points}${puntos}`;
+    }
+  
+    window.mostrarDerecho = function (index) {
+      const card = document.getElementById("card");
+      const overlay = document.getElementById("overlay");
+      const lang = translations[currentLanguage];
+  
+      const derechos = [
+        {
+          nombre: lang.title, 
+          descripcion: lang.infoText, 
+          imagen: "img/educacion.jpeg",
+          pregunta: lang.infoTitle, 
+          respuestaClave: "Derecho a la educación",
+        },
+      ];
+  
+      const derecho = derechos[Math.floor(Math.random() * derechos.length)];
+  
+      card.innerHTML = `
+        <h3>${derecho.nombre}</h3>
+        <img src="${derecho.imagen}" />
+        <p>${derecho.descripcion}</p>
+        <div class="question-container">
+          <label>${derecho.pregunta}</label>
+          <input id="respuestaInput" type="text" placeholder="${lang.send}..." />
+          <button onclick="evaluarRespuesta('${derecho.nombre}', '${derecho.respuestaClave}')">${lang.send}</button>
+        </div>
+        <p id="resultadoRespuesta"></p>
+      `;
+  
+      overlay.classList.add("show");
+      card.dataset.cofreActivo = index;
+    };
   </script>
 </body>
 </html>

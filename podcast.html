@@ -3,9 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Teen4STEAM Talks</title>
+  <title>STEAM Talks</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="podcast.css">
+  <style>
+    .video-cards {
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+      flex-direction: column; 
+    }
+
+    .coming-soon-message {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    .get-started .arrow-icon {
+      display: none; 
+    }
+  </style>
 </head>
 <body>
 
@@ -21,7 +40,7 @@
     <a href="team.html"><img src="img/Team.png" alt="Team"></a>
     <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
     <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
-    <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
+    <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a>
     <a href="community.html"><img src="img/community.png" alt="Community"></a>
     <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
     <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
@@ -43,83 +62,69 @@
 </nav>
 
 <main class="main-content">
-  <h1 id="main-title">Teen4STEAM Talks</h1>
-  
+  <h1 id="main-title">STEAM Talks</h1>
+
   <div class="video-cards">
     <div class="video-card">
       <img src="img/podcast1.png" class="video-thumbnail" alt="">
-      <h2 id="video1-title">Video 1</h2>
-      <ul>
-        <li>Interview</li>
-        <li>Inspiration</li>
-        <li>STEAM Story</li>
+      <h2 id="video1-title">La Ciencia también es Divertida</h2>
+      <ul id="video1-topics">
+        <li>Ciencia</li>
+        <li>Diversión</li>
+        <li>Aprendizaje</li>
       </ul>
-      <button class="get-started" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        Get Started <img src="img/flecha.png" alt="arrow" class="arrow-icon">
-      </button>
-    </div>
-    
-    <div class="video-card">
-      <img src="img/podcast2.png" class="video-thumbnail" alt="">
-      <h2 id="video2-title">Video 2</h2>
-      <ul>
-        <li>Girls in Tech</li>
-        <li>Challenge</li>
-        <li>Creativity</li>
-      </ul>
-      <button class="get-started" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        Get Started <img src="img/flecha.png" alt="arrow" class="arrow-icon">
-      </button>
-    </div>
-
-    <div class="video-card">
-      <img src="img/podcast3.png" class="video-thumbnail" alt="">
-      <h2 id="video3-title">Video 3</h2>
-      <ul>
-        <li>Dreams</li>
-        <li>Teamwork</li>
-        <li>Innovation</li>
-      </ul>
-      <button class="get-started" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        Get Started <img src="img/flecha.png" alt="arrow" class="arrow-icon">
+      <button class="get-started" onclick="openModal('HhnfH9G76C8')" id="watch-button">
+        Ver Video
       </button>
     </div>
   </div>
+
+  <p class="coming-soon-message" id="coming-soon-text">Próximamente Más Vlogs</p>
 </main>
 
-<!-- MODAL -->
 <div id="videoModal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="close" onclick="closeModal()">×</span>
     <iframe id="youtubeFrame" width="100%" height="400" src="" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>
 
 <script>
 let language = "en";
+const mainTitle = document.getElementById('main-title');
+const video1Title = document.getElementById('video1-title');
+const video1Topics = document.getElementById('video1-topics').getElementsByTagName('li');
+const watchButton = document.getElementById('watch-button');
+const comingSoonText = document.getElementById('coming-soon-text');
+const searchInput = document.getElementById('searchInput');
 
 function toggleLanguage() {
   if (language === "en") {
-    document.getElementById('main-title').innerText = "Teen4STEAM Charlas";
-    document.getElementById('video1-title').innerText = "Video 1";
-    document.getElementById('video2-title').innerText = "Video 2";
-    document.getElementById('video3-title').innerText = "Video 3";
-    document.getElementById('searchInput').placeholder = "Buscar...";
-    document.querySelectorAll('.get-started').forEach(btn => btn.innerHTML = 'Ver Video <img src="img/flecha.png" class="arrow-icon">');
+    mainTitle.innerText = "STEAM Vlogs";
+    video1Title.innerText = "Science is Fun Too";
+    video1Topics[0].innerText = "Science";
+    video1Topics[1].innerText = "Fun";
+    video1Topics[2].innerText = "Learning";
+    watchButton.innerText = 'Watch Video';
+    comingSoonText.innerText = "Coming Soon More Vlogs";
+    searchInput.placeholder = "Search...";
     language = "es";
   } else {
-    document.getElementById('main-title').innerText = "Teen4STEAM Talks";
-    document.getElementById('video1-title').innerText = "Video 1";
-    document.getElementById('video2-title').innerText = "Video 2";
-    document.getElementById('video3-title').innerText = "Video 3";
-    document.getElementById('searchInput').placeholder = "Search...";
-    document.querySelectorAll('.get-started').forEach(btn => btn.innerHTML = 'Get Started <img src="img/flecha.png" class="arrow-icon">');
+    mainTitle.innerText = "STEAM Talks";
+    video1Title.innerText = "La Ciencia también es Divertida";
+    video1Topics[0].innerText = "Ciencia";
+    video1Topics[1].innerText = "Diversión";
+    video1Topics[2].innerText = "Aprendizaje";
+    watchButton.innerText = 'Ver Video';
+    comingSoonText.innerText = "Próximamente Más Vlogs";
+    searchInput.placeholder = "Buscar...";
     language = "en";
   }
 }
 
-function openModal(videoUrl) {
-  document.getElementById("youtubeFrame").src = videoUrl;
+function openModal(videoId) {
+  const embedUrl = "http://www.youtube.com/embed/" + videoId;
+  document.getElementById("youtubeFrame").src = embedUrl;
   document.getElementById("videoModal").style.display = "flex";
 }
 

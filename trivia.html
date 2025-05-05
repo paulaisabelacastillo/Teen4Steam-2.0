@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>365 Days to be a STEAM Explorer</title>
-  <link rel="stylesheet" href="trivia.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>365 Days to be a STEAM Explorer</title>
+    <link rel="stylesheet" href="trivia.css">
+  
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDzhvEZsjnFVD237Gen7frLii6RdvApB7g",
+        authDomain: "teen4steam-64958.firebaseapp.com",
+        projectId: "teen4steam-64958",
+        storageBucket: "teen4steam-64958.firebasestorage.app",
+        messagingSenderId: "840465508724",
+        appId: "1:840465508724:web:8e5f60a81ecb8e549da421",
+        measurementId: "G-Y03XVR5EES"
+      };
 
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+  
+<body>
   <nav class="navbar">
     <div class="logo">
       <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
     </div>
-    
     <div class="menu">
       <a href="principal.html"><img src="img/home.png" alt="Home"></a>
       <a href="team.html"><img src="img/Team.png" alt="Team"></a>
@@ -23,7 +40,7 @@
       <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
       <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
       <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
-  </div>
+    </div>
 
     <div class="right-section">
       <div class="search-box">
@@ -49,7 +66,6 @@
     <button id="next-btn" class="button button-start">Start Trivia</button>
   </div>
 
-  <!-- Botón de idioma -->
   <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
 
   <script>
@@ -90,6 +106,13 @@
     let currentIndex = 0;
     let correctCount = 0;
     let incorrectCount = 0;
+
+    let sessionId = localStorage.getItem("sessionId");
+    if (!sessionId) {
+      sessionId = "user_" + Date.now() + "_" + Math.floor(Math.random() * 100000);
+      localStorage.setItem("sessionId", sessionId);
+    }
+
     let hasAnswered = false;
     let language = "en";
 
@@ -153,6 +176,11 @@
         button.classList.add("correct");
         feedbackEl.textContent = (language === "en") ? "Correct! 🎉" : "¡Correcto! 🎉";
         correctCount++;
+
+        firebase.firestore().collection('users').doc(sessionId).set({
+          steamPoints: correctCount
+        });
+
       } else {
         button.classList.add("incorrect");
         feedbackEl.textContent = (language === "en") ? `Incorrect. The correct answer is: ${correctAnswer}` : `Incorrecto. La respuesta correcta es: ${correctAnswer}`;
@@ -168,9 +196,8 @@
       loadContent();
     });
 
-    // 🚀 ESTA es tu función de traducir
     function toggleLanguage() {
-      language = (language === "en") ? "es" : "en"; // Cambia idioma
+      language = (language === "en") ? "es" : "en";
 
       document.getElementById("main-title").innerText = (language === "en")
         ? "Test your knowledge with this STEAM trivia quiz"
@@ -184,7 +211,7 @@
         ? (currentIndex === 0 ? "Start Trivia" : "Next")
         : (currentIndex === 0 ? "Iniciar Trivia" : "Siguiente");
 
-      loadContent(); // Recarga para que cambie los textos internos
+      loadContent();
     }
 
     loadContent();

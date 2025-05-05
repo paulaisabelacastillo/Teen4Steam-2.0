@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil de Usuario</title>
+
+  <nav class="navbar">
+    <div class="logo">
+      <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
+    </div>
+  
+    <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+  
+    <div class="menu">
+      <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+      <a href="team.html"><img src="img/Team.png" alt="Team"></a>
+      <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
+      <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
+      <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a> 
+      <a href="community.html"><img src="img/community.png" alt="Community"></a>
+      <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
+      <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
+      <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
+    </div>
+  
+    <div class="right-section">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button><img src="img/lupa.png" alt="Buscar"></button>
+      </div>
+      <div class="steam-explorer">0 STEAM Explorer</div>
+      <div class="user-profile">
+        <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
+      </div>
+    </div>
+  </nav>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+  
+    const firebaseConfig = {
+  apiKey: "AIzaSyDzhvEZsjnFVD237Gen7frLii6RdvApB7g",
+  authDomain: "teen4steam-64958.firebaseapp.com",
+  projectId: "teen4steam-64958",
+  storageBucket: "teen4steam-64958.firebasestorage.app",
+  messagingSenderId: "840465508724",
+  appId: "1:840465508724:web:8e5f60a81ecb8e549da421",
+  measurementId: "G-Y03XVR5EES"
+};
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    let anonId = localStorage.getItem('anonUserId');
+    if (!anonId) {
+      anonId = 'anon_' + Date.now();
+      localStorage.setItem('anonUserId', anonId);
+    }
+  
+    const userRef = doc(db, 'usuarios', anonId);
+  
+    const cargarDatos = async () => {
+      try {
+        const snapshot = await getDoc(userRef);
+        if (snapshot.exists()) {
+          const data = snapshot.data();
+          document.getElementById('username-display').textContent = data.nombre || 'Nombre';
+          document.getElementById('description-display').textContent = data.descripcion || 'Sin descripción.';
+          document.getElementById('location-display').textContent = '📍 ' + (data.ubicacion || 'Ubicación no definida');
+          document.getElementById('interests-display').textContent = data.intereses?.join(', ') || 'Sin intereses';
+  
+          if (data.imagenPersonalizada) {
+          document.getElementById('profile-pic-display').src = data.imagenPersonalizada;
+         } else if (data.genero === 'girl') {
+          document.getElementById('profile-pic-display').src = 'img/nina.png';
+         } else if (data.genero === 'boy') {
+          document.getElementById('profile-pic-display').src = 'img/nino.png';
+}
+
+  
+          document.getElementById('visible').checked = true; 
+        }
+      } catch (error) {
+        console.error("Error al cargar datos del usuario:", error);
+      }
+    };
+  
+    cargarDatos();
+  </script>
+  
+  
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9e8f1;
+    }
+
+  .navbar {
+    background-color: #491c78;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  .language-toggle {
+    position: absolute;
+    top: 15%;
+    left: 94%;
+    width: 70px;
+    height: 70px;
+    background-color: #dc4e80;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #470a71;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 20;
+  }
+  
+  .language-toggle:hover {
+    background-color: #dc4e80;
+    transform: scale(1.1);
+  }
+  
+  .logo img {
+    height: 70px;
+  }
+  
+  .menu {
+    display: flex;
+    gap: 60px;
+  }
+  
+  .menu a img {
+    width: 35px;
+    transition: transform 0.2s;
+  }
+  
+  .menu a img:hover {
+    transform: scale(1.1);
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+  
+  .search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+  }
+  
+  .search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-box button img {
+    width: 20px;
+  }
+  
+  .steam-explorer {
+    background-color: #FFD700;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #6A008A;
+  }
+  
+  .user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  
+    .profile-card {
+      width: 700px;
+      max-width: 900px;
+      margin: 80px auto;
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+      min-height: 450px;
+    }
+
+    .header {
+      background-color: #4b1177;
+      color: white;
+      padding: 30px;
+      position: relative;
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #ddd;
+      position: absolute;
+      top: 15px;
+      left: 30px;
+      object-fit: cover;
+    }
+
+    .user-info {
+      margin-left: 150px;
+      padding-top: 20px;
+    }
+
+    .username {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .location {
+      font-size: 16px;
+      color: #ffd4f0;
+      margin-top: 4px;
+    }
+
+    .message-btn {
+      position: absolute;
+      right: 30px;
+      top: 40px;
+      background-color: #e5399c;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    .section-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .info-box {
+      border-left: 5px solid purple;
+      padding-left: 12px;
+      background-color: #ffe6f3;
+      color: #333;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .points-section {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .points {
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    .rank {
+      color: #4b1177;
+      font-weight: bold;
+      margin-left: auto;
+      font-size: 18px;
+    }
+
+    .checkbox-row {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="profile-card">
+  <div class="header">
+    <img src="img/niña.png" class="profile-pic" id="profile-pic-display">
+    <div class="user-info">
+      <div class="username" id="username-display">Cargando...</div>
+      <div class="location" id="location-display">📍 Cargando ubicación...</div>
+    </div>
+    <button class="message-btn">Message</button>
+    <div class="checkbox-row">
+      <input type="checkbox" id="visible" disabled>
+      <label for="visible">¿Quieres ser visible para otros?</label>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="section-title">Información</div>
+    <div class="info-box" id="description-display">Cargando descripción...</div>
+
+    <div class="points-section">
+      <div class="points">🏅 0 puntos</div>
+      <div class="rank">🚀 STEAM Beginner</div>
+    </div>
+
+    <div class="section-title">Intereses</div>
+    <div id="interests-display">Cargando intereses...</div>
+  </div>
+</div>
+
+</body>
+</html>

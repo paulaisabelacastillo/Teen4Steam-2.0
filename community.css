@@ -5,7 +5,6 @@ body {
     text-align: center;
 }
 
-/* Navbar */
 .navbar {
     width: 97.5%;
     background: #491c78;
@@ -49,16 +48,14 @@ body {
 }
 
 
-/* Logo */
 .logo img {
     height: 70px;
 }
 
-/* Botón de idioma */
 .language-toggle {
     position: absolute;
-    top: 110%;  /* JUSTO COMO TÚ LO TENÍAS */
-    left: 94%;  /* JUSTO COMO TÚ LO TENÍAS */
+    top: 110%;  
+    left: 94%;  
     width: 70px;
     height: 70px;
     background-color: #dc4e80;
@@ -80,7 +77,6 @@ body {
     transform: scale(1.1);
 }
 
-/* Menú */
 .menu {
     display: flex;
     gap: 60px;
@@ -96,7 +92,6 @@ body {
     transform: scale(1.1);
 }
 
-/* Search y usuario */
 .right-section {
     display: flex;
     align-items: center;
