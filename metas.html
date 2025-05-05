@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mis Metas STEAM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to right, #d0e6fa, #f8e1f4);
+      margin: 0;
+      padding: 30px;
+    }
+
+    .metas-container {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 30px;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .nivel-select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 2px solid #aad4f5;
+      background-color: #eaf6ff;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    .metas-checklist {
+      margin-bottom: 30px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      background-color: #f0faff;
+      border-left: 5px solid #58b4e3;
+      padding: 12px 15px;
+      border-radius: 10px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .checklist-item:hover {
+      background-color: #e1f5ff;
+    }
+
+    .checklist-item input {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    .checklist-item.checked label {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    details {
+      border: 2px solid #f4c2e7;
+      border-radius: 12px;
+      background-color: #fff0fa;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    summary {
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .personal-input {
+      display: flex;
+      margin-bottom: 15px;
+    }
+
+    .personal-input input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid #d8c4f0;
+      font-size: 15px;
+      background-color: #f9f5ff;
+    }
+
+    .personal-input button {
+      margin-left: 10px;
+      padding: 10px 15px;
+      border: none;
+      background-color: #d291ff;
+      color: white;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .personal-input button:hover {
+      background-color: #b372df;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="metas-container">
+    <h2>🎯 Mis Metas STEAM</h2>
+
+    <label for="nivel">Selecciona tu nivel:</label>
+    <select id="nivel" class="nivel-select" onchange="actualizarMetas()">
+      <option value="beginner">👶 Beginner</option>
+      <option value="intermedio">⚙️ Intermedio</option>
+      <option value="explorer">🚀 STEAM Explorer</option>
+    </select>
+
+    <div class="metas-checklist" id="metasChecklist">
+      <!-- Checkboxes dinámicas -->
+    </div>
+
+    <details open>
+      <summary>🧠 Metas personales</summary>
+      
+      <div class="personal-input">
+        <input type="text" id="nuevaMetaPersonal" placeholder="Escribe una meta personal...">
+        <button onclick="agregarMetaPersonal()">Agregar</button>
+      </div>
+
+      <div class="metas-checklist" id="metasPersonales">
+        <!-- Metas personales se añaden aquí -->
+      </div>
+    </details>
+  </div>
+
+  <script>
+    const metasPorNivel = {
+      beginner: [
+        "Crear una página HTML básica con colores y texto",
+        "Explorar conceptos básicos de diseño STEAM",
+        "Jugar con Scratch o Tynker para aprender lógica"
+      ],
+      intermedio: [
+        "Crear un juego simple con HTML, CSS y JavaScript",
+        "Tomar un curso básico de programación",
+        "Aprender sobre robótica o electrónica básica"
+      ],
+      explorer: [
+        "Construir un proyecto STEAM y documentarlo",
+        "Presentar tu proyecto en una feria o clase",
+        "Investigar sobre IA o programación avanzada"
+      ]
+    };
+
+    function actualizarMetas() {
+      const nivel = document.getElementById("nivel").value;
+      const metas = metasPorNivel[nivel];
+      const contenedor = document.getElementById("metasChecklist");
+
+      contenedor.innerHTML = "";
+
+      metas.slice(0, 3).forEach((meta, i) => {
+        const item = crearItemChecklist(meta);
+        contenedor.appendChild(item);
+      });
+    }
+
+    function agregarMetaPersonal() {
+      const input = document.getElementById("nuevaMetaPersonal");
+      const texto = input.value.trim();
+      if (texto !== "") {
+        const item = crearItemChecklist(texto);
+        document.getElementById("metasPersonales").appendChild(item);
+        input.value = "";
+      }
+    }
+
+    function crearItemChecklist(texto) {
+      const item = document.createElement("div");
+      item.className = "checklist-item";
+
+      const id = "meta_" + Math.random().toString(36).substring(2, 10);
+
+      item.innerHTML = `
+        <input type="checkbox" id="${id}">
+        <label for="${id}">${texto}</label>
+      `;
+
+      item.querySelector("input").addEventListener("change", function () {
+        item.classList.toggle("checked", this.checked);
+      });
+
+      return item;
+    }
+
+    window.onload = actualizarMetas;
+  </script>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // 🔐 Tus credenciales de Firebase (reemplaza con las tuyas)
+  const firebaseConfig = {
+  apiKey: "AIzaSyDzhvEZsjnFVD237Gen7frLii6RdvApB7g",
+  authDomain: "teen4steam-64958.firebaseapp.com",
+  projectId: "teen4steam-64958",
+  storageBucket: "teen4steam-64958.firebasestorage.app",
+  messagingSenderId: "840465508724",
+  appId: "1:840465508724:web:8e5f60a81ecb8e549da421",
+  measurementId: "G-Y03XVR5EES"
+};
+
+  // Inicializa Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
+
+</body>
+</html>

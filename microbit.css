@@ -1,143 +1,71 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(to right, #dff6fd, #fff2e1);
+    text-align: center;
     margin: 0;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.contenedor-principal {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 80%;
-    max-width: 960px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#instrucciones {
-    color: #555;
-}
-
-main {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-}
-
-#escenario {
-    flex: 2;
-    background-color: #e9e9e9;
-    border-radius: 6px;
-    padding: 15px;
-    position: relative;
-    overflow: hidden;
-}
-
-#interfaz {
-    flex: 1;
-    background-color: #ddd;
-    border-radius: 6px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.componente {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    position: absolute;
-    cursor: grab;
-}
-
-#microbit {
-    width: 120px;
-    top: 20px;
-    left: 20px;
-    background-color: #00aaff;
+  }
+  .container {
+    max-width: 800px;
+    margin: auto;
+  }
+    .lang-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #e7517c;
+      border: 2px solid black;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      font-weight: bold;
+      color: #2c085f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+    .lang-btn img {
+      width: 20px;
+    }
+    .lang-btn span {
+      font-size: 12px;
+    }
+  
+  h1 {
+    color: teal;
+  }
+  .score {
+    font-size: 1.5em;
+    color: orange;
+  }
+  #startBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
     color: white;
-}
-
-#led {
-    width: 80px;
-    top: 20px;
-    right: 20px;
-    background-color: #f0f0f0;
-}
-
-.pin, .terminal {
-    background-color: #333;
-    color: white;
-    padding: 5px 8px;
-    border-radius: 3px;
-    font-size: 0.8em;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    position: absolute;
-}
-
-.pin-p0 {
-    top: 50%;
-    left: -15px;
-    transform: translateY(-50%);
-}
-
-.pin-gnd {
-    top: 80%;
-    left: -15px;
-    transform: translateY(-50%);
-}
-
-.terminal-anodo {
-    top: 20%;
-    left: -25px;
-    transform: translateY(-50%);
-}
-
-.terminal-catodo {
-    top: 80%;
-    left: -25px;
-    transform: translateY(-50%);
-}
-
-.cable {
+    margin-bottom: 20px;
+  }
+  .game-area {
+    position: relative;
+    width: 600px;
+    height: 350px;
+    background-color: #fffccf;
+    border: 3px dashed green;
+    margin: auto;
+    overflow: hidden;
+  }
+  .microbit {
     width: 60px;
-    height: 5px;
-    background-color: red;
-    cursor: grab;
     position: absolute;
-}
-
-#cable-negro {
-    background-color: black;
-    top: 80px;
-    left: 150px;
-}
-
-#cable-rojo {
-    top: 50px;
-    left: 150px;
-}
-
-.conectado {
-    background-color: lightgreen;
-}
-
-.cable-visual {
-    position: absolute;
-    background-color: red;
-    height: 5px;
-    transform-origin: top left;
-}
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .microbit:hover {
+    transform: scale(1.1);
+  }
