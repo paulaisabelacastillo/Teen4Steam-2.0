@@ -14,6 +14,10 @@ let lives = 5;
 let gameOver = false;
 let currentLanguage = localStorage.getItem('language') || 'es'; 
 
+// ✅ NUEVO: ítems buenos y malos
+const goodItems = ["✅", "🛡️", "🧼", "🚿", "🧴"];
+const badItems = ["💣", "🪤", "☠️", "🧨", "⚠️"];
+
 const translations = {
   es: {
     title: "Atrapa lo Seguro",
@@ -113,6 +117,7 @@ function updateLivesDisplay() {
 }
 
 function drawScore() {
+  // opcional si quieres mostrar en canvas también
 }
 
 function gameLoop() {
@@ -154,6 +159,7 @@ restartBtn.onclick = () => {
   gameLoop();
 };
 
+// 🔁 Iniciar juego
 translate();
 updateLivesDisplay();
 gameLoop();

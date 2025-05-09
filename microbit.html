@@ -4,8 +4,40 @@
   <meta charset="UTF-8" />
   <title>Laboratorio Micro:bit</title>
   <link rel="stylesheet" href="microbit.css" />
+  <link rel="stylesheet" href="responsive.css">
+
 </head>
+
 <body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="principal.html"><img src="img/logo_morado.png" alt="Home"></a>
+    </div>
+    <div class="menu">
+      <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+      <a href="team.html"><img src="img/Team.png" alt="Team"></a>
+      <a href="mytutor.html"><img src="img/my_tutor.png" alt="My Tutor"></a>
+      <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
+      <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a>
+      <a href="community.html"><img src="img/community.png" alt="Community"></a>
+      <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
+      <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
+      <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
+    </div>
+    <div class="right-section">
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <button><img src="img/lupa.png" alt="Buscar"></button>
+      </div>
+      <div class="steam-explorer">0 STEAM Explorer</div>
+      <div class="user-profile">
+        <a href="usuario.html"><img src="img/niña.png" alt="User"></a>
+      </div>
+    </div>
+  </nav>
+
+  <button class="lang-btn" id="langToggle">🌐 En/Es</button>
+
   <div class="container">
     <h1>🔬 Laboratorio Micro:bit</h1>
     <p class="score">Puntos: <span id="score">0</span></p>
@@ -14,6 +46,7 @@
     <div class="game-area" id="gameArea"></div>
   </div>
 
+  <!-- Juego JS -->
   <script>
     const startBtn = document.getElementById("startBtn");
     const gameArea = document.getElementById("gameArea");
@@ -23,13 +56,11 @@
     let score = 0;
     let level = 1;
     let interval;
-    let gameTime = 20000; // 20 segundos por nivel
+    let gameTime = 20000;
+
+    const goodImages = [ "microbit.png", "tubo.png", "protoboard.png", "copia_de_microbit.jpeg"];
 
     function createMicrobit() {
-      const goodImages = ["microbit.png", "tubo.png", "protoboard.png"];
-      const badImages = ["bomba.png", "error.png"]; // añade imágenes falsas
-
-      // Decide si es bueno o malo (20% malo a partir del nivel 2)
       let isBad = false;
       if (level >= 2 && Math.random() < 0.2 + level * 0.05) {
         isBad = true;
@@ -39,20 +70,18 @@
       const randomImage = imageList[Math.floor(Math.random() * imageList.length)];
 
       const img = document.createElement("img");
-      img.src = randomImage;
+      img.src = "img/" + randomImage;
       img.classList.add("microbit");
-      
-      // Tamaño dinámico según nivel (más difícil → más pequeño)
+
       const size = Math.max(30, 60 - level * 5); 
       img.style.width = size + "px";
-      
       img.style.top = Math.random() * (300 - size) + "px";
       img.style.left = Math.random() * (500 - size) + "px";
 
       img.onclick = () => {
         if (isBad) {
-          score--; // penalización
-          alert("¡Oh no! Hiciste clic en un objeto peligroso 😮");
+          score--;
+          alert(traducirAlertaPeligro());
         } else {
           score++;
         }
@@ -68,28 +97,26 @@
       scoreDisplay.textContent = score;
       levelDisplay.textContent = level;
 
-      // Intervalo más rápido en niveles altos
       let intervalTime = Math.max(300, 1000 - (level - 1) * 100);
       clearInterval(interval);
 
-      // Aparecen más imágenes simultáneamente en niveles altos
       interval = setInterval(() => {
-        for (let i = 0; i < level; i++) { // cada nivel genera más imágenes
+        for (let i = 0; i < level; i++) {
           createMicrobit();
         }
       }, intervalTime);
 
       setTimeout(() => {
         clearInterval(interval);
-        alert("¡Nivel " + level + " terminado! Puntos: " + score);
+        alert(traducirNivelTerminado(level) + score);
         level++;
         guardarPuntaje(score, level);
         if (level <= 5) {
           startLevel();
         } else {
-  alert("¡Felicidades! Has completado todos los niveles 🎉");
-  guardarPuntaje(score, level);
-}
+          alert(traducirFin());
+          guardarPuntaje(score, level);
+        }
       }, gameTime);
     }
 
@@ -100,92 +127,88 @@
     };
   </script>
 
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDzhvEZsjnFVD237Gen7frLii6RdvApB7g",
+      authDomain: "teen4steam-64958.firebaseapp.com",
+      projectId: "teen4steam-64958",
+      storageBucket: "teen4steam-64958.appspot.com",
+      messagingSenderId: "840465508724",
+      appId: "1:840465508724:web:8e5f60a81ecb8e549da421",
+      measurementId: "G-Y03XVR5EES"
+    };
 
-<script>
- const firebaseConfig = {
-  apiKey: "AIzaSyDzhvEZsjnFVD237Gen7frLii6RdvApB7g",
-  authDomain: "teen4steam-64958.firebaseapp.com",
-  projectId: "teen4steam-64958",
-  storageBucket: "teen4steam-64958.firebasestorage.app",
-  messagingSenderId: "840465508724",
-  appId: "1:840465508724:web:8e5f60a81ecb8e549da421",
-  measurementId: "G-Y03XVR5EES"
-};
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-
-  // ✅ Aquí pones la función guardarPuntaje
-  function guardarPuntaje(score, level) {
-    db.collection("puntuaciones").add({
-      puntos: score,
-      nivelAlcanzado: level,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    }).then(() => {
-      console.log("✅ Puntos guardados en Firebase");
-    }).catch((error) => {
-      console.error("❌ Error al guardar en Firebase:", error);
-    });
-  }
-</script>
-
-<script>
-  const translations = {
-    es: {
-      title: "🔬 Laboratorio Micro:bit",
-      start: "¡Comenzar!",
-      puntos: "Puntos",
-      nivel: "Nivel",
-      peligro: "¡Oh no! Hiciste clic en un objeto peligroso 😮",
-      nivelTerminado: nivel => `¡Nivel ${nivel} terminado! Puntos: `,
-      fin: "¡Felicidades! Has completado todos los niveles 🎉"
-    },
-    en: {
-      title: "🔬 Micro:bit Lab",
-      start: "Start!",
-      puntos: "Score",
-      nivel: "Level",
-      peligro: "Oh no! You clicked a dangerous object 😮",
-      nivelTerminado: level => `Level ${level} completed! Score: `,
-      fin: "Congratulations! You've completed all levels 🎉"
+    function guardarPuntaje(score, level) {
+      db.collection("puntuaciones").add({
+        puntos: score,
+        nivelAlcanzado: level,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        console.log("✅ Puntos guardados en Firebase");
+      }).catch((error) => {
+        console.error("❌ Error al guardar en Firebase:", error);
+      });
     }
-  };
+  </script>
 
-  let currentLang = localStorage.getItem("lang") || "es";
+  <!-- Traducción -->
+  <script>
+    const translations = {
+      es: {
+        title: "🔬 Laboratorio Micro:bit",
+        start: "¡Comenzar!",
+        puntos: "Puntos",
+        nivel: "Nivel",
+        peligro: "¡Oh no! Hiciste clic en un objeto peligroso 😮",
+        nivelTerminado: nivel => `¡Nivel ${nivel} terminado! Puntos: `,
+        fin: "¡Felicidades! Has completado todos los niveles 🎉"
+      },
+      en: {
+        title: "🔬 Micro:bit Lab",
+        start: "Start!",
+        puntos: "Score",
+        nivel: "Level",
+        peligro: "Oh no! You clicked a dangerous object 😮",
+        nivelTerminado: level => `Level ${level} completed! Score: `,
+        fin: "Congratulations! You've completed all levels 🎉"
+      }
+    };
 
-  function aplicarTraduccion(lang) {
-    const t = translations[lang];
-    document.querySelector("h1").textContent = t.title;
-    document.getElementById("startBtn").textContent = t.start;
-    document.querySelector(".score").childNodes[0].textContent = t.puntos + ": ";
-    document.querySelector(".level").childNodes[0].textContent = t.nivel + ": ";
-  }
+    let currentLang = localStorage.getItem("lang") || "es";
 
-  document.getElementById("langToggle").addEventListener("click", () => {
-    currentLang = currentLang === "es" ? "en" : "es";
-    localStorage.setItem("lang", currentLang);
+    function aplicarTraduccion(lang) {
+      const t = translations[lang];
+      document.querySelector("h1").textContent = t.title;
+      document.getElementById("startBtn").textContent = t.start;
+      document.querySelector(".score").childNodes[0].textContent = t.puntos + ": ";
+      document.querySelector(".level").childNodes[0].textContent = t.nivel + ": ";
+    }
+
+    document.getElementById("langToggle").addEventListener("click", () => {
+      currentLang = currentLang === "es" ? "en" : "es";
+      localStorage.setItem("lang", currentLang);
+      aplicarTraduccion(currentLang);
+    });
+
     aplicarTraduccion(currentLang);
-  });
 
-  aplicarTraduccion(currentLang);
+    function traducirAlertaPeligro() {
+      return translations[currentLang].peligro;
+    }
 
-  // ⚠️ Reemplaza los textos en JS dinámicamente
-  function traducirAlertaPeligro() {
-    return translations[currentLang].peligro;
-  }
+    function traducirNivelTerminado(nivel) {
+      return translations[currentLang].nivelTerminado(nivel);
+    }
 
-  function traducirNivelTerminado(nivel) {
-    return translations[currentLang].nivelTerminado(nivel);
-  }
-
-  function traducirFin() {
-    return translations[currentLang].fin;
-  }
-</script>
-
-
+    function traducirFin() {
+      return translations[currentLang].fin;
+    }
+  </script>
 </body>
 </html>

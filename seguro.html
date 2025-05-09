@@ -2,49 +2,53 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title data-i18n="title">Atrapa lo Seguro </title>
+  <title data-i18n="title">Atrapa lo Seguro</title>
   <link rel="stylesheet" href="seguro.css" />
+  <link rel="stylesheet" href="responsive.css">
+
 </head>
 
-<nav class="navbar">
-  <div class="logo">
-      <a href="principal.html"><img src="img/logo morado.png" alt="Home"></a>
-  </div>
-
-  <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
-
-  <div class="menu">
-      <a href="principal.html"><img src="img/home.png" alt="Home"></a>
-      <a href="team.html"><img src="img/Team.png" alt="Team"></a>
-      <a href="mytutor.html"><img src="img/my tutor.png" alt="My Tutor"></a>
-      <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
-      <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a>
-      <a href="community.html"><img src="img/community.png" alt="Community"></a>
-      <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
-      <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
-      <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
-  </div>
-
-  <div class="right-section">
-      <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Search...">
-          <button><img src="img/lupa.png" alt="Buscar"></button>
-      </div>
-
-      <div class="steam-explorer">0 STEAM Explorer</div>
-
-      <div class="user-profile">
-          <a href="usuario.html"><img src="img/perfil niña.jpeg" alt="User"></a>
-      </div>
-  </div>
-</nav>
-
 <body>
-  <h1 data-i18n="heading">Atrapa lo Seguro </h1>
+  <nav class="navbar">
+    <div class="logo">
+        <a href="principal.html"><img src="img/logo_morado.png" alt="Home"></a>
+    </div>
+
+    <button class="language-toggle" onclick="toggleLanguage()">🌐 En/Es</button>
+
+    <div class="menu">
+        <a href="principal.html"><img src="img/home.png" alt="Home"></a>
+        <a href="team.html"><img src="img/Team.png" alt="Team"></a>
+        <a href="mytutor.html"><img src="img/my_tutor.png" alt="My Tutor"></a>
+        <a href="calendario.html"><img src="img/xperience.png" alt="Xperience"></a>
+        <a href="juegos.html"><img src="img/playground.png" alt="Playground"></a>
+        <a href="community.html"><img src="img/community.png" alt="Community"></a>
+        <a href="marketplace.html"><img src="img/marketplace.png" alt="Marketplace"></a>
+        <a href="festival.html"><img src="img/festival.png" alt="Festival"></a>
+        <a href="podcast.html"><img src="img/podcast.png" alt="Podcast"></a>
+    </div>
+
+    <div class="right-section">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button><img src="img/lupa.png" alt="Buscar"></button>
+        </div>
+
+        <div class="steam-explorer">0 STEAM Explorer</div>
+
+        <div class="user-profile">
+          <a href="usuario.html"><img src="img/niña.png" alt="User"></a>
+        </div>
+    </div>
+  </nav>
+
+  <h1 data-i18n="heading">Atrapa lo Seguro</h1>
+
   <div id="hud">
     <span id="score" data-i18n="score">Puntos: 0</span>
     <span id="lives">❤️❤️❤️❤️❤️</span>
   </div>
+
   <canvas id="gameCanvas" width="400" height="600"></canvas>
   <button id="restartBtn" style="display: none;" data-i18n="restartBtn">🔁 Volver a Jugar</button>
 

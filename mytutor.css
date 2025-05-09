@@ -4,166 +4,224 @@ body {
     margin: 0;
     padding: 0;
     color: #491c78;
-}
-
-.navbar {
+  }
+  
+  .navbar {
     background-color: #491c78;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-}
-
-.logo img {
+  }
+  
+  .logo img {
     height: 70px;
-}
-
-.menu {
+  }
+  
+  .menu {
     display: flex;
     gap: 60px;
-}
-
-.menu a img {
+  }
+  
+  .menu a img {
     width: 35px;
-    height: 35px;
     transition: transform 0.2s ease-in-out;
-}
-
-.menu a img:hover {
+  }
+  
+  .menu a img:hover {
     transform: scale(1.1);
-}
-
-.right-section {
+  }
+  
+  .right-section {
     display: flex;
     align-items: center;
     gap: 15px;
-}
-
-.search-box {
+  }
+  
+  .search-box {
     display: flex;
     align-items: center;
     background-color: white;
     border-radius: 20px;
     padding: 5px 10px;
-}
-
-.search-box input {
+  }
+  
+  .search-box input {
     border: none;
     outline: none;
     padding: 5px;
     font-size: 14px;
-}
-
-.search-box button {
+  }
+  
+  .search-box button {
     background: none;
     border: none;
     cursor: pointer;
-}
-
-.search-box button img {
+  }
+  
+  .search-box button img {
     width: 20px;
-    height: 20px;
-}
-
-.steam-explorer {
+  }
+  
+  .steam-explorer {
     background-color: #FFD700;
     padding: 5px 15px;
     border-radius: 15px;
     font-size: 14px;
     font-weight: bold;
     color: #6A008A;
-}
-
-.user-profile img {
+  }
+  
+  .user-profile img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border: 2px solid white;
-    cursor: pointer;
-}
-
-.chat-wrapper {
+  }
+  
+  .chat-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 100px); 
-}
-
-.chat-container {
+    height: calc(100vh - 100px);
+  }
+  
+  .chat-container {
     width: 650px;
     height: 500px;
     background: white;
     border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
-}
-
-.chat-header {
+    overflow: hidden;
+  }
+  
+  .chat-header {
     background-color: #6A008A;
     color: white;
     padding: 15px;
-    text-align: center;
     font-size: 22px;
+    text-align: center;
     font-weight: bold;
-}
-
-.chat-box {
+  }
+  
+  .chat-box {
     flex-grow: 1;
     padding: 15px;
     background-color: #f4f4f4;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-}
-
-.chat-box p {
+  }
+  
+  .chat-box p {
     padding: 12px;
     border-radius: 8px;
     max-width: 80%;
     font-size: 16px;
-}
-
-.user-message {
+    margin-bottom: 10px;
+  }
+  
+  .user-message {
     background-color: #D4A5E0;
     align-self: flex-end;
-    text-align: right;
-    margin-left: auto;
-}
-
-.bot-message {
+  }
+  
+  .bot-message {
     background-color: #E6C8F5;
-}
-
-.chat-input {
+    align-self: flex-start;
+  }
+  
+  .chat-input {
     display: flex;
     padding: 15px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #ccc;
     background: white;
-}
-
-.chat-input input {
+  }
+  
+  .chat-input input {
     flex: 1;
     padding: 15px;
-    font-size: 16px;
-    border: 1px solid #ccc;
     border-radius: 8px;
-    outline: none;
-}
-
-.chat-input button {
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .chat-input button {
     background-color: #6A008A;
     color: white;
     border: none;
-    padding: 15px 25px;
-    font-size: 18px;
+    padding: 15px 20px;
     margin-left: 10px;
     border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.chat-input button:hover {
+  }
+  
+  .chat-input button:hover {
     background-color: #9C27B0;
-}
+  }
+  
+
+  .navbar {
+    width: 97.5%;
+    background: #491c78;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  .logo img { height: 70px; }
+  .menu { display: flex; gap: 60px; }
+  .menu a img {
+    width: 35px;
+    transition: transform 0.2s;
+  }
+  .menu a img:hover { transform: scale(1.1); }
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+  .search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+  }
+  .search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .search-box button img {
+    width: 20px;
+  }
+  .steam-explorer {
+    background-color: #FFD700;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #6A008A;
+  }
+  .user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }

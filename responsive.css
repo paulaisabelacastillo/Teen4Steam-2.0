@@ -1,0 +1,54 @@
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+    flex: 1;
+    overflow-x: auto;
+    padding: 10px 0;
+  }
+
+  .menu a img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .search-box input {
+    width: 120px;
+  }
+
+  .steam-explorer {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+
+  .user-profile img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .language-toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    font-size: 11px;
+    margin-left: auto;
+  }
+
+  body {
+    padding-top: 130px;
+  }
+}
